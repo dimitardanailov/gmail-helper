@@ -2,8 +2,15 @@
   "name": "gmail-helper",
   "version": "0.0.1",
   "description": "Project will be responsible to create different gmail widgets",
-  "main": "index.js",
+  "engines": {
+    "node": "^8.9.4"
+  },
   "scripts": {
+    "build": "npm run del && npm run compile && npm run copy",
+    "compile": "tsc",
+    "copy": "cp -R develop/config/ server/config/ || true",
+    "del": "rm -rf server/",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +28,11 @@
   "bugs": {
     "url": "https://github.com/dimitardanailov/gmail-helper/issues"
   },
-  "homepage": "https://github.com/dimitardanailov/gmail-helper#readme"
+  "homepage": "https://github.com/dimitardanailov/gmail-helper#readme",
+  "dependencies": {
+    "googleapis": "^27.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.7.1"
+  }
 }
