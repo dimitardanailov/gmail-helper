@@ -1,6 +1,7 @@
 ### Project
 credentials.json
 server
+token.json
 
 
 ### Mac os x -> https://github.com/github/gitignore/blob/master/Global/macOS.gitignore
