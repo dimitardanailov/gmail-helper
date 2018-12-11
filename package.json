@@ -3,14 +3,17 @@
   "version": "0.0.1",
   "description": "Project will be responsible to create different gmail widgets",
   "engines": {
-    "node": "^8.9.4"
+    "node": "^10.11.0"
   },
   "scripts": {
     "build": "npm run del && npm run compile && npm run copy",
+    "build:dev": "npm run del && npm run compile:watch && npm run copy",
     "compile": "tsc",
+    "compile:watch": "tsc --watch",
     "copy": "cp -R develop/config/ server/config/ || true",
     "del": "rm -rf server/",
     "start": "node server/server.js",
+    "start:dev": "nodemon server/server.js localhost 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -37,6 +40,8 @@
     "typedi": "^0.8.0"
   },
   "devDependencies": {
-    "@types/node": "^10.7.1"
+    "@types/gapi.client.gmail": "^1.0.0",
+    "@types/node": "^10.12.12",
+    "nodemon": "^1.18.8"
   }
 }

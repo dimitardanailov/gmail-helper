@@ -114,7 +114,7 @@ function listLabels(auth) {
  */
 function createLabel(auth) {
   const gmail = google.gmail({version: 'v1', auth});
-  var request = gmail.users.labels.create({
+  gmail.users.labels.create({
     'userId': 'me',
     'label': {
       'name': 'HelloWorld'
@@ -124,5 +124,9 @@ function createLabel(auth) {
     
     console.log(res);
   });
+}
+ 
+function createFilter(auth) {
+  const gmail = google.gmail({version: 'v1', auth});
 }
 // [END gmail_quickstart]
