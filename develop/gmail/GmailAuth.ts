@@ -2,39 +2,17 @@ import fs = require('fs');
 import readline = require('readline')
 import { google } from 'googleapis'
 import { CustomPromise } from '../promise/CustomPromise';
-import { resolve } from 'url';
+import { credentials } from '../config/oauth/credentials'
 import { AppLogger } from '../logger/AppLogger';
-import { rejects } from 'assert';
 
 const TOKEN_PATH = 'token.json'
 
 export class GmailAuth {
 
-	static async loadCredentials(): Promise<Object> {
-		const location = 'credentials.json'
-
-		// Load client secrets from a local file.
-		const promise = new Promise((resolve, reject) => {
-			fs.readFile(location, (err, content) => {
-				if (err) { 
-					CustomPromise.loadRejection(reject, err)
-					return
-				}
-
-				resolve(content)
-			})
-		})
-
-		return promise
-	}
-
 	/**
- 	* Create an OAuth2 client with the given credentials, and then execute the
-  * given callback function.
-  * @param {Object} credentials The authorization client credentials.
-  * @param {function} callback The callback to call with the authorized client.
+ 	* Create an OAuth2 client 
   */
-  static async authorize(credentials) {
+  static async authorize() {
 		const { client_secret, client_id, redirect_uris } = credentials.installed
 		const oAuth2Client = new google.auth.OAuth2(
 			client_id, 
