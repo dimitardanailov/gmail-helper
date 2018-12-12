@@ -27,8 +27,8 @@ const TOKEN_PATH = 'token.json';
 fs.readFile('credentials.json', (err, content) => {
   if (err) return console.log('Error loading client secret file:', err);
   // Authorize a client with credentials, then call the Gmail API.
-  // authorize(JSON.parse(content), listLabels);
-  authorize(JSON.parse(content), createLabel);
+  authorize(JSON.parse(content), listLabels);
+  // authorize(JSON.parse(content), createLabel);
 });
 
 /**
@@ -87,6 +87,8 @@ function getNewToken(oAuth2Client, callback) {
  * @param {google.auth.OAuth2} auth An authorized OAuth2 client.
  */
 function listLabels(auth) {
+  console.log(auth)
+
   const gmail = google.gmail({version: 'v1', auth});
   gmail.users.labels.list({
     userId: 'me',

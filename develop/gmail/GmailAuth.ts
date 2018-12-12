@@ -35,9 +35,13 @@ export class GmailAuth {
   * @param {function} callback The callback to call with the authorized client.
   */
   static async authorize(credentials) {
-		const { client_secret, client_id, redirect_uris} = credentials.installed
-		const oAuth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0])
-
+		const { client_secret, client_id, redirect_uris } = credentials.installed
+		const oAuth2Client = new google.auth.OAuth2(
+			client_id, 
+			client_secret, 
+			redirect_uris[0]
+		)
+		
 		const promise = new Promise((resolve, reject) => {
 			// Check if we have previously stored a token.
 			fs.readFile(TOKEN_PATH, (err, token) => {
@@ -47,11 +51,16 @@ export class GmailAuth {
 					return
 				}
 
+				oAuth2Client.setCredentials(JSON.parse(token.toString()))
 				resolve(oAuth2Client)
 			})
 		})
 
 		return promise
+	}
+
+	static authMe(auth) {
+		return google.gmail({version: 'v1', auth});
 	}
 }
 
