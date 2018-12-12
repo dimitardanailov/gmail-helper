@@ -3,7 +3,8 @@ import { createExpressServer, useContainer } from "routing-controllers";
 import { Container } from "typedi";
 import log4js = require('log4js');
 
-const appName = 'gmail-helper';
+import { appName, port } from './config/config'
+
 const logger = log4js.getLogger(appName);
 logger.level = 'debug';
 
@@ -21,8 +22,6 @@ app.use(log4js.connectLogger(logger, {
 }));
 require('./routers/index')(app);
 
-const port = process.env.PORT || 3000;
-
 app.listen(port, () => {
-  logger.info(`gmail helper listening on http://localhost:${port}`);
+  logger.info(`gmail helper listening on http://localhost:${port}`)
 });

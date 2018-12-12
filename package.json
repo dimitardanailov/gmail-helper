@@ -6,11 +6,10 @@
     "node": "^10.11.0"
   },
   "scripts": {
-    "build": "npm run del && npm run compile && npm run copy",
-    "build:dev": "npm run del && npm run compile:watch && npm run copy",
+    "build": "npm run del && npm run compile",
+    "build:dev": "npm run del && npm run compile:watch",
     "compile": "tsc",
     "compile:watch": "tsc --watch",
-    "copy": "cp -R develop/config/ server/config/ || true",
     "del": "rm -rf server/",
     "start": "node server/server.js",
     "start:dev": "nodemon server/server.js localhost 8080",
@@ -33,6 +32,7 @@
   },
   "homepage": "https://github.com/dimitardanailov/gmail-helper#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "googleapis": "^27.0.0",
     "log4js": "^3.0.6",
