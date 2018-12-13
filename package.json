@@ -36,13 +36,12 @@
     "express": "^4.16.4",
     "googleapis": "^27.0.0",
     "log4js": "^3.0.6",
-    "routing-controllers": "^0.7.7",
-    "typedi": "^0.8.0",
     "winston": "^3.1.0"
   },
   "devDependencies": {
     "@types/gapi.client.gmail": "^1.0.0",
     "@types/node": "^10.12.12",
+    "lerna": "^3.6.0",
     "nodemon": "^1.18.8"
   }
 }

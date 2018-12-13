@@ -1,0 +1,27 @@
+{
+  "name": "gmail-helper-api",
+  "version": "1.0.0",
+  "description": "Repo contains backend infrastructure of gmail helper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dimitardanailov/gmail-helper.git"
+  },
+  "keywords": [
+    "Gmail"
+  ],
+  "author": "dimityr.danailov <dimityr.danailov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dimitardanailov/gmail-helper/issues"
+  },
+  "homepage": "https://github.com/dimitardanailov/gmail-helper#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "routing-controllers": "^0.7.7",
+    "typedi": "^0.8.0"
+  }
+}
