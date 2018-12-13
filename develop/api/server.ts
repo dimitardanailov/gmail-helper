@@ -3,7 +3,7 @@ import { createExpressServer, useContainer } from "routing-controllers";
 import { Container } from "typedi";
 import log4js = require('log4js');
 
-import { appName, port } from './config/config'
+import { appName, port } from '../shared/config/config'
 
 const logger = log4js.getLogger(appName);
 logger.level = 'debug';

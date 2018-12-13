@@ -11,8 +11,8 @@
     "compile": "tsc",
     "compile:watch": "tsc --watch",
     "del": "rm -rf server/",
-    "start": "node server/server.js",
-    "start:dev": "nodemon server/server.js localhost 8080",
+    "start:api": "node server/api/server.js",
+    "start:api:dev": "nodemon server/api/server.js localhost 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

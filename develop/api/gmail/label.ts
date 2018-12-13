@@ -1,5 +1,5 @@
 import { GmailAuth } from './GmailAuth'
-import { CustomPromise } from '../promise/CustomPromise'
+import { CustomPromise } from '../../shared/promise/CustomPromise'
 
 /**
  * Lists the labels in the user's account.
@@ -30,8 +30,9 @@ export async function listLabels(auth) {
  * @param  {String} newLabelName Name of the new Label.
  * @param  {Function} callback Function to call when the request is complete.
  */
-function createLabel(auth) {
-  const gmail = google.gmail({version: 'v1', auth});
+export function createLabel(auth) {
+  const gmail = GmailAuth.authMe(auth)
+  
   gmail.users.labels.create({
     'userId': 'me',
     'label': {

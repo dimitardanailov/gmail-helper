@@ -1,9 +1,8 @@
-import fs = require('fs');
+import fs = require('fs')
 import readline = require('readline')
 import { google } from 'googleapis'
-import { CustomPromise } from '../promise/CustomPromise';
-import { credentials } from '../config/oauth/credentials'
-import { AppLogger } from '../logger/AppLogger';
+import { credentials } from '../../shared/config/oauth/credentials'
+import { AppLogger } from '../../shared/logger/AppLogger'
 
 const TOKEN_PATH = 'token.json'
 
