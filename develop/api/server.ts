@@ -1,9 +1,9 @@
-import "reflect-metadata"; // this shim is required
-import { createExpressServer, useContainer } from "routing-controllers";
-import { Container } from "typedi";
+import 'reflect-metadata'
+import { createExpressServer, useContainer } from 'routing-controllers';
+import { Container } from 'typedi';
 import log4js = require('log4js');
 
-import { appName, port } from '../shared/config/config'
+import { appName, apiPort as port } from '../shared/config/config'
 
 const logger = log4js.getLogger(appName);
 logger.level = 'debug';
@@ -19,9 +19,9 @@ const app = createExpressServer({
 
 app.use(log4js.connectLogger(logger, {
   level: process.env.LOG_LEVEL || 'info'
-}));
-require('./routers/index')(app);
+}))
+require('./routers/index')(app)
 
 app.listen(port, () => {
   logger.info(`gmail helper listening on http://localhost:${port}`)
-});
+})

@@ -4,6 +4,8 @@
   "description": "Repo contains backend infrastructure of gmail helper",
   "main": "index.js",
   "scripts": {
+    "copy:node_modules": "cp -R ./node_modules ../../server/api/node_modules",
+    "lerna:build": "npm run copy:node_modules",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +23,7 @@
   "homepage": "https://github.com/dimitardanailov/gmail-helper#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "reflect-metadata": "^0.1.12",
     "routing-controllers": "^0.7.7",
     "typedi": "^0.8.0"
   }
