@@ -13,5 +13,7 @@
 		"skipLibCheck": true
 	},
 	"include": ["develop/**/*"],
-	"exclude": ["node_modules"]
+	"exclude": [
+		"node_modules"
+	]
 }
