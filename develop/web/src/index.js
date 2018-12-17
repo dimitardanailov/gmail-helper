@@ -1,6 +1,7 @@
-require('./GmailHelper')
+import { GmailHelper } from './components/GmailHelper'
 
 window.onload = function() {
-	const body = document.getElementsByTagName('body')[0]
-	body.appendChild(document.createElement('gmail-helper'))
+	let helper = new GmailHelper()
+	document.getElementById('app')
+		.appendChild(helper)
 }

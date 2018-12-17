@@ -1,24 +1,10 @@
-import { google } from 'googleapis'
-// import { credentials } from '../config/oauth/credentials'
+import { clientId, apiKey, scopes, discovery_docs } from '../config/config'
 
-export function authenticationURL() {
-	// const { client_secret, client_id, redirect_uris } = credentials.installed
-
-	const oauth2Client = new google.auth.OAuth2(
-		'client_id',
-		'client_secret',
-		'redirect_uris'
-	);
-
-	const scopes = 'https://www.googleapis.com/auth/gmail.readonly'
-
-	const url = oauth2Client.generateAuthUrl({
-		// 'online' (default) or 'offline' (gets refresh_token)
-		access_type: 'offline',
-	
-		// If you only need one scope you can pass it as a string
+export async function initClient() {
+	return gapi.client.init({
+		apiKey: apiKey,
+		clientId: clientId,
+		discoveryDocs: discovery_docs,
 		scope: scopes
 	})
-
-	return url
 }

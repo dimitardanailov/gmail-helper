@@ -16,9 +16,5 @@ module.exports = {
       // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
       systemvars: true,
     }),
-  ],
-  node: {
-    // https://github.com/webpack-contrib/css-loader/issues/447
-    fs: 'empty'
-  }
+  ]
 }

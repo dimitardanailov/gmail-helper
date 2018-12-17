@@ -1,9 +1,9 @@
-const dotenv = require('dotenv')
-dotenv.config()
-
-// Gmail oauth
 export const clientId = process.env.Client_ID
-export const clientSecret = process.env.Client_SECRET
+export const apiKey = process.env.API_KEY
 
-// Application
-export const appName = 'gmail-helper'
+// Authorization scopes required by the API; multiple scopes can be
+// included, separated by spaces.
+export const scopes = 'https://www.googleapis.com/auth/gmail.readonly'
+
+// Array of API discovery doc URLs for APIs used by the quickstart
+export const discovery_docs = ['https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest']
