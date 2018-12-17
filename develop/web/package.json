@@ -22,7 +22,10 @@
   "homepage": "https://github.com/dimitardanailov/gmail-helper#readme",
   "dependencies": {
     "babel-core": "^6.26.3",
-    "babel-preset-es2015": "^6.24.1"
+    "babel-preset-es2015": "^6.24.1",
+    "dotenv": "^6.2.0",
+    "dotenv-webpack": "^1.5.7",
+    "node-libs-browser": "^2.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
