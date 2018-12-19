@@ -9,8 +9,11 @@ export class GmailSignOutButton extends HTMLButtonElement {
 		this.textContent = 'Sign out'
 	}
 
+	/**
+   *  Sign out the user upon button click.
+   */
 	handleSignOut() {
-		console.log('sign out')
+		gapi.auth2.getAuthInstance().signOut()
 	}
 }
 

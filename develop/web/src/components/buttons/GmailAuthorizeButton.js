@@ -9,8 +9,11 @@ export class GmailAuthorizeButton extends HTMLButtonElement {
 		this.textContent = 'Authorize'
 	}
 
+	/**
+   *  Sign in the user upon button click.
+   */
 	handleAuth() {
-		console.log('handleAuth')
+		gapi.auth2.getAuthInstance().signIn()
 	}
 }
 
