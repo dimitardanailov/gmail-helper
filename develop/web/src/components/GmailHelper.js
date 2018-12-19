@@ -1,5 +1,6 @@
 import { GmailAuthorizeButton } from './buttons/GmailAuthorizeButton'
 import { GmailSignOutButton } from './buttons/GmailSignOutButton'
+import { GmailForm } from './forms/GmailForm'
 import store from '../redux/store'
 import { clientId, apiKey, scopes, discovery_docs } from '../config/config'
 
@@ -57,10 +58,21 @@ export class GmailHelper extends HTMLElement {
 		if (isSignedIn) {
 			this.authorizeButton.style.display = 'none'
 			this.signOutButton.style.display = 'block'
+			this.addForm()
 		} else {
-			this.authorizeButton.style.display = 'block';
-      this.signOutButton.style.display = 'none';
+			this.authorizeButton.style.display = 'block'
+			this.signOutButton.style.display = 'none'
+			this.removeForm()
 		}
+	}
+
+	addForm() {
+		const form = new GmailForm()
+		this.appendChild(form)
+	}
+
+	removeForm() {
+		
 	}
 }
 
