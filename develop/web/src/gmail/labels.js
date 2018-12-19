@@ -20,16 +20,17 @@ export async function listLabels() {
  * https://developers.google.com/gmail/api/v1/reference/users/labels/create
  * https://stackoverflow.com/questions/35671807/gapi-client-gmail-users-labels-create-gives-invalidargument-error
  * 
- * @param {String} newLabelName 
+ * @param {Label} label 
  * 
  * @returns {Object} keys are: { id, labelListVisibility, messageListVisibility, name }
  */
-export async function createLabel(newLabelName) {
+export async function createLabel(label) {
 	const promise = new Promise((resolve, reject) => {
 		gapi.client.gmail.users.labels.create({
 			'userId': 'me',
 			'resource': {
-				'name': newLabelName
+				'name': label.name,
+				'labelListVisibility': label.labelListVisibility
 			}
 		}).then(response => {
 			resolve(response.result)
