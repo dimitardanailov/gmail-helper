@@ -5,6 +5,7 @@ export class GmailLabelTextBox extends HTMLInputElement {
 
 	connectedCallback() {
 		this.setAttribute('type', 'text')
+		this.setAttribute('placeholder', 'Please add a label')
 	}
 }
 

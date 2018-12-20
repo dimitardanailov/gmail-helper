@@ -1,6 +1,8 @@
-import { GmailLabelTextBox } from '../inputs/GmailLabelTextBox'
+import { GmailLabelTextBox } from '../text-fields/GmailLabelTextBox'
+import { GmailFilterTextBox } from '../text-fields/GmailFilterTextBox'
+import { GmailConnectedTextFields } from '../check-boxes/GmailConnectedTextFields'
 import { FormSubmitButton } from './FormSubmitButton'
-import { GmailSelectBox } from '../selectbox/GmailSelectBox'
+import { GmailSelectBox } from '../select-boxs/GmailSelectBox'
 import { listLabels, createLabel } from '../../gmail/labels'
 import { listFilters, createFilter } from '../../gmail/filters'
 import { Label } from '../../models/Label'
@@ -9,26 +11,58 @@ export class GmailForm extends HTMLFormElement {
 	constructor() {
 		super()
 
+		this.textFields = {}
 		this.addEventListener('submit', this.handleSubmit)
 	}
 
 	connectedCallback() {
-		this.textFieldName = new GmailLabelTextBox()
-		this.appendChild(this.textFieldName)
+		this.textFields.labelName = new GmailLabelTextBox()
+		this.textFields.labelName.style.display = 'block'
+		this.appendChild(this.textFields.labelName)
+
+		this.textFields.filterName = new GmailFilterTextBox()
+		this.textFields.filterName.style.display = 'block'
+		this.appendChild(this.textFields.filterName)
+
+		this.appendConnectedTextFieldElement()
 
 		this.selectBoxListVisibility = new GmailSelectBox(Label.listVisibilityOptions())
+		this.selectBoxListVisibility.style.display = 'block'
 		this.appendChild(this.selectBoxListVisibility)
 
 		this.submit = new FormSubmitButton()
+		this.submit.textValues = {
+			defaultState: 'Create a new label',
+			activeState: 'Waiting ...'
+		}
 		this.appendChild(this.submit)
+	}
+
+	appendConnectedTextFieldElement() {
+		this.connectedTextFields = new GmailConnectedTextFields()
+		this.connectedTextFields.labelTextNode = 'Label and filter have the same names'
+		this.connectedTextFields.primaryTextField = this.textFields.labelName
+		this.connectedTextFields.escortTextField = this.textFields.filterName
+
+		this.appendChild(this.connectedTextFields)
+
+		this.connectedTextFields.setChecked(true)
 	}
 
 	async handleSubmit(e) {
 		e.preventDefault()
 		
-		if (this.textFieldName.value.length === 0) {
+		if (this.textFields.labelName.value.length === 0) {
 			alert('Label name should have at least one character ...')
 			return
+		}
+
+		if (this.connectedTextFields.checkbox.checked) {
+			this.textFields.filterName.value = this.textFields.labelName.value
+
+			if (this.textFields.filterName.value.length === 0) {
+				alert('Filter name should have at least one character ...')
+			}
 		}
 
 		await this.addLabel()
@@ -43,13 +77,14 @@ export class GmailForm extends HTMLFormElement {
 		// console.log(labels)
 
 		const label = new Label()
-		label.name = this.textFieldName.value
+		label.name = this.textFields.labelName.value
 		label.labelListVisibility = this.selectBoxListVisibility.value
 
 		const labelResponse = await createLabel(label)
 		label.setResponseValues(labelResponse)
 
-		const filter = await createFilter(label.name, label.id)
+		const filterName = this.textFields.filterName.value
+		const filter = await createFilter(filterName, label.id)
 		console.log(filter)
 
 		const filters = await listFilters()
@@ -58,8 +93,13 @@ export class GmailForm extends HTMLFormElement {
 
 	resetForm() {
 		this.submit.disabled = false
-		this.textFieldName.value = ''
+		
+		// Text fields
+		this.textFields.labelName.value = ''
+		this.textFields.filterName.value = ''
+		
 		this.selectBoxListVisibility.removeAttribute('selected')
+		this.connectedTextFields.setChecked(true)
 	}
 }
 
