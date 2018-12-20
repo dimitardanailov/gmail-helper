@@ -17,17 +17,14 @@ export class GmailForm extends HTMLFormElement {
 
 	connectedCallback() {
 		this.textFields.labelName = new GmailLabelTextBox()
-		this.textFields.labelName.style.display = 'block'
 		this.appendChild(this.textFields.labelName)
 
 		this.textFields.filterName = new GmailFilterTextBox()
-		this.textFields.filterName.style.display = 'block'
 		this.appendChild(this.textFields.filterName)
 
 		this.appendConnectedTextFieldElement()
 
 		this.selectBoxListVisibility = new GmailSelectBox(Label.listVisibilityOptions())
-		this.selectBoxListVisibility.style.display = 'block'
 		this.appendChild(this.selectBoxListVisibility)
 
 		this.submit = new FormSubmitButton()
