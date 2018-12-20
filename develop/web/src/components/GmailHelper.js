@@ -72,7 +72,11 @@ export class GmailHelper extends HTMLElement {
 	}
 
 	removeForm() {
-		
+		const elements = this.getElementsByTagName('form')
+		if (elements.length > 0) {
+			const form = elements[0]
+			this.removeChild(form)
+		}
 	}
 }
 
