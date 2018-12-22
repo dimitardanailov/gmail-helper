@@ -23,6 +23,10 @@ export class Label {
 		this._labelListVisibility = newVaue
 	}
 
+	set color(newValue) {
+		this._color = newValue
+	}
+
 	setResponseValues(response) {
 		this.id = response.id
 		this.name = response.name
@@ -44,5 +48,24 @@ export class Label {
 				textValue: 'labelShowIfUnread'
 			}
 		]
+	}
+
+	static convertRawLabelToModel(rawLabel) {
+		const label = new Label()
+		label.id = rawLabel.id
+		label.name = rawLabel.name
+		label.labelListVisibility = rawLabel.labelListVisibility
+
+		return label
+	}
+
+	static convertRawLabelDataToModelData(rawLabels) {
+		const labels = []
+
+		rawLabels.forEach(label => {
+			labels.push(Label.convertRawLabelToModel(label))
+		})
+
+		return labels
 	}
 }

@@ -1,5 +1,4 @@
 /*** AUTH ***/
-
 export const HAS_AUTHENTICATION = 'USER_HAS_AUTHENTICATION'
 
 function hasAuthentication(value) {
@@ -7,9 +6,24 @@ function hasAuthentication(value) {
 }
 
 /*** Labels ***/
-export const SET_LABEL_LIST_VISIBILITY = 'SET_LABEL_LIST_VISIBILITY'
-export const LABEL_LIST_VISIBILITY_OPTIONS = {
-	LABEL_HIDE: 'labelHide',
-	LABEL_SHOW: 'labelShow',
-	LABEL_SHOW_IF_UNREAD: 'labelShowIfUnread'
+export const LABEL_ACTIONS = {
+	LIST_LABELS: 'LIST_LABELS',
+	ADD_LABEL: 'ADD_LABEL'
+}
+export let GMAIL_LABELS = []
+
+export function addLabels(labels) {
+	GMAIL_LABELS = labels
+
+	return {
+		type: LABEL_ACTIONS.LIST_LABELS,
+		labels
+	}
+}
+
+function addLabel(label) {
+  return {
+    type: LABEL_ACTIONS.ADD_LABEL,
+    label
+  }
 }
