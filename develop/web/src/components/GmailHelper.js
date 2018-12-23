@@ -1,8 +1,14 @@
 import { GmailAuthorizeButton } from './buttons/GmailAuthorizeButton'
 import { GmailSignOutButton } from './buttons/GmailSignOutButton'
 import { GmailForm } from './forms/GmailForm'
-import store from '../redux/store'
 import { clientId, apiKey, scopes, discovery_docs } from '../config/config'
+
+import { listLabels } from '../gmail/labels'
+import { listFilters } from '../gmail/filters'
+import { Label } from '../models/Label'
+
+import store from '../redux/store'
+import { addLabels, GMAIL_LABELS } from '../redux/actions'
 
 export class GmailHelper extends HTMLElement {
 	constructor() {
@@ -54,16 +60,29 @@ export class GmailHelper extends HTMLElement {
 	 *  Called when the signed in status changes, to update the UI
 	 *  appropriately. After a sign-in, the API is called.
 	 */
-	updateSigninStatus(isSignedIn) {
+	async updateSigninStatus(isSignedIn) {
 		if (isSignedIn) {
 			this.authorizeButton.style.display = 'none'
 			this.signOutButton.style.display = 'block'
+			await this.loadReduxData()
 			this.addForm()
 		} else {
 			this.authorizeButton.style.display = 'block'
 			this.signOutButton.style.display = 'none'
 			this.removeForm()
 		}
+	}
+
+	async loadReduxData() {
+		// Labels
+		const rawLabels = await listLabels()
+		const labels = Label.convertRawLabelDataToModelData(rawLabels)
+		store.dispatch(addLabels(labels))
+		console.log(GMAIL_LABELS)
+
+		// Filters
+		// const filters = await listFilters()
+		// console.log(filters)
 	}
 
 	addForm() {

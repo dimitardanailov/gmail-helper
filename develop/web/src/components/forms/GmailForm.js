@@ -3,8 +3,8 @@ import { GmailFilterTextBox } from '../text-fields/GmailFilterTextBox'
 import { GmailConnectedTextFields } from '../check-boxes/GmailConnectedTextFields'
 import { FormSubmitButton } from './FormSubmitButton'
 import { GmailSelectBox } from '../select-boxs/GmailSelectBox'
-import { listLabels, createLabel } from '../../gmail/labels'
-import { listFilters, createFilter } from '../../gmail/filters'
+import { createLabel } from '../../gmail/labels'
+import { createFilter } from '../../gmail/filters'
 import { Label } from '../../models/Label'
 
 import store from '../../redux/store'
@@ -19,8 +19,6 @@ export class GmailForm extends HTMLFormElement {
 	}
 
 	connectedCallback() {
-
-
 		this.textFields.labelName = new GmailLabelTextBox()
 		this.appendChild(this.textFields.labelName)
 
@@ -53,11 +51,6 @@ export class GmailForm extends HTMLFormElement {
 
 	async handleSubmit(e) {
 		e.preventDefault()
-
-		const rawLabels = await listLabels()
-		const labels = Label.convertRawLabelDataToModelData(rawLabels)
-		store.dispatch(addLabels(labels))
-		console.log(GMAIL_LABELS)
 		
 		if (this.textFields.labelName.value.length === 0) {
 			alert('Label name should have at least one character ...')
@@ -90,9 +83,6 @@ export class GmailForm extends HTMLFormElement {
 		const filterName = this.textFields.filterName.value
 		const filter = await createFilter(filterName, label.id)
 		console.log(filter)
-
-		const filters = await listFilters()
-		console.log(filters)
 	}
 
 	resetForm() {
