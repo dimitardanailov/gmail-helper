@@ -1,24 +1,20 @@
 # Mail helper
 
-## Why I'm working on this tool ? 
-
-Each day my mailbox receives a lot of different "structure"  and "unstructure" data. What means "structure" and "unstructure" data.
-
 If you want to try or use project please visit: https://fir-playgrounds.firebaseapp.com
 
-### Structure data
+## Why I'm working on this tool ? 
 
-Gmail has two great features: ["Labels"](https://support.google.com/mail/answer/118708?co=GENIE.Platform%3DAndroid&hl=en) and ["Filters"](https://support.google.com/mail/answer/6579?hl=en). What's my understation about `Labels` and `Filters`. Labels are similar like folders. Filters automatically labels arriving emails.
+Each day my mailbox receives a lot of emails. To reduce my reading time I've been using a lot of labels (at this moment I have 500+ diffferent labels). For me email which has at least one email is **structure data**. 
 
-### Unstructure data
+I created this tool because I'd like to **increase** my productivity. **First version could create a filter. Filter creates or update an existing label.**
 
-Creating filters and labels is a painful task from my experience at Gmail. You have a lot of steps to create a simple `label` and `filter`. First version creating a simple `label` by `filter keyword`.
+### More about Gmail Labels and Filters
+
+Gmail has two great features: ["Labels"](https://support.google.com/mail/answer/118708?co=GENIE.Platform%3DAndroid&hl=en) and ["Filters"](https://support.google.com/mail/answer/6579?hl=en). What's my understation about `Labels` and `Filters`. Labels are similar like folders. Filters automatically labels arriving emails. 
 
 ### Architecture
 
-I'm a learner. I'd like to use the latest technologies. Technology stack includes: 
-
-Libraries:
+I don't have deadline or budget restrictions :) I decided to use **only** the latest techologies trends. Technology stack includes: 
 
 - [Native web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components). Project supports only Chrome.
 - Gmail API 
