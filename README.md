@@ -2,6 +2,15 @@
 
 If you want to try or use project please visit: https://fir-playgrounds.firebaseapp.com
 
+## Browser support
+
+I did tests on these browsers: 
+
+- Google Chrome -> Version 71.0.3578.98 (Official Build) (64-bit)
+- Firefox Quantim
+- Google Chrome Canary -> Version 73.0.3650.0 (Official Build) canary (64-bit)
+- Opera Version:57.0.3098.106
+
 ## Why I'm working on this tool ? 
 
 Each day my mailbox receives a lot of emails. To reduce my reading time I've been using a lot of labels (at this moment I have 500+ diffferent labels). I'd like to introduce a new term: **structure data**. 
@@ -18,7 +27,7 @@ Gmail has two great features: ["Labels"](https://support.google.com/mail/answer/
 
 I don't have deadline or budget restrictions :) I decided to use **only** the latest techologies trends. Technology stack includes: 
 
-- [Native web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components). Project supports only Chrome.
+- [Native web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components).
 - Gmail API 
 - Fireabase
 

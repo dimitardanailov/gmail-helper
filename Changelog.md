@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.0.2] - 2018-12-25
+### Added 
+Readme section has section that desribes which browsers are supported.
+
 ## [1.0.1] - 2018-12-25
 ### Added
 Mail helper has privacy and policy and terms
