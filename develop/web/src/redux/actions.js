@@ -21,7 +21,9 @@ export function addLabels(labels) {
 	}
 }
 
-function addLabel(label) {
+export function addLabel(label) {
+	GMAIL_LABELS.push(label)
+
   return {
     type: LABEL_ACTIONS.ADD_LABEL,
     label

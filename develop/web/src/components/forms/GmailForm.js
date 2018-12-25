@@ -8,7 +8,7 @@ import { createFilter } from '../../gmail/filters'
 import { Label } from '../../models/Label'
 
 import store from '../../redux/store'
-import { addLabels, GMAIL_LABELS } from '../../redux/actions'
+import { addLabel, GMAIL_LABELS } from '../../redux/actions'
 
 export class GmailForm extends HTMLFormElement {
 	constructor() {
@@ -65,14 +65,34 @@ export class GmailForm extends HTMLFormElement {
 			}
 		}
 
-		await this.addLabel()
+		await this.updateGmailDatabase()
 
 		this.resetForm()
 	}
 
-	async addLabel() {
+	/**
+	 * Method creates or update an existing label
+	 */
+	async updateGmailDatabase() {
 		this.submit.disabled = true
 
+		// Trim 
+		this.textFields.labelName.value.trim()
+		this.textFields.filterName.value.trim()
+
+		let label
+		label = Label.findLabelByQuery(
+			GMAIL_LABELS, 
+			this.textFields.labelName.value
+		)
+
+		if (!label) label = await this.createGmailLabel()
+
+		const filterName = this.textFields.filterName.value
+		await createFilter(filterName, label.id)
+	}
+
+	async createGmailLabel() {
 		const label = new Label()
 		label.name = this.textFields.labelName.value
 		label.labelListVisibility = this.selectBoxListVisibility.value
@@ -80,9 +100,9 @@ export class GmailForm extends HTMLFormElement {
 		const labelResponse = await createLabel(label)
 		label.setResponseValues(labelResponse)
 
-		const filterName = this.textFields.filterName.value
-		const filter = await createFilter(filterName, label.id)
-		console.log(filter)
+		store.dispatch(addLabel(label))
+
+		return label
 	}
 
 	resetForm() {

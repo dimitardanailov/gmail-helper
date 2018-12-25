@@ -18,7 +18,7 @@ function labels(state = [], action) {
 		case LABEL_ACTIONS.LIST_LABELS:
 			return action.labels
 		case LABEL_ACTIONS.ADD_LABEL:
-			return state
+			return action.label
 		default:
 			return state
 	}

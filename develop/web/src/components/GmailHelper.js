@@ -8,7 +8,7 @@ import { listFilters } from '../gmail/filters'
 import { Label } from '../models/Label'
 
 import store from '../redux/store'
-import { addLabels, GMAIL_LABELS } from '../redux/actions'
+import { addLabels } from '../redux/actions'
 
 export class GmailHelper extends HTMLElement {
 	constructor() {
@@ -78,7 +78,6 @@ export class GmailHelper extends HTMLElement {
 		const rawLabels = await listLabels()
 		const labels = Label.convertRawLabelDataToModelData(rawLabels)
 		store.dispatch(addLabels(labels))
-		console.log(GMAIL_LABELS)
 
 		// Filters
 		// const filters = await listFilters()

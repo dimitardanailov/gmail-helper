@@ -68,4 +68,11 @@ export class Label {
 
 		return labels
 	}
+
+	static findLabelByQuery(labels, query) {
+		query = query.toLowerCase()
+		const response = labels.filter(label => label.name.toLowerCase() === query)	
+
+		return (response.length > 0) ? response[0]: null
+	}
 }
