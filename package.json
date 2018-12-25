@@ -1,6 +1,6 @@
 {
   "name": "gmail-helper",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Project will be responsible to create different gmail widgets",
   "engines": {
     "node": "^10.11.0"
