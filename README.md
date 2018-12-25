@@ -4,11 +4,13 @@ If you want to try or use project please visit: https://fir-playgrounds.firebase
 
 ## Why I'm working on this tool ? 
 
-Each day my mailbox receives a lot of emails. To reduce my reading time I've been using a lot of labels (at this moment I have 500+ diffferent labels). For me email which has at least one email is **structure data**. 
+Each day my mailbox receives a lot of emails. To reduce my reading time I've been using a lot of labels (at this moment I have 500+ diffferent labels). I'd like to introduce a new term: **structure data**. 
+
+Structure data - email message has at least one label.
 
 I created this tool because I'd like to **increase** my productivity. **First version could create a filter. Filter creates or update an existing label.**
 
-### More about Gmail Labels and Filters
+### More about Gmail labels and filters
 
 Gmail has two great features: ["Labels"](https://support.google.com/mail/answer/118708?co=GENIE.Platform%3DAndroid&hl=en) and ["Filters"](https://support.google.com/mail/answer/6579?hl=en). What's my understation about `Labels` and `Filters`. Labels are similar like folders. Filters automatically labels arriving emails. 
 
