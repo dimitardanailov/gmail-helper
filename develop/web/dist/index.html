@@ -5,63 +5,33 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <section id="app"></section>
+    <section id="container">
+      <section id="app"></section>
 
+      <footer>
+        <nav>
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-list-item-link" href="/" title="Home page">Home</a>
+            </li>
+            <li class="footer-list-item">
+              <a class="footer-list-item-link" 
+                 href="privacy.html" title="Privacy and policy">Privacy and policy</a>
+            </li>
+  
+            <li class="footer-list-item">
+              <a class="footer-list-item-link" 
+                 href="terms.html" title="Privacy and policy">Term of Service</a>
+            </li>
+          </ul>
+        </nav>
+      </footer>
+    </section>
+    
     <!-- https://developers.google.com/api-client-library/javascript/start/start-js -->
     <script async defer src="https://apis.google.com/js/api.js"></script>
     <script src="main.js"></script>
 
-    <style>
-
-      body {
-        font-size: 62.5%;
-      }
-
-      button {
-        position: relative;
-        cursor: pointer;
-
-        display: flex;
-        padding: .5em;
-
-        background: #000;
-        color: #fff;
-        font-size: 1.3em;
-
-        border-radius: 5px;
-      }
-
-      button:hover {
-        background: #fff;
-        color: #000;
-        border: .1em solid #000;
-      }
-
-      form {
-        position: relative;
-
-        display: flex;
-        flex-direction: column;
-        margin: 1em auto;
-        justify-content: space-around;
-      }
-
-      form > * {
-        position: relative;
-
-        margin-bottom: .1em;
-        border-radius: .5em;
-        padding: 0.3em;
-      }
-
-      label {
-        font-size: 1.2em;
-      }
-
-      select {
-        padding: 1em;
-      }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
   </body>
 </html>

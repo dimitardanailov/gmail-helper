@@ -5,66 +5,121 @@
     <meta charset="utf-8" />
   </head>
   <body>
+		<section id="container">
 
-		<h1>Privacy Policy of Mail helper</h1>
+			<section id="body">
+				<h1>Privacy Policy of Mail helper</h1>
 
-		Last modified: December 25, 2018
+				Last modified: December 26, 2018
+		
+				<p>
+					Mail helper operates on Fireabse web hosting: 
+					<a href="https://fir-playgrounds.firebaseapp.com" target="_blank" title="Mail helper">https://fir-playgrounds.firebaseapp.com</a>
+					
+					This page is used to inform website visitors regarding our policies with the collection, 
+					use, and disclosure of Personal Information if anyone decided to use our Service.
+					
+					The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, 
+					which is accessible at 
+					<a href="terms.html" 
+						 title="Mail helper - Terms of service" 
+						 target="_blank">https://fir-playgrounds.firebaseapp.com/terms.html</a>, 
+					unless otherwise defined in this Privacy Policy.
+				</p>
 
-		<p>
-			Mail helper operates on Fireabse web hosting: https://fir-playgrounds.firebaseapp.com/
-			
-			This page is used to inform website visitors regarding our policies with the collection, 
-			use, and disclosure of Personal Information if anyone decided to use our Service.
+				<h3>Why I've been working on this tool ?</h3>
 
-			The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, 
-			which is accessible at <a href="terms.html" target="_blank">https://fir-playgrounds.firebaseapp.com/terms.html</a>, 
-			unless unless otherwise defined in this Privacy Policy.
-		</p>
+				<p>
+					Each day my mailbox receives a lot of emails. 
+					To reduce my reading time I've been using a lot of labels (at this moment I have 500+ diffferent labels). 
+					I'd like to introduce a term "on the stage": <strong>structure data.</strong>
+				</p>
 
-		<h1>Information Collection and Use</h1>
-			
-		<p>
-			For a better experience while using our Service, we may require you to provide us with certain personally
-			identifiable information, including access to certain part of your Mailbox. 
-			Our service <strong>doesn't</strong> collect any personal data. 
-		</p>
+				<p><strong>Structure data</strong> - email message has at least one label.</p>
 
-		<h1>Log Data</h1>
+				<p>
+					I created this tool because I'd like to increase my productivity. 
+					<strong>First version creates a filter. Filter creates or update an existing label.</strong>
+				</p>
 
-		<p>
-			We want to inform you that whenever you visit our Service, 
-			we collect <strong>ONLY</strong> json web token. 
-		</p>
+				<p>
+					I'll be happy to share this tool with other folks. 
+					My tool requires only three requires only three Gmail Access Scopes to operate:
 
-		<h1>Cookies</h1>
+					<ul>
+						<li>https://www.googleapis.com/auth/gmail.readonly - Read all resources and their metadata—no write operations.</li>
+						<li>https://www.googleapis.com/auth/gmail.labels - Create, read, update, and delete labels only.</li>
+						<li>https://www.googleapis.com/auth/gmail.settings.basic - Manage basic mail settings.</li>
+					</ul>
 
-		<p>
-			Cookies are files with small amount of data that is commonly used an anonymous unique identifier.
-			These are sent to your browser from the website that you visit and are stored on your computer's hard drive.
+					If you want to understand more about gmail scopes and privacy of your information, please visit: 
+					<a href="https://developers.google.com/gmail/api/auth/scopes" title="Gmail scopes" target="_blank">Gmail scopes</a>
+				</p>
 
-			Our service doesn't use cookies
-		</p>
+				<p>
+					Our service reads label and filter meta and creates filter by keyword. 
+					If label doesn't we exist.
+				</p>
 
-		<h1>Security</h1>
+				<p>
+					Our service doesn't <strong>Delete or Update</strong> your label meta data.
+				</p>
+				
+				<p>
+					Our service doesn't <strong>Delete or update</strong> your filter meta data.
+				</p>
+				
+				<p>
+					Our service doesn't <strong>access other mail settings</strong>
+				</p>
 
-		<p>
-			We value your trust in providing us your Personal Information, 
-			thus we are striving to use commercially acceptable means of protecting it. 
-			But remember that no method of transmission over the internet, 
-			or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
-		</p>
-			
-		<h1>Children's Privacy</h1>
-			
-		<p>
-			Our application doesn't have any children restrictions.
-		</p>	
-			
-		<h1>Contact Us</h1>
-			
-		<p>
-			If you have any questions or suggestions about our Privacy Policy, 
-			do not hesitate to <a href="https://twitter.com/d_danailov" target="_blank">contact us</a>.
-		</p>
+				<p>
+					I'm using Gmail API to generate a json web token to authorize your profile and access your label and meta data 
+				</p>
+		
+				<h3>Hosting</h3>
+				
+				<p>
+					I chose Firebase because this service provides https sertificates. 
+					I want to generate 100% security for everyone who wants to use our service.
+
+					If you want to learn more about 
+				</p>
+					
+				<h3>Children's Privacy</h3>
+					
+				<p>
+					Our application doesn't have any children restrictions.
+				</p>	
+					
+				<h3>Contact Us</h3>
+					
+				<p>
+					If you have any questions or suggestions about our Privacy Policy, 
+					do not hesitate to <a href="https://twitter.com/d_danailov" target="_blank">contact us</a>.
+				</p>
+			</section>
+
+      <footer>
+				<nav>
+					<ul class="footer-nav">
+						<li>
+							<a class="footer-list-item-link" href="/" title="Home page">Home</a>
+						</li>
+						<li class="footer-list-item">
+							<a class="footer-list-item-link" 
+									href="privacy.html" title="Privacy and policy">Privacy and policy</a>
+						</li>
+	
+						<li class="footer-list-item">
+							<a class="footer-list-item-link" 
+									href="terms.html" title="Privacy and policy">Term of Service</a>
+						</li>
+					</ul>
+				</nav>
+			</footer>
+		</section>
+
+		<link rel="stylesheet" type="text/css" href="style.css"></link>
   </body>
 </html>

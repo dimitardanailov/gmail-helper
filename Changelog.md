@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.0.3] - 2018-12-26
+### Changed
+Privacy policy was updated. Each page has a simple footer navigation.
+
 ## [1.0.2] - 2018-12-25
 ### Added 
 Readme section has section that desribes which browsers are supported.
