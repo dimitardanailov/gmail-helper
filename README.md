@@ -64,3 +64,5 @@ http-server ./develop/web/dist
 - [Choose Auth Scopes](https://developers.google.com/gmail/api/auth/scopes)
 - [Access Google APIs more easily](https://developers.google.com/api-client-library/)
 - [Gmail documentation](https://apis-nodejs.firebaseapp.com/gmail/index.html)
+- [Using shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM)
+- [How to Use HTML <template> & <slot> With Shadow DOM](https://www.hongkiat.com/blog/html-template-slow-tag-shadow-dom/)

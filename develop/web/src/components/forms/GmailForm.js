@@ -1,8 +1,9 @@
 import { GmailLabelTextBox } from '../text-fields/GmailLabelTextBox'
 import { GmailFilterTextBox } from '../text-fields/GmailFilterTextBox'
 import { GmailConnectedTextFields } from '../check-boxes/GmailConnectedTextFields'
-import { FormSubmitButton } from './FormSubmitButton'
 import { GmailSelectBox } from '../select-boxs/GmailSelectBox'
+import { GmailLabelColorHolder } from '../labels/GmailLabelColorHolder'
+import { FormSubmitButton } from './FormSubmitButton'
 import { createLabel } from '../../gmail/labels'
 import { createFilter } from '../../gmail/filters'
 import { Label } from '../../models/Label'
@@ -29,6 +30,9 @@ export class GmailForm extends HTMLFormElement {
 
 		this.selectBoxListVisibility = new GmailSelectBox(Label.listVisibilityOptions())
 		this.appendChild(this.selectBoxListVisibility)
+
+		this.labelColorHolder = new GmailLabelColorHolder()
+		this.appendChild(this.labelColorHolder)
 
 		this.submit = new FormSubmitButton()
 		this.submit.textValues = {

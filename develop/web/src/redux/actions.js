@@ -8,7 +8,9 @@ function hasAuthentication(value) {
 /*** Labels ***/
 export const LABEL_ACTIONS = {
 	LIST_LABELS: 'LIST_LABELS',
-	ADD_LABEL: 'ADD_LABEL'
+	ADD_LABEL: 'ADD_LABEL',
+	SET_BACKGROUND_COLOR: 'SET_BACKGROUND_COLOR',
+	SET_COLOR: 'SET_COLOR'
 }
 export let GMAIL_LABELS = []
 
@@ -28,4 +30,18 @@ export function addLabel(label) {
     type: LABEL_ACTIONS.ADD_LABEL,
     label
   }
+}
+
+export function setLabelBackgroundColor(bgColor) {
+	return {
+		type: LABEL_ACTIONS.SET_BACKGROUND_COLOR,
+		bgColor
+	}
+}
+
+export function setLabelColor(color) {
+	return {
+		type: LABEL_ACTIONS.SET_COLOR,
+		color
+	}
 }

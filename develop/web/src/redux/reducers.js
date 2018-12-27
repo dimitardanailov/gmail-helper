@@ -24,9 +24,29 @@ function labels(state = [], action) {
 	}
 }
 
+function labelBackgroundColor(state = null, action) {
+	switch(action.type) {
+		case LABEL_ACTIONS.SET_BACKGROUND_COLOR:
+			return action.bgColor
+		default:
+			return state
+	}
+}
+
+function labelColor(state = null, action) {
+	switch(action.type) {
+		case LABEL_ACTIONS.SET_COLOR:
+			return action.color
+		default:
+			return state
+	}
+}
+
 const app = combineReducers({
 	userIsAuth,
-	labels
+	labels,
+	labelBackgroundColor,
+	labelColor
 })
 
 export default app

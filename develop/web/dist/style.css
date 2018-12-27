@@ -24,6 +24,13 @@ body {
 	padding-bottom: 30px;
 }
 
+#app {
+	position: relative;
+
+	padding: 10px;
+	padding-bottom: 30px;
+}
+
 /*** Footer ***/
 
 footer {
