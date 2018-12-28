@@ -1,7 +1,7 @@
 export async function listLabels() {
 	const promise = new Promise(resolve => {
 		gapi.client.gmail.users.labels.list({
-			'userId': 'me'
+			userId: 'me'
 		}).then(response => {
 			resolve(response.result.labels)
 		})
@@ -27,10 +27,14 @@ export async function listLabels() {
 export async function createLabel(label) {
 	const promise = new Promise((resolve, reject) => {
 		gapi.client.gmail.users.labels.create({
-			'userId': 'me',
-			'resource': {
-				'name': label.name,
-				'labelListVisibility': label.labelListVisibility
+			userId: 'me',
+			resource: {
+				name: label.name,
+				labelListVisibility: label.labelListVisibility,
+				color: {
+					backgroundColor: label.backgroundColor,
+					textColor: label.textColor
+				}
 			}
 		}).then(response => {
 			resolve(response.result)

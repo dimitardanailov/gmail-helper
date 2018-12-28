@@ -36,7 +36,7 @@ export class GmailForm extends HTMLFormElement {
 
 		this.submit = new FormSubmitButton()
 		this.submit.textValues = {
-			defaultState: 'Create a new label',
+			defaultState: 'Add or update gmail meta data',
 			activeState: 'Waiting ...'
 		}
 		this.appendChild(this.submit)
@@ -100,6 +100,8 @@ export class GmailForm extends HTMLFormElement {
 		const label = new Label()
 		label.name = this.textFields.labelName.value
 		label.labelListVisibility = this.selectBoxListVisibility.value
+		label.backgroundColor = store.getState()['labelBackgroundColor']
+		label.textColor = store.getState()['labelColor']
 
 		const labelResponse = await createLabel(label)
 		label.setResponseValues(labelResponse)
@@ -118,6 +120,8 @@ export class GmailForm extends HTMLFormElement {
 		
 		this.selectBoxListVisibility.removeAttribute('selected')
 		this.connectedTextFields.setChecked(true)
+
+		this.labelColorHolder.setDefaultColorStyles()
 	}
 }
 

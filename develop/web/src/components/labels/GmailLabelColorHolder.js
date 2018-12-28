@@ -1,7 +1,10 @@
 import { GmailLabelBackgroundGroup } from './backgrounds/GmailLabelBackgroundGroup'
 import { GmailLabelColorGroup} from './colors/GmailLabelColorGroup'
 
+import { defaultColorSettings } from '../../models/Label'
+
 import store from '../../redux/store'
+import { setLabelBackgroundColor, setLabelColor } from '../../redux/actions'
 
 const unsubscribe = {
 	bgColor: null,
@@ -9,10 +12,6 @@ const unsubscribe = {
 }
 
 const template = document.createElement('template')
-const defaulStyles = {
-	bgColor: '#ddd',
-	color: '#666'
-}
 
 template.innerHTML = `
 	<style>
@@ -65,11 +64,25 @@ export class GmailLabelColorHolder extends HTMLElement {
 	}
 
 	connectedCallback() {
-		this.style.setProperty('--label-bg-color', defaulStyles.bgColor)
-		this.style.setProperty('--label-color', defaulStyles.color)
-
 		this.addBackgroundColors()
 		this.addTextColors()
+
+		this.setDefaultColorStyles()
+	}
+
+	disconnectedCallback() {
+		if (unsubscribe.bgColor) {
+			unsubscribe.bgColor()
+		}
+
+		if (unsubscribe.color) {
+			unsubscribe.color()
+		}
+	}
+
+	setDefaultColorStyles() {
+		store.dispatch(setLabelBackgroundColor(defaultColorSettings.backgroundColor))
+		store.dispatch(setLabelColor(defaultColorSettings.textColor))
 	}
 
 	addBackgroundColors() {

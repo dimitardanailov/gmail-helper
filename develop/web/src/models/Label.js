@@ -1,4 +1,14 @@
+export const defaultColorSettings = {
+	backgroundColor: '#efefef',
+	textColor: '#999999'
+}
+
 export class Label {
+	constructor() {
+		this._backgroundColor = defaultColorSettings.backgroundColor
+		this._textColor = defaultColorSettings.textColor
+	}
+
 	get id() {
 		return this._id
 	}
@@ -23,8 +33,20 @@ export class Label {
 		this._labelListVisibility = newVaue
 	}
 
-	set color(newValue) {
-		this._color = newValue
+	get backgroundColor() {
+		return this._backgroundColor
+	}
+
+	set backgroundColor(newVaue) {
+		this._backgroundColor = newVaue
+	}
+
+	get textColor() {
+		return this._textColor
+	}
+
+	set textColor(newVaue) {
+		this._textColor = newVaue
 	}
 
 	setResponseValues(response) {
@@ -87,8 +109,16 @@ export class Label {
 		label.id = rawLabel.id
 		label.name = rawLabel.name
 		label.labelListVisibility = rawLabel.labelListVisibility
+		Label.extractColor(rawLabel, label)
 
 		return label
+	}
+
+	static extractColor(rawLabel, label) {
+		if (rawLabel.color) {
+			label.backgroundColor = rawLabel.color.backgroundColor
+			label.textColor = rawLabel.color.textColor
+		}
 	}
 
 	static convertRawLabelDataToModelData(rawLabels) {

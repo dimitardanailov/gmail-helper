@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.1.0] - 2018-12-28
+### Added 
+User can set desired colors (background and text color) if create a new label
+
 ## [1.0.3] - 2018-12-26
 ### Changed
 Privacy policy was updated. Each page has a simple footer navigation.
