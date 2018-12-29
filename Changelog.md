@@ -1,8 +1,12 @@
 # Mail Helper
 
+## [1.1.1] - 2018-12-29
+### Changed
+Privacy policy was updated. Page has a lot of new sections. This patch tries to cover Gmail API requirements.
+
 ## [1.1.0] - 2018-12-28
 ### Added 
-User can set desired colors (background and text color) if create a new label
+User can set desired colors (background and text color) if create a new label.
 
 ## [1.0.3] - 2018-12-26
 ### Changed
@@ -14,7 +18,7 @@ Readme section has section that desribes which browsers are supported.
 
 ## [1.0.1] - 2018-12-25
 ### Added
-Mail helper has privacy and policy and terms
+Mail helper has privacy and policy and terms.
 
 ## [1.0.0] - 2018-12-25
 ### Added

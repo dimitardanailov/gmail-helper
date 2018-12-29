@@ -10,15 +10,24 @@
 			<section id="body">
 				<h1>Privacy Policy of Mail helper</h1>
 
-				Last modified: December 26, 2018
+				Last modified: December 29, 2018
 		
 				<p>
 					Mail helper operates on Fireabse web hosting: 
-					<a href="https://fir-playgrounds.firebaseapp.com" target="_blank" title="Mail helper">https://fir-playgrounds.firebaseapp.com</a>
-					
-					This page is used to inform website visitors regarding our policies with the collection, 
-					use, and disclosure of Personal Information if anyone decided to use our Service.
-					
+					<a href="https://fir-playgrounds.firebaseapp.com" target="_blank" title="Mail helper">https://fir-playgrounds.firebaseapp.com</a>.
+					Mail helper is: 
+					<strong>Web mail client</strong>. Application that allows users to read or send email meta data via an user interface.
+				</p>
+
+				<h5>Application type</h5>
+
+				<p>
+					Mail helper is an <strong>Applications that enhance the email experience for productivity purposes</strong> 
+				</p>
+
+				<h5>Terms of service</h5>
+
+				<p>	
 					The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, 
 					which is accessible at 
 					<a href="terms.html" 
@@ -32,64 +41,141 @@
 				<p>
 					Each day my mailbox receives a lot of emails. 
 					To reduce my reading time I've been using a lot of labels (at this moment I have 500+ diffferent labels). 
-					I'd like to introduce a term "on the stage": <strong>structure data.</strong>
 				</p>
 
-				<p><strong>Structure data</strong> - email message has at least one label.</p>
+				<h5>Structure data</h5>
+				
+				<p>
+					I'd like to introduce a term "on the stage": <strong>structure data</strong>.
+					<strong>Structure data</strong> - email message has at least one label.
+				</p>
 
 				<p>
 					I created this tool because I'd like to increase my productivity. 
-					<strong>First version creates a filter. Filter creates or update an existing label.</strong>
+					<strong>First version creates a filter and label (if this is necessary !!!)</strong>.
 				</p>
 
+				<p>Additional feature is: User can setup label background and text color.</p>
+
 				<p>
-					I'll be happy to share this tool with other folks. 
-					My tool requires only three requires only three Gmail Access Scopes to operate:
+					I'd like to explain which <strong>Gmail REST API scopes</strong> are required: 
+				</p>
 
-					<ul>
-						<li>https://www.googleapis.com/auth/gmail.readonly - Read all resources and their metadata—no write operations.</li>
-						<li>https://www.googleapis.com/auth/gmail.labels - Create, read, update, and delete labels only.</li>
-						<li>https://www.googleapis.com/auth/gmail.settings.basic - Manage basic mail settings.</li>
-					</ul>
+				<ul>
+					<li>https://www.googleapis.com/auth/gmail.readonly - Read all resources and their metadata—no write operations.</li>
+					<li>https://www.googleapis.com/auth/gmail.labels - Create, read, update, and delete labels only.</li>
+					<li>https://www.googleapis.com/auth/gmail.settings.basic - Manage basic mail settings.</li>
+				</ul>
 
+				<p>
 					If you want to understand more about gmail scopes and privacy of your information, please visit: 
 					<a href="https://developers.google.com/gmail/api/auth/scopes" title="Gmail scopes" target="_blank">Gmail scopes</a>
 				</p>
 
-				<p>
-					Our service reads label and filter meta and creates filter by keyword. 
-					If label doesn't we exist.
-				</p>
+				<h3>Application workflow / Lifecycle</h3>
+
+				<h5>Authorization</h5>
 
 				<p>
-					Our service doesn't <strong>Delete or Update</strong> your label meta data.
+					When an user opens this application for this first time will see a simple button with name: "Authorize".
+					Buttons is responsible to create a web token. 
+					Web token is able to read gmail meta data, access label meta data and manage basic mail settings.
 				</p>
 				
-				<p>
-					Our service doesn't <strong>Delete or update</strong> your filter meta data.
-				</p>
-				
-				<p>
-					Our service doesn't <strong>access other mail settings</strong>
-				</p>
+				<h5>Application has an authorization access</h5>
 
 				<p>
-					I'm using Gmail API to generate a json web token to authorize your profile and access your label and meta data 
+					If applications has this web token, application loads form that contains these sections: 
 				</p>
+
+				<ul>
+					<li>Label name</li>
+					<li>Filter name - User could choice to use the same keyword for filter and label name</li>
+					<li>
+						Label visibility - User can choice three options: 
+						<ul>
+							<li>Label to be always hidden</li>
+							<li>Label always to be visible</li>
+							<li>Label to be visible if contains at least one email with is waiting to be read</li>
+						</ul>
+					</li>
+					<li>Label colors - User can specific label background and text color</li>
+				</ul>
+
+				<h5>User wants to create a new filter and label (if this is necessary !!!)</h5>
+
+				<ul>
+					<li>
+						If algorithm finds a label and that label name is equal to keyword -> tool ONLY creates a new filter.
+					</li>
+					<li>
+						If gmail label meta data doesn't have an information about this keyword -> 
+						Application creates label and filter.
+					</li>	
+				</ul>
+
+				<h3>What this applications stores ?</h3>
+
+				<h5>Application stores json web token after authorization</h5>
+
+				<p>
+					Application creates an <strong>unique</strong> web token. 
+					If browser has a browser cookie that contains this token and token is valid: 
+					Authorization is not required by application. 
+				</p>
+
+				<h5>Application is using a background task to "copy" information about label meta</h5>
+
+				<p>
+					Application creates an application variable.
+					This application variable contains an information about Label meta data.
+				</p>
+
+				<p>Why applications need this ? </p>
+
+				<p>
+					My application filters this variable related wit desired keyword.
+					If keyword exists -> Application creates filter and label at Gmail
+				</p>
+
+				<h3>What this application doesn't do</h3>
+
+				<ul>
+					<li>
+						Our service doesn't <strong>delete or update</strong> your label meta data.
+					</li>
+
+					<li>
+						Our service doesn't <strong>delete or update</strong> your filter meta data.
+					</li>
+
+					<li>
+						Our service doesn't <strong>access other mail settings</strong>
+					</li>
+
+					<li>
+							<strong>Our serice doesn't shares a data with other applications !!!</strong>
+					</li>
+				</ul>
 		
 				<h3>Hosting</h3>
 				
 				<p>
-					I chose Firebase because this service provides https sertificates. 
-					I want to generate 100% security for everyone who wants to use our service.
+					I chose Firebase because this service provides https sertificate. 
+					Https provides an encrypted connection between browser and server.
+					This connections <strong>DOESN'T</strong> allow something to sniffing web trace and "steal" your web token.
 
-					If you want to learn more about 
+					If you want to learn more about firebase please visit: 
+					<a href="https://firebase.google.com/docs/hosting/" target="_blank">Firebase hosting</a>
 				</p>
 					
 				<h3>Children's Privacy</h3>
 					
 				<p>
-					Our application doesn't have any children restrictions.
+					This services requires your age to be at least 13 years old. 
+					We required this because we want application to be a compatible with 
+					<a href="https://www.ftc.gov/tips-advice/business-center/privacy-and-security/children%27s-privacy" 
+						 target="_blank" title="Children's Privacy - COPA">COPA</a>
 				</p>	
 					
 				<h3>Contact Us</h3>
