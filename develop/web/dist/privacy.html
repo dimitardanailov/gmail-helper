@@ -58,14 +58,27 @@
 				<p>Additional feature is: User can setup label background and text color.</p>
 
 				<p>
-					I'd like to explain which <strong>Gmail REST API scopes</strong> are required: 
+					I'd like to explain which <strong>Gmail REST API scope</strong> that is required by my application: 
 				</p>
 
-				<ul>
-					<li>https://www.googleapis.com/auth/gmail.readonly - Read all resources and their metadata—no write operations.</li>
-					<li>https://www.googleapis.com/auth/gmail.labels - Create, read, update, and delete labels only.</li>
-					<li>https://www.googleapis.com/auth/gmail.settings.basic - Manage basic mail settings.</li>
-				</ul>
+				<h5>https://www.googleapis.com/auth/gmail.readonly</h5>
+
+				<p>
+					My application will use https://www.googleapis.com/auth/gmail.readonly 
+					to retrieve information about Gmail labels and filters.
+				</p>
+
+				<h5>https://www.googleapis.com/auth/gmail.labels</h5>
+
+				<p>
+					Without this permission application <strong>CAN'T</strong> create a Gmail label
+				</p>
+
+				<h5>https://www.googleapis.com/auth/gmail.settings.basic</h5>
+
+				<p>
+					This permission will be used ONLY to create a new Gmail Filter
+				</p>
 
 				<p>
 					If you want to understand more about gmail scopes and privacy of your information, please visit: 

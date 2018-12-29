@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.1.2] - 2018-12-29
+### Changed
+Privacy page has an extra an information about each required scope.
+
 ## [1.1.1] - 2018-12-29
 ### Changed
 Privacy policy was updated. Page has a lot of new sections. This patch tries to cover Gmail API requirements.
