@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.1.3] - 2018-12-29
+### Changed
+Privacy page has an extra section: I don't want to use this tool
+
 ## [1.1.2] - 2018-12-29
 ### Changed
 Privacy page has an extra an information about each required scope.
