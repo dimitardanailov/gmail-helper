@@ -4,7 +4,7 @@ export const apiKey = process.env.API_KEY
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
 export const scopes = [
-	'https://www.googleapis.com/auth/gmail.readonly',
+	// 'https://www.googleapis.com/auth/gmail.readonly',
 	'https://www.googleapis.com/auth/gmail.labels',
 	'https://www.googleapis.com/auth/gmail.settings.basic'
 ].join(' ')

@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.1.4] - 2018-12-29
+### Changed
+https://www.googleapis.com/auth/gmail.readonly is not required by application and I removed this gmail scope.
+
 ## [1.1.3] - 2018-12-29
 ### Changed
 Privacy page has an extra section: I don't want to use this tool
