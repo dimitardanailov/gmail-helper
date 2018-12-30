@@ -66,3 +66,6 @@ http-server ./develop/web/dist
 - [Gmail documentation](https://apis-nodejs.firebaseapp.com/gmail/index.html)
 - [Using shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM)
 - [How to Use HTML <template> & <slot> With Shadow DOM](https://www.hongkiat.com/blog/html-template-slow-tag-shadow-dom/)
+- [How to components](https://github.com/GoogleChromeLabs/howto-components)
+- [Html as Custom Element](https://github.com/domenic/html-as-custom-elements)
+- [Element.attachShadow()](https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow)

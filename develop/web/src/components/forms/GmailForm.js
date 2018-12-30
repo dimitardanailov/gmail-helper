@@ -11,15 +11,36 @@ import { Label } from '../../models/Label'
 import store from '../../redux/store'
 import { addLabel, GMAIL_LABELS } from '../../redux/actions'
 
-export class GmailForm extends HTMLFormElement {
+const template = document.createElement('template')
+
+template.innerHTML = `
+	<style>
+		:host {
+			position: relative;
+		
+			display: flex;
+		}
+	</style>
+
+	<slot></slot>
+`
+
+export class GmailForm extends HTMLElement {
 	constructor() {
 		super()
+
+		// Attach a shadow root to the element.
+		this.attachShadow({mode: 'open'})
+		this.shadowRoot.appendChild(template.content.cloneNode(true))
 
 		this.textFields = {}
 		this.addEventListener('submit', this.handleSubmit)
 	}
 
 	connectedCallback() {
+		if (!this.hasAttribute('role')) 
+			this.setAttribute('role', 'form')
+
 		this.textFields.labelName = new GmailLabelTextBox()
 		this.appendChild(this.textFields.labelName)
 
@@ -125,4 +146,4 @@ export class GmailForm extends HTMLFormElement {
 	}
 }
 
-customElements.define('gmail-form', GmailForm, { extends: 'form' })
+customElements.define('gmail-form', GmailForm)

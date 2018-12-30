@@ -1,15 +1,25 @@
+const template = document.createElement('template')
+
+template.innerHTML = `
+	<style>
+		:host {
+			position: relative;
+
+			display: flex;
+			width: 32px;
+			height: 32px;
+
+			padding: 16px;
+			border-radius: 5px;
+		}
+		
+	</style>
+`
+
 export class FormSubmitButton extends HTMLInputElement {
 	
 	set textValues(value) {
 		this._textValues = value
-	}
-	
-	constructor() {
-		super()
-		this.textValues = {
-			defaultState: 'Submit',
-			activeSate: 'Waiting ...'
-		}
 	}
 
 	set disabled(val) {
@@ -23,6 +33,19 @@ export class FormSubmitButton extends HTMLInputElement {
 			this.value = this._textValues.defaultState
     }
   }
+	
+	constructor() {
+		super()
+
+		// Attach a shadow root to the element.
+		this.attachShadow({mode: 'open'})
+		this.shadowRoot.appendChild(template.content.cloneNode(true))
+
+		this.textValues = {
+			defaultState: 'Submit',
+			activeSate: 'Waiting ...'
+		}
+	}
 
 	connectedCallback() {
 		this.setAttribute('type', 'submit')
