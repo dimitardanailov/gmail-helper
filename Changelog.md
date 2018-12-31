@@ -1,6 +1,13 @@
 # Mail Helper
 
-## [1.1.4] - 2018-12-29
+## [1.1.5] - 2018-12-31
+### Added
+Home page has two additional paragraphs. The first paragprah explains how application works.
+The second paragprah describies which browsers are supported.
+### Added
+Privacy and policy page has an additional secion: 
+ 
+## [1.1.4] - 2018-12-30
 ### Changed
 https://www.googleapis.com/auth/gmail.readonly is not required by application and I removed this gmail scope.
 

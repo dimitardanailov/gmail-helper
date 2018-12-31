@@ -76,6 +76,11 @@ footer {
 
 /*** Footer ***/
 
+.info {
+	font-size: 1.6em;
+	margin-left: 1em;
+}
+
 button {
 	position: relative;
 	cursor: pointer;
