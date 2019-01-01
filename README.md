@@ -66,3 +66,9 @@ http-server ./develop/web/dist
 - [Gmail documentation](https://apis-nodejs.firebaseapp.com/gmail/index.html)
 - [Using shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM)
 - [How to Use HTML <template> & <slot> With Shadow DOM](https://www.hongkiat.com/blog/html-template-slow-tag-shadow-dom/)
+- [Browser Quickstart](https://developers.google.com/gmail/api/quickstart/js)
+- [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements)
+
+### Github repos
+
+- [Google - How to web components](https://github.com/GoogleChromeLabs/howto-components)

@@ -34,7 +34,7 @@
     </section>
     
     <section id="container">
-      <section id="app"></section>
+      <gmail-helper></gmail-helper>
 
       <footer>
         <nav>
@@ -58,7 +58,16 @@
     
     <!-- https://developers.google.com/api-client-library/javascript/start/start-js -->
     <script async defer src="https://apis.google.com/js/api.js"></script>
-    <script src="main.js"></script>
+
+    <!-- load webcomponents bundle, which includes all the necessary polyfills -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.1/custom-elements-es5-adapter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.1/webcomponents-loader.js"></script>
+
+    <script src="https://unpkg.com/@webcomponents/custom-elements"></script>
+
+    <script async defer src="main.js"></script>
+
+    <script type="module"></script>
 
     <link rel="stylesheet" type="text/css" href="style.css"></link>
   </body>

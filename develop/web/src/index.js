@@ -1,7 +1,7 @@
-import { GmailHelper } from './components/GmailHelper'
-
 window.onload = function() {
-	let helper = new GmailHelper()
-	document.getElementById('app')
-		.appendChild(helper)
+	WebComponents.waitFor(async () => {
+		// if (!window.fetch) await import('whatwg-fetch/fetch')
+
+		return require('./components/GmailHelper')
+	})
 }
