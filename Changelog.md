@@ -1,5 +1,11 @@
 # Mail Helper
 
+## [1.2.0] - 2019-01-02
+### Added
+`web` project has two additional configurations:
+- webpack is using babel configurations
+- webcomponentsjs was implemented
+
 ## [1.1.5] - 2018-12-31
 ### Added
 Home page has two additional paragraphs. The first paragprah explains how application works.

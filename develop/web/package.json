@@ -34,6 +34,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-async-to-generator": "^7.2.0",
     "@babel/plugin-transform-classes": "^7.2.2",
+    "@babel/plugin-transform-new-target": "^7.0.0",
     "@babel/preset-env": "^7.2.3",
     "babel-loader": "^8.0.4",
     "babel-plugin-transform-custom-element-classes": "^0.1.0",

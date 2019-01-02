@@ -32,7 +32,17 @@ module.exports = {
               [
                 '@babel/preset-env',
                 {
-                  'useBuiltIns': 'usage'
+                  // https://babeljs.io/docs/en/usage
+                  targets: {
+                    edge: '17',
+                    firefox: '60',
+                    chrome: '67',
+                    safari: '11.1',
+                    ios: '11',
+                    android: '61'
+                  },
+
+                  useBuiltIns: 'usage'
                 }
               ]
             ],
@@ -40,6 +50,9 @@ module.exports = {
               '@babel/plugin-transform-classes',
               '@babel/plugin-syntax-dynamic-import',
               '@babel/plugin-transform-async-to-generator',
+              '@babel/plugin-transform-new-target',
+
+              // https://github.com/github/babel-plugin-transform-custom-element-classes
               'transform-custom-element-classes',
               'transform-es2015-classes'
             ]
