@@ -20,6 +20,7 @@ module.exports = {
       systemvars: true,
     }),
   ],
+  /*
   module: {
     rules: [
       {
@@ -60,5 +61,5 @@ module.exports = {
         }
       }
     ]
-  }
+  } */
 }

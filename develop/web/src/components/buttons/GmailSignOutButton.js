@@ -1,12 +1,21 @@
-export class GmailSignOutButton extends HTMLButtonElement {
+import generateTemplate from './generateTemplate'
+
+const template = generateTemplate('Sign out')
+
+export class GmailSignOutButton extends HTMLElement {
 	constructor() {
 		super()
+
+		// Attach a shadow root to the element.
+		this.attachShadow({mode: 'open'})
+		this.shadowRoot.appendChild(template.content.cloneNode(true))
 
 		this.addEventListener('click', this.handleSignOut)
 	}
 
 	connectedCallback() {
-		this.textContent = 'Sign out'
+		if (!this.hasAttribute('role')) 
+			this.setAttribute('role', 'button')
 	}
 
 	/**
@@ -17,4 +26,4 @@ export class GmailSignOutButton extends HTMLButtonElement {
 	}
 }
 
-customElements.define('gmail-sign-out-button', GmailSignOutButton, { extends: 'button' })
+customElements.define('gmail-sign-out-button', GmailSignOutButton)

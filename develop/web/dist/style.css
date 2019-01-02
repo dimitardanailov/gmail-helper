@@ -81,26 +81,6 @@ footer {
 	margin-left: 1em;
 }
 
-button {
-	position: relative;
-	cursor: pointer;
-
-	display: flex;
-	padding: .5em;
-
-	background: #000;
-	color: #fff;
-	font-size: 1.3em;
-
-	border-radius: 5px;
-}
-
-button:hover {
-	background: #fff;
-	color: #000;
-	border: .1em solid #000;
-}
-
 form {
 	position: relative;
 

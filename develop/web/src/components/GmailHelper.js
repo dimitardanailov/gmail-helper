@@ -10,9 +10,27 @@ import { Label } from '../models/Label'
 import store from '../redux/store'
 import { addLabels } from '../redux/actions'
 
+const template = document.createElement('template')
+
+template.innerHTML = `
+	<style>
+		:host {
+			position: relative;
+
+			display: block;
+		}
+	</style>
+
+	<slot></slot>
+`
+
 export class GmailHelper extends HTMLElement {
 	constructor() {
 		super()
+
+		// Attach a shadow root to the element.
+		this.attachShadow({mode: 'open'})
+		this.shadowRoot.appendChild(template.content.cloneNode(true))
 	}
 
 	connectedCallback() {

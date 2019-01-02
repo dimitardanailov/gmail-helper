@@ -1,12 +1,21 @@
-export class GmailAuthorizeButton extends HTMLButtonElement {
+import generateTemplate from './generateTemplate'
+
+const template = generateTemplate('Authorize')
+
+export class GmailAuthorizeButton extends HTMLElement {
 	constructor() {
 		super()
+
+		// Attach a shadow root to the element.
+		this.attachShadow({mode: 'open'})
+		this.shadowRoot.appendChild(template.content.cloneNode(true))
 
 		this.addEventListener('click', this.handleAuth)
 	}
 
 	connectedCallback() {
-		this.textContent = 'Authorize'
+		if (!this.hasAttribute('role')) 
+			this.setAttribute('role', 'button')
 	}
 
 	/**
@@ -17,4 +26,4 @@ export class GmailAuthorizeButton extends HTMLButtonElement {
 	}
 }
 
-customElements.define('gmail-authorize-button', GmailAuthorizeButton, { extends: 'button' })
+customElements.define('gmail-authorize-button', GmailAuthorizeButton)

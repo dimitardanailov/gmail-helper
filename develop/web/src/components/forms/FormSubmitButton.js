@@ -1,11 +1,39 @@
-export class FormSubmitButton extends HTMLInputElement {
-	
+const template = document.createElement('template')
+
+template.innerHTML = `
+	<style>
+		:host {
+			position: relative;
+		}
+
+		input {
+			position: relative;
+			
+			display: flex;
+			padding: .6em;
+		}
+
+		input[:disabled] {
+			opacity: .3;
+		}
+	</style>	
+
+	<slot></slot>
+`
+
+export class FormSubmitButton extends HTMLElement {
+
 	set textValues(value) {
 		this._textValues = value
 	}
 	
 	constructor() {
 		super()
+
+		// Attach a shadow root to the element.
+		this.attachShadow({mode: 'open'})
+		this.shadowRoot.appendChild(template.content.cloneNode(true))
+
 		this.textValues = {
 			defaultState: 'Submit',
 			activeSate: 'Waiting ...'
@@ -14,20 +42,26 @@ export class FormSubmitButton extends HTMLInputElement {
 
 	set disabled(val) {
     if (val) {
-			this.setAttribute('disabled', 'disabled')
-			this.style.opacity = .3
-			this.value = this._textValues.activeState
+			this.button.setAttribute('disabled', 'disabled')
+			this.button.value = this._textValues.activeState
     } else {
-			this.removeAttribute('disabled')
-			this.style.opacity = 1
-			this.value = this._textValues.defaultState
+			this.button.removeAttribute('disabled')
+			this.button.value = this._textValues.defaultState
     }
   }
 
-	connectedCallback() {
-		this.setAttribute('type', 'submit')
-		this.value = this._textValues.defaultState || 'Submit'
+	connectedCallback() {		
+		this.createSubmitButton()
+	}
+
+	createSubmitButton() {
+		this.button = document.createElement('input')
+		this.button.setAttribute('type', 'submit')
+		this.button.value = this._textValues.defaultState || 'Submit'
+		this.button.setAttribute('role', 'button')
+
+		this.appendChild(this.button)
 	}
 }
 
-customElements.define('form-submit-button', FormSubmitButton, { extends: 'input' })
+customElements.define('form-submit-button', FormSubmitButton)

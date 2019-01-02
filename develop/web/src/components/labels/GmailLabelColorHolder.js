@@ -43,8 +43,6 @@ template.innerHTML = `
 
 			border-radius: 5px;
 		}
-
-		.
 	</style>
 
 	<div id="preview">
