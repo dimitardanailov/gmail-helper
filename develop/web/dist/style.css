@@ -80,28 +80,3 @@ footer {
 	font-size: 1.6em;
 	margin-left: 1em;
 }
-
-form {
-	position: relative;
-
-	display: flex;
-	flex-direction: column;
-	margin: 1em auto;
-	justify-content: space-around;
-}
-
-form > * {
-	position: relative;
-
-	margin-bottom: .1em;
-	border-radius: .5em;
-	padding: 0.3em;
-}
-
-label {
-	font-size: 1.2em;
-}
-
-select {
-	padding: 1em;
-}

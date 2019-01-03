@@ -29,8 +29,6 @@ template.innerHTML = `
 			flex-wrap: wrap;
 			justify-content: flex-start;
 			align-items: center;
-
-			padding-left: 20px;
 		}
 	</style>
 
