@@ -19,7 +19,7 @@ template.innerHTML = `
 			position: relative;
 			
 			display: flex;
-			padding: 4em 2em;
+			margin-top: 2em;
 		}
 
 		form {

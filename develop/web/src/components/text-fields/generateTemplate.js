@@ -8,20 +8,26 @@ function generateTemplate(placeHolderText) {
 
 				display: flex;
 
+				text-indent: 1em;
+
 				margin-bottom: .1em;
 			}
 
 			input {
 				position: relative;
 
+				display: inline-block;
+				width: 100%;
 				padding: .6em 0;
+
+				text-indent: 1em;
 
 				border-radius: .5em;
 				font-size: 1.4em;
 			}
 		</style>
 
-		<input type="text" role="textbox" placeholder="${placeHolderText}" />
+		<input id="input" type="text" role="textbox" placeholder="${placeHolderText}" />
 	`
 
 	return template

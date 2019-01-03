@@ -1,6 +1,8 @@
 import { GmailAuthorizeButton } from './buttons/GmailAuthorizeButton'
 import { GmailSignOutButton } from './buttons/GmailSignOutButton'
 import { GmailForm } from './forms/GmailForm'
+import { MailHelperInfo } from './project-info/MailHelperInfo' 
+
 import { clientId, apiKey, scopes, discovery_docs } from '../config/config'
 
 import { listLabels } from '../gmail/labels'
@@ -17,9 +19,21 @@ template.innerHTML = `
 		:host {
 			position: relative;
 
-			display: block;
+			display: flex;
+			flex-direction: column;
+
+			padding: 2em;
 		}
+
+		h1 {
+			font-size: 2.8em;
+			text-align: center;
+		}
+
+
 	</style>
+
+	<h1>Mail helper</h1>
 
 	<slot></slot>
 `
@@ -37,6 +51,10 @@ export class GmailHelper extends HTMLElement {
 		this.authorizeButton = new GmailAuthorizeButton()
 		this.authorizeButton.style.display = 'none'
 		this.appendChild(this.authorizeButton) 
+
+		this.projectInfo = new MailHelperInfo()
+		this.projectInfo.style.display = 'none'
+		this.appendChild(this.projectInfo)
 
 		this.signOutButton = new GmailSignOutButton()
 		this.signOutButton.style.display = 'none'
@@ -81,11 +99,13 @@ export class GmailHelper extends HTMLElement {
 	async updateSigninStatus(isSignedIn) {
 		if (isSignedIn) {
 			this.authorizeButton.style.display = 'none'
-			this.signOutButton.style.display = 'block'
+			this.projectInfo.style.display = 'none'
+			this.signOutButton.style.display = 'flex'
 			await this.loadReduxData()
 			this.addForm()
 		} else {
-			this.authorizeButton.style.display = 'block'
+			this.authorizeButton.style.display = 'flex'
+			this.projectInfo.style.display = 'block'
 			this.signOutButton.style.display = 'none'
 			this.removeForm()
 		}
@@ -108,10 +128,10 @@ export class GmailHelper extends HTMLElement {
 	}
 
 	removeForm() {
-		const elements = this.getElementsByTagName('form')
+		const elements = this.getElementsByTagName('gmail-form')
+		
 		if (elements.length > 0) {
-			const form = elements[0]
-			this.removeChild(form)
+			this.removeChild(elements[0])
 		}
 	}
 }

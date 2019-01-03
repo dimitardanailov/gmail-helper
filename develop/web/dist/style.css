@@ -19,16 +19,12 @@ body {
 #body {
 	position: relative;
 
-	font-size: 1.4em;
 	padding: 10px;
 	padding-bottom: 30px;
 }
 
-#app {
-	position: relative;
-
-	padding: 10px;
-	padding-bottom: 30px;
+.text-page {
+	font-size: 1.6em;
 }
 
 /*** Footer ***/
@@ -75,8 +71,3 @@ footer {
 }
 
 /*** Footer ***/
-
-.info {
-	font-size: 1.6em;
-	margin-left: 1em;
-}

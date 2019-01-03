@@ -1,5 +1,15 @@
 # Mail Helper
 
+## [1.3.0] - 2019-01-03
+### Added
+Web project has a simple intro page. Intro page contains explanations about pros and cons.
+### Changed
+`GmailForm` uses `slot` technque to hold elements
+### Added
+`GmailForm` could be used on Safari
+### Change
+Home page has a better style
+
 ## [1.2.0] - 2019-01-02
 ### Added
 `web` project has two additional configurations:

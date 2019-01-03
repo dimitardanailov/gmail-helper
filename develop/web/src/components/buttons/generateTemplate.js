@@ -5,19 +5,30 @@ function generateTemplate(buttonText) {
 		<style>
 			:host {
 				position: relative;
-				cursor: pointer;
 
 				display: flex;
-				padding: .5em;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+			}
+
+			span {
+				position: relative;
+				cursor: pointer;
+
+				padding: 1em;
 
 				background: #000;
 				color: #fff;
-				font-size: 1.3em;
+				font-size: 1.4em;
 
-				border-radius: 5px;
+				border-radius: 12.5%;
+
+				border: .1em solid #fff;
 			}
 
-			:host:hover {
+			span:hover {
 				background: #fff;
 				color: #000;
 				border: .1em solid #000;

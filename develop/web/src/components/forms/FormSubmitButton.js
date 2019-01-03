@@ -4,21 +4,45 @@ template.innerHTML = `
 	<style>
 		:host {
 			position: relative;
-		}
 
-		input {
-			position: relative;
-			
+			margin-top: 1em;
+
 			display: flex;
-			padding: .6em;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
 		}
 
-		input[:disabled] {
+		::slotted(input) {
+			position: relative;
+			cursor: pointer;
+
+			padding: 1em;
+
+			background: #000;
+			color: #fff;
+			font-size: 1.3em;
+
+			border-radius: .5em;
+
+			border: .1em solid #fff;
+		}
+
+		::slotted(input:hover) {
+			background: #fff;
+			color: #000;
+			border: .1em solid #000;
+		}
+
+		::slotted(input[:disabled]) {
 			opacity: .3;
 		}
 	</style>	
 
-	<slot></slot>
+	<slot>
+		<input type="submit" role="button" value="Submit" />
+	</slot>
 `
 
 export class FormSubmitButton extends HTMLElement {
@@ -55,10 +79,8 @@ export class FormSubmitButton extends HTMLElement {
 	}
 
 	createSubmitButton() {
-		this.button = document.createElement('input')
-		this.button.setAttribute('type', 'submit')
+		this.button = this.shadowRoot.querySelectorAll('input')[0]
 		this.button.value = this._textValues.defaultState || 'Submit'
-		this.button.setAttribute('role', 'button')
 
 		this.appendChild(this.button)
 	}

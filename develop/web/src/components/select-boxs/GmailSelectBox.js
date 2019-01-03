@@ -6,14 +6,16 @@ template.innerHTML = `
 			position: relative;
 		}
 
-		input {
+		::slotted(select) {
 			position: relative;
 			
 			display: flex;
+			font-size: 1.4em;
 		}
 	</style>	
 
-	<slot></slot>
+	<slot>
+	</slot>
 `
 
 export class GmailSelectBox extends HTMLElement {

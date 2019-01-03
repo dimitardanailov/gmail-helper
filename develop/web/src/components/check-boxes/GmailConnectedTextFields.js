@@ -1,3 +1,20 @@
+const template = document.createElement('template')
+
+template.innerHTML = `
+	<style>
+		:host {
+			position: relative;
+			
+			display: flex;
+			font-size: 1.4em;
+			margin: .5em 0;
+		}
+
+	</style>
+
+	<slot></slot>
+`
+
 /**
  * If checkbox is checked -> escortTextField should be ignored
  * If checkbox isn't checked -> escortTextField has an independ value
@@ -32,12 +49,17 @@ export class GmailConnectedTextFields extends HTMLElement {
 	
 	constructor() {
 		super()
+
+		// Attach a shadow root to the element.
+		this.attachShadow({mode: 'open'})
+		this.shadowRoot.appendChild(template.content.cloneNode(true))
 	}	
 
 	connectedCallback() {
 		this.checkbox = document.createElement('input')
 		this.checkbox.setAttribute('type', 'checkbox')
-		this.checkbox.onchange = e => this.updateTextFieldsStyle(e.target.checked)
+		this.checkbox.onchange = 
+			e => this.updateTextFieldsStyle(e.target.checked)
 
 		this.label = document.createElement('label')
 		this.label.appendChild(document.createTextNode(this._labelTextNode))
