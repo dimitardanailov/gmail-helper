@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.3.3] - 2019-01-04
+### Changed
+`GmailLabelBackgroundGroup` and `GmailLabelColorGroup` extend AbstractRadioGroup.
+
 ## [1.3.2] - 2019-01-04
 ### Changed
 `GmailForm` uses slot structure to wrap all children. `GmailLabelColorHolder` and sub elements has styles improvements.

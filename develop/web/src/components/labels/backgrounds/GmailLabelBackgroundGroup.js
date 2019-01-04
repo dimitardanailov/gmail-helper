@@ -1,4 +1,6 @@
 import { GmailLabelBackgroundColor } from './GmailLabelBackgroundColor'
+import { AbstractRadioGroup } from '../../radio-buttons/AbstractRadioGroup'
+
 import { Label } from '../../../models/Label'
 
 import store from '../../../redux/store'
@@ -44,7 +46,7 @@ template.innerHTML = `
 	</div>
 `
 
-export class GmailLabelBackgroundGroup extends HTMLElement {
+export class GmailLabelBackgroundGroup extends AbstractRadioGroup {
 	constructor() {
 		super()
 
@@ -67,55 +69,6 @@ export class GmailLabelBackgroundGroup extends HTMLElement {
 	}
 
 	/**
-	 * If the `RadioGroup` is removed from the DOM, clean up any event
-	 * listeners.
-	 */
-	disconnectedCallback() {
-		this.removeEventListener('click', this._onClick)
-	}
-
-	/**
-	 * Only one `GmailLabelBackgroundColor` should be checked at any time. 
-	 * To ensure this, loop through all `GmailLabelBackgroundColor` children and set them to
-	 * `aria-checked=false` and `tabindex=-1`.
-	 */
-	_uncheckAll() {
-		const radioButtons = this.querySelectorAll('[role="radio"]')
-
-		for (let i = 0; i < radioButtons.length; i++) {
-			let button = radioButtons[i]
-			button.setAttribute('aria-checked', 'false')
-			button.tabIndex = -1
-		}
-	}
-
-	/**
-	 * If the user clicks inside of the `GmailLabelBackgroundColor`, verify that the
-	 * clicked element has a `role` of `radio`, and if so, make it the new
-	 * checked button.
-	 */
-	_onClick(e) {
-		e.preventDefault()
-
-		if (e.target.getAttribute('role') === 'radio') {
-			this._setChecked(e.target)
-		}
-	}
-
-	/**
-	 * Any user action (a keypress or mouse click) eventually funnels down to
-	 * this method which ensures that only the passed in element is checked.
-	 * Uncheck _all_ `GmailLabelBackgroundGroup` children. Then set the
-	 * `GmailLabelBackgroundColor` that was passed in to `aria-checked=true`. Also make
-	 * it focusable with `tabIndex=0` and call its `focus()` method.
-	 */
-	_setChecked(node) {
-		this._uncheckAll()
-		this._checkNode(node)
-		this._focusNode(node)
-	}
-
-	/**
 	 * Mark the passed in node as being checked by setting `aria-checked=true`,
 	 * and make it focusable by setting `tabindex=0`.
 	 */
@@ -124,13 +77,6 @@ export class GmailLabelBackgroundGroup extends HTMLElement {
 		node.tabIndex = 0
 
 		store.dispatch(setLabelBackgroundColor(node.bgColor))
-	}
-
-	/**
-	 * Call `focus()` on the passed in node to direct keyboard focus to it.
-	 */
-	_focusNode(node) {
-		node.focus()
 	}
 }
 
