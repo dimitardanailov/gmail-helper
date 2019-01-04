@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.3.1] - 2019-01-04
+###
+Meta view port fixs visual issues with mobile resolutions 
+
 ## [1.3.0] - 2019-01-03
 ### Added
 Web project has a simple intro page. Intro page contains explanations about pros and cons.
