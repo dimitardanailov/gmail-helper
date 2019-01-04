@@ -62,10 +62,11 @@ export class GmailLabelBackgroundGroup extends AbstractRadioGroup {
 		backgroundColors.forEach(bgColor => {
 			this.appendChild(new GmailLabelBackgroundColor(bgColor))
 		})
-
-		this._uncheckAll()
+		
+		this.querySelector('[role="radio"]').setAttribute('tabindex', 0)
 
 		this.onclick = e => this._onClick(e)
+		this.addEventListener('keydown', e => this._onKeyDown(e))
 	}
 
 	/**

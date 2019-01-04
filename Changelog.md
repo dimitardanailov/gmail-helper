@@ -1,5 +1,8 @@
 # Mail Helper
 
+## [1.3.4] - 2019-01-04
+`AbstractRadioGroup` supports navigation with keyboard.
+
 ## [1.3.3] - 2019-01-04
 ### Changed
 `GmailLabelBackgroundGroup` and `GmailLabelColorGroup` extend AbstractRadioGroup.
