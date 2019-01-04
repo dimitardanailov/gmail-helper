@@ -1,7 +1,11 @@
 # Mail Helper
 
+## [1.3.2] - 2019-01-04
+### Changed
+`GmailForm` uses slot structure to wrap all children. `GmailLabelColorHolder` and sub elements has styles improvements.
+
 ## [1.3.1] - 2019-01-04
-###
+### Added
 Meta view port fixs visual issues with mobile resolutions 
 
 ## [1.3.0] - 2019-01-03

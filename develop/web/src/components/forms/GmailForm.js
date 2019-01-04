@@ -29,13 +29,21 @@ template.innerHTML = `
 			flex-direction: column;
 			justify-content: flex-start;
 			align-items: center;
-			margin: 1em;
+		}
 
-			border: 1px solid red;
+		::slotted(*) {
+			 margin: .3em 0;
+		}
+
+		::slotted(gmail-label-text-box),
+		::slotted(gmail-filter-text-box) {
+			width: 100%;
 		}
 	</style>
 
-	<slot></slot>
+	<form>
+		<slot></slot>
+	</form>
 `
 
 export class GmailForm extends HTMLElement {
@@ -50,35 +58,31 @@ export class GmailForm extends HTMLElement {
 	}
 
 	connectedCallback() {
-		this.createFormElement()
+		if (!this.hasAttribute('role')) 
+			this.setAttribute('role', 'form')
 
 		this.textFields.labelName = new GmailLabelTextBox()
-		this.form.appendChild(this.textFields.labelName)
+		this.appendChild(this.textFields.labelName)
 
 		this.textFields.filterName = new GmailFilterTextBox()
-		this.form.appendChild(this.textFields.filterName)
+		this.appendChild(this.textFields.filterName)
 
 		this.appendConnectedTextFieldElement()
 
 		this.selectBoxListVisibility = new GmailSelectBox(Label.listVisibilityOptions())
-		this.form.appendChild(this.selectBoxListVisibility)
+		this.appendChild(this.selectBoxListVisibility)
 
 		this.labelColorHolder = new GmailLabelColorHolder()
-		this.form.appendChild(this.labelColorHolder)
+		this.appendChild(this.labelColorHolder)
 
-		this.submit = new FormSubmitButton()
-		this.submit.textValues = {
+		this.submitButton = new FormSubmitButton()
+		this.submitButton.textValues = {
 			defaultState: 'Add or update gmail meta data',
 			activeState: 'Waiting ...'
 		}
-		this.form.appendChild(this.submit)
-	}
 
-	createFormElement() {
-		this.form = document.createElement('form')
-		this.appendChild(this.form)
-
-		this.addEventListener('submit', this.handleSubmit)
+		this.appendChild(this.submitButton)
+		this.submitButton.addEventListener('click', e => this.handleSubmit(e))
 	}
 
 	appendConnectedTextFieldElement() {
@@ -87,7 +91,7 @@ export class GmailForm extends HTMLElement {
 		this.connectedTextFields.primaryTextField = this.textFields.labelName.textBox
 		this.connectedTextFields.escortTextField = this.textFields.filterName.textBox
 
-		this.form.appendChild(this.connectedTextFields)
+		this.appendChild(this.connectedTextFields)
 
 		this.connectedTextFields.setChecked(true)
 	}
@@ -111,13 +115,15 @@ export class GmailForm extends HTMLElement {
 		await this.updateGmailDatabase()
 
 		this.resetForm()
+
+		return false;
 	}
 
 	/**
 	 * Method creates or update an existing label
 	 */
 	async updateGmailDatabase() {
-		this.submit.disabled = true
+		this.submitButton.disabled = true
 
 		// Trim 
 		this.textFields.labelName.textBox.value.trim()
@@ -151,7 +157,7 @@ export class GmailForm extends HTMLElement {
 	}
 
 	resetForm() {
-		this.submit.disabled = false
+		this.submitButton.disabled = false
 		
 		// Text fields
 		this.textFields.labelName.textBox.value = ''

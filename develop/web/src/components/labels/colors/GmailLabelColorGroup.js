@@ -9,6 +9,8 @@ template.innerHTML = `
 	<style>
 		:host {
 			position: relative;
+
+			display: block;
 		}
 
 		span {
@@ -27,13 +29,13 @@ template.innerHTML = `
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
-			justify-content: flex-start;
+			justify-content: center;
 			align-items: center;
 		}
 	</style>
 
 	<span>
-		Colors:
+		Choose a label text color:
 	</span>
 
 	<div>

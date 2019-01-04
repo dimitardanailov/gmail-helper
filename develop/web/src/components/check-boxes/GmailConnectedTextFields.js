@@ -7,7 +7,6 @@ template.innerHTML = `
 			
 			display: flex;
 			font-size: 1.4em;
-			margin: .5em 0;
 		}
 
 	</style>

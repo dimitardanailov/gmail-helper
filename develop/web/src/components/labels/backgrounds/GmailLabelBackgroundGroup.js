@@ -10,13 +10,15 @@ template.innerHTML = `
 	<style>
 		:host {
 			position: relative;
+
+			display: block;
 		}
 
 		span {
 			position: relative;
 
 			display: block;
-			margin-bottom: 5px;
+			margin-bottom: .3em;
 
 			text-align: center;
 			font-size: 1.6em;
@@ -28,13 +30,13 @@ template.innerHTML = `
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
-			justify-content: flex-start;
+			justify-content: center;
 			align-items: center;
 		}
 	</style>
 
 	<span>
-		Background colors:
+		Choose a background color:
 	</span>
 
 	<div>

@@ -19,6 +19,22 @@ template.innerHTML = `
 			position: relative;
 
 			display: block;
+
+			padding: 1em 0;
+
+			border: 1px #999 dashed;	
+			border-radius: 6px;
+		}
+
+		#title {
+			position relative;
+
+			display: block;
+			margin-bottom: 1em;
+
+			font-size: 1.8em;
+			font-weight: bold;
+			text-align: center;
 		}
 
 		#preview {
@@ -32,7 +48,7 @@ template.innerHTML = `
 		#preview-text {
 			position: relative;
 
-			display: inline-block;
+			display: flex;
 			padding: 16px;
 
 			font-size: 1.6em;
@@ -43,11 +59,33 @@ template.innerHTML = `
 
 			border-radius: 5px;
 		}
+
+		#color-wrapper {
+			
+		}
+
+		::slotted(gmail-label-color-group) {
+			margin: 1em;
+		}
+
+		::slotted(gmail-label-background-group) {
+			margin: .5em 2em;
+		}
+
+		@media only screen and (max-width: 600px) {
+			::slotted(gmail-label-background-group) {
+				margin: .5em 1em;
+			}
+		}
 	</style>
 
-	<div id="preview">
-		<span id="preview-text">Label</span>
-	</div>
+	<span id="title">
+		Label background and text color
+	</span>
+
+	<section id="preview">
+		<span id="preview-text">Preview</span>
+	</section>
 
 	<slot></slot>
 `
