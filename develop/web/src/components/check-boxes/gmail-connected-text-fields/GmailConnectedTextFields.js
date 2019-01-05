@@ -1,3 +1,5 @@
+import { GmailConnectedCheckbox } from './GmailConnectedCheckbox'
+
 const template = document.createElement('template')
 
 template.innerHTML = `
@@ -64,10 +66,12 @@ export class GmailConnectedTextFields extends HTMLElement {
 		this.label.appendChild(document.createTextNode(this._labelTextNode))
 		this.label.appendChild(this.checkbox)
 
-		this.wrapper = document.createElement('section')
-		this.wrapper.appendChild(this.label)
+		const checkbox = new GmailConnectedCheckbox()
+		this.appendChild(checkbox)
 
-		this.appendChild(this.wrapper)
+		console.log(checkbox)
+
+		this.appendChild(this.label)
 	}
 
 	updateTextFieldsStyle(isChecked) {

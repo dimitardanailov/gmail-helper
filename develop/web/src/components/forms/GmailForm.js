@@ -1,11 +1,15 @@
 import { GmailLabelTextBox } from '../text-fields/GmailLabelTextBox'
 import { GmailFilterTextBox } from '../text-fields/GmailFilterTextBox'
-import { GmailConnectedTextFields } from '../check-boxes/GmailConnectedTextFields'
+import { 
+	GmailConnectedTextFields 
+} from '../check-boxes/gmail-connected-text-fields/GmailConnectedTextFields'
 import { GmailSelectBox } from '../select-boxs/GmailSelectBox'
 import { GmailLabelColorHolder } from '../labels/GmailLabelColorHolder'
 import { FormSubmitButton } from './FormSubmitButton'
+
 import { createLabel } from '../../gmail/labels'
 import { createFilter } from '../../gmail/filters'
+
 import { Label } from '../../models/Label'
 
 import store from '../../redux/store'
