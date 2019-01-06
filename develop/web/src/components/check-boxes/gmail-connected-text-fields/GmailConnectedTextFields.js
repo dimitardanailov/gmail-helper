@@ -45,7 +45,7 @@ export class GmailConnectedTextFields extends HTMLElement {
 
 	setChecked(isChecked) {
 		this.checkbox.checked = isChecked
-		this.updateTextFieldsStyle(isChecked)
+		this._toggleChecked(isChecked)
 	}
 	
 	constructor() {
@@ -57,24 +57,39 @@ export class GmailConnectedTextFields extends HTMLElement {
 	}	
 
 	connectedCallback() {
+		/*
 		this.checkbox = document.createElement('input')
 		this.checkbox.setAttribute('type', 'checkbox')
 		this.checkbox.onchange = 
 			e => this.updateTextFieldsStyle(e.target.checked)
+		*/
+
+		this.checkbox = new GmailConnectedCheckbox()
+		// this.appendChild(checkbox)
+		this.checkbox.onclick = 
+			e => this._toggleChecked(e.target.checked)
 
 		this.label = document.createElement('label')
 		this.label.appendChild(document.createTextNode(this._labelTextNode))
 		this.label.appendChild(this.checkbox)
 
-		const checkbox = new GmailConnectedCheckbox()
-		this.appendChild(checkbox)
-
-		console.log(checkbox)
-
 		this.appendChild(this.label)
 	}
 
-	updateTextFieldsStyle(isChecked) {
+	/**
+	 * `_toggleChecked()` calls the `checked` setter and flips its state.
+	 */
+	_toggleChecked(isChecked) {
+		if (this.checkbox.disabled) return
+
+		this.checkbox.checked = !isChecked
+
+		this._updateTextFieldsStyle(this.checkbox.checked)
+	}
+
+	_updateTextFieldsStyle(isChecked) {
+		console.log(isChecked)
+
 		if (isChecked) {
 			this._escortTextField.style.display = 'none'
 		} else {

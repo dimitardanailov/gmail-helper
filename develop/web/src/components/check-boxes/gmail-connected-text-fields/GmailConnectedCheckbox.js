@@ -8,12 +8,30 @@ template.innerHTML = `
 			position: relative;
 
 			display: block;
-			width: 24px;
-			height: 24px;
+			width: 16px;
+			height: 16px;
+			padding: .2em;
 
-			background-color: red;
+			border: 2px solid green;
+			border-radius: .2em;
 
 			cursor: pointer;
+		}
+
+		:host([hidden]) {
+			display: none;
+		}
+
+		:host([checked]) {
+			background-color: red;
+		}
+
+		:host([disabled]) {
+			background-color: #ccc;
+		}
+
+		:host([checked][disabled]) {
+			background-color: yellow;
 		}
 	</style>
 `
@@ -30,20 +48,6 @@ export class GmailConnectedCheckbox extends AbstractCheckBox {
 
 	connectedCallback() {
 		this.loadDefaultConfigurations()
-
-		this.onclick = 
-			e => this._toggleChecked(e.target.checked)
-	}
-
-	/**
-	 * `_toggleChecked()` calls the `checked` setter and flips its state.
-	 */
-	_toggleChecked(isChecked) {
-		if (this.disabled) return
-
-		this.checked = !isChecked
-
-		console.log(isChecked)
 	}
 }
 
