@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.3.7] - 2019-01-07
+### Changed
+`MailHelperInfo` components has a better explanation - Why Mail Helper could helpful.
+
 ## [1.3.6] - 2019-01-07
 ### Fixed
 `GmailFilterTextBox` should have at least one character if `GmailConnectedCheckbox` is unchecked.
