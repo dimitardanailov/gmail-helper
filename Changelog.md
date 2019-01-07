@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.3.6] - 2019-01-07
+### Fixed
+`GmailFilterTextBox` should have at least one character if `GmailConnectedCheckbox` is unchecked.
+
 ## [1.3.5] - 2019-01-07
 ### Added
 `AbstractCheckBox` is a simple native component which provides the basic checkbox functions.

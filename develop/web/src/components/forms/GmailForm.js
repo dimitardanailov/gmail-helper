@@ -113,10 +113,11 @@ export class GmailForm extends HTMLElement {
 
 		if (this.connectedTextFields.checkBox.checked) {
 			this.textFields.filterName.textBox.value = this.textFields.labelName.textBox.value
+		}
 
-			if (this.textFields.filterName.textBox.value.length === 0) {
-				alert('Filter name should have at least one character ...')
-			}
+		if (this.textFields.filterName.textBox.value.length === 0) {
+			alert('Filter name should have at least one character ...')
+			return
 		}
 
 		await this.updateGmailDatabase()
@@ -171,7 +172,7 @@ export class GmailForm extends HTMLElement {
 		this.textFields.filterName.textBox.value = ''
 		
 		this.selectBoxListVisibility.selectBox.removeAttribute('selected')
-		this.connectedTextFields.setChecked(true)
+		this.connectedTextFields.checked = true
 
 		this.labelColorHolder.setDefaultColorStyles()
 	}
