@@ -7,12 +7,12 @@ template.innerHTML = `
 		:host {
 			position: relative;
 
-			display: block;
-			width: 16px;
-			height: 16px;
+			display: inline-block;
+			width: 18px;
+			height: 18px;
 			padding: .2em;
 
-			border: 2px solid green;
+			border: 3px solid #efefef;
 			border-radius: .2em;
 
 			cursor: pointer;
@@ -23,7 +23,8 @@ template.innerHTML = `
 		}
 
 		:host([checked]) {
-			background-color: red;
+			border: 3px solid #999999;
+			background-color: #999999;
 		}
 
 		:host([disabled]) {
@@ -36,7 +37,27 @@ template.innerHTML = `
 	</style>
 `
 
+/**
+ * `GmailConnectedCheckbox` is a simple a web component to toggle elements
+ * 
+ * If checkbox is `checked` -> `escortTextField` should be hidden
+ * If checkbox isn't checked -> `escortTextField` is visible
+ */
 export class GmailConnectedCheckbox extends AbstractCheckBox {
+
+	/**
+	 * @param {HTMLElement} textField 
+	 */
+	set primaryTextField(textField) {
+		this._primaryTextField = textField
+	}
+
+	/**
+	 * @param {HTMLElement} textField 
+	 */
+	set escortTextField(textField) {
+		this._escortTextField = textField
+	}
 
 	constructor() {
 		super()
@@ -48,6 +69,27 @@ export class GmailConnectedCheckbox extends AbstractCheckBox {
 
 	connectedCallback() {
 		this.loadDefaultConfigurations()
+
+		this.onclick = e => this._toggleChecked(e.target.checked)
+		this.addEventListener('keyup', this._onKeyUp)
+	}
+
+	/**
+	 * `_toggleChecked()` calls the `checked` setter and flips its state.
+	 */
+	_toggleChecked(isChecked) {
+		if (this.disabled) return
+
+		this.checked = !isChecked
+		this._updateTextFieldsStyle()
+	}
+
+	_updateTextFieldsStyle() {
+		if (this.checked) {
+			this._escortTextField.style.display = 'none'
+		} else {
+			this._escortTextField.style.display = 'block'
+		}
 	}
 }
 

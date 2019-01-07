@@ -92,23 +92,26 @@ export class GmailForm extends HTMLElement {
 	appendConnectedTextFieldElement() {
 		this.connectedTextFields = new GmailConnectedTextFields()
 		this.connectedTextFields.labelTextNode = 'Label and filter have the same names'
-		this.connectedTextFields.primaryTextField = this.textFields.labelName.textBox
-		this.connectedTextFields.escortTextField = this.textFields.filterName.textBox
-
 		this.appendChild(this.connectedTextFields)
 
-		this.connectedTextFields.setChecked(true)
+		// Add a "connection link" between text inputs
+		this.connectedTextFields.checkBox.primaryTextField = 
+			this.textFields.labelName.textBox
+		this.connectedTextFields.checkBox.escortTextField = 
+			this.textFields.filterName.textBox
+
+		this.connectedTextFields.checked = true
 	}
 
 	async handleSubmit(e) {
 		e.preventDefault()
-		
+
 		if (this.textFields.labelName.textBox.value.length === 0) {
 			alert('Label name should have at least one character ...')
 			return
 		}
 
-		if (this.connectedTextFields.checkbox.checked) {
+		if (this.connectedTextFields.checkBox.checked) {
 			this.textFields.filterName.textBox.value = this.textFields.labelName.textBox.value
 
 			if (this.textFields.filterName.textBox.value.length === 0) {

@@ -1,6 +1,13 @@
 # Mail Helper
 
+## [1.3.5] - 2019-01-07
+### Added
+`AbstractCheckBox` is a simple native component which provides the basic checkbox functions.
+### Changed
+`GmailConnectedTextFields` has a custom checkbox component: `GmailConnectedCheckbox`.
+
 ## [1.3.4] - 2019-01-04
+### Added
 `AbstractRadioGroup` supports navigation with keyboard.
 
 ## [1.3.3] - 2019-01-04

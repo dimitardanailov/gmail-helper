@@ -104,4 +104,19 @@ export class AbstractCheckBox extends HTMLElement {
 				break
 		}
 	}
+
+	_onKeyUp(e) {
+		// Don’t handle modifier shortcuts typically used by assistive technology.
+		if (e.altKey) return
+
+		switch (e.keyCode) {
+			case KEYCODE.SPACE:
+				e.preventDefault()
+				this._toggleChecked(this.checked)
+				break;
+			// Any other key press is ignored and passed back to the browser.
+			default:
+				return;
+		}
+	}
 }

@@ -8,7 +8,18 @@ template.innerHTML = `
 			position: relative;
 			
 			display: flex;
-			font-size: 1.4em;
+			flex-direction: row;
+			justify-content: flex-start;
+			align-items: center;
+			width: 100%;
+		}
+
+		::slotted(label) {
+			font-size: 1.6em;
+		}
+
+		::slotted(gmail-connected-checkbox) {
+			margin-left: .4em;
 		}
 
 	</style>
@@ -16,24 +27,10 @@ template.innerHTML = `
 	<slot></slot>
 `
 
-/**
- * If checkbox is checked -> escortTextField should be ignored
- * If checkbox isn't checked -> escortTextField has an independ value
- */
 export class GmailConnectedTextFields extends HTMLElement {
 
-	/**
-	 * @param {HTMLInputElement} textField 
-	 */
-	set primaryTextField(textField) {
-		this._primaryTextField = textField
-	}
-
-	/**
-	 * @param {HTMLInputElement} textField 
-	 */
-	set escortTextField(textField) {
-		this._escortTextField = textField
+	get checkBox() {
+		return this._checkbox
 	}
 
 	/**
@@ -43,9 +40,9 @@ export class GmailConnectedTextFields extends HTMLElement {
 		this._labelTextNode = textNode
 	}
 
-	setChecked(isChecked) {
-		this.checkbox.checked = isChecked
-		this._toggleChecked(isChecked)
+	set checked(isChecked) {
+		this._checkbox.checked = isChecked
+		this._checkbox._updateTextFieldsStyle(isChecked)
 	}
 	
 	constructor() {
@@ -57,44 +54,21 @@ export class GmailConnectedTextFields extends HTMLElement {
 	}	
 
 	connectedCallback() {
-		/*
-		this.checkbox = document.createElement('input')
-		this.checkbox.setAttribute('type', 'checkbox')
-		this.checkbox.onchange = 
-			e => this.updateTextFieldsStyle(e.target.checked)
-		*/
+		this._label = document.createElement('label')
+		this._label.appendChild(document.createTextNode(this._labelTextNode))
+		this.appendChild(this._label)
 
-		this.checkbox = new GmailConnectedCheckbox()
-		// this.appendChild(checkbox)
-		this.checkbox.onclick = 
-			e => this._toggleChecked(e.target.checked)
+		this._checkbox = new GmailConnectedCheckbox()
+		this.appendChild(this._checkbox)
 
-		this.label = document.createElement('label')
-		this.label.appendChild(document.createTextNode(this._labelTextNode))
-		this.label.appendChild(this.checkbox)
-
-		this.appendChild(this.label)
-	}
-
-	/**
-	 * `_toggleChecked()` calls the `checked` setter and flips its state.
-	 */
-	_toggleChecked(isChecked) {
-		if (this.checkbox.disabled) return
-
-		this.checkbox.checked = !isChecked
-
-		this._updateTextFieldsStyle(this.checkbox.checked)
-	}
-
-	_updateTextFieldsStyle(isChecked) {
-		console.log(isChecked)
-
-		if (isChecked) {
-			this._escortTextField.style.display = 'none'
-		} else {
-			this._escortTextField.style.display = 'block'
+		this._label.onclick = e => {
+			e.preventDefault()
+			this._checkbox._toggleChecked(this._checkbox.checked)
 		}
+	}
+
+	disconnectedCallback() {
+		this._label.removeEventListener('click')
 	}
 }
 
