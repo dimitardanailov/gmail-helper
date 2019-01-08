@@ -57,6 +57,10 @@ lerna run build
 http-server ./develop/web/dist
 ```
 
+### Github repos: 
+
+- [Google - How to web components](https://github.com/GoogleChromeLabs/howto-components)
+
 ### Resources / Hot links: 
 
 - [Gmail API Overview](https://developers.google.com/gmail/api/guides/)
@@ -69,7 +73,3 @@ http-server ./develop/web/dist
 - [Browser Quickstart](https://developers.google.com/gmail/api/quickstart/js)
 - [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements)
 - [Let's Build Web Components! Part 5: LitElement](https://dev.to/bennypowers/lets-build-web-components-part-5-litelement-906)
-
-### Github repos
-
-- [Google - How to web components](https://github.com/GoogleChromeLabs/howto-components)
