@@ -58,7 +58,7 @@ template.innerHTML = `
 	</p>
 
 	<p>
-		The cost of creating<span class="special-info">ONLY</span> one filter and label is between three and ten minutes
+		The cost of creating <span class="special-info">ONLY</span> one filter and label is between three and ten minutes
 	</p>
 	<p>
 		<span class="color-warning">I didn't want to pay this high price !!!<span>
@@ -67,12 +67,12 @@ template.innerHTML = `
 	<h2>Each story began with "baby" step</h2>
 
 	<p>
-		End of 2018 I've deviced to create a simple web page which is able to covers my basic requirements: 
+		End of 2018 I've decided to create a simple web page which is able to covers my basic requirements: 
 	</p>
 
 	<ul>
 		<li>
-			Creating label and filter to requires <span class="special-info">Minumum</span> steps
+			Creating label and filter to requires <span class="special-info">Minimum</span> steps
 		</li>
 		<li>
 			Reduce my unread letters
@@ -95,7 +95,7 @@ template.innerHTML = `
 			I did a discovery: Gmail Label could contains emoji !!!  
 		</li>
 		<li>
-			I'm able to choise label background and text color much easier
+			I'm able to choose label background and text color much easier
 		</li>
 	</ul>
 
