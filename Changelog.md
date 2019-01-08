@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.3.8] - 2019-01-08
+### Added
+eslint and editorconfig will cover indent rules, variable scrope and usage.
+
 ## [1.3.7] - 2019-01-07
 ### Changed
 `MailHelperInfo` components has a better explanation - Why Mail Helper could helpful.
