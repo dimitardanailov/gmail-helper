@@ -7,8 +7,8 @@ import store from '../../redux/store'
 import { setLabelBackgroundColor, setLabelColor } from '../../redux/actions'
 
 const unsubscribe = {
-	bgColor: null,
-	color: null
+  bgColor: null,
+  color: null
 }
 
 const template = document.createElement('template')
@@ -91,55 +91,55 @@ template.innerHTML = `
 `
 
 export class GmailLabelColorHolder extends HTMLElement {
-	constructor() {
-		super()
+  constructor() {
+    super()
 
-		// Attach a shadow root to the element.
-		this.attachShadow({mode: 'open'})
-		this.shadowRoot.appendChild(template.content.cloneNode(true))
-	}
+    // Attach a shadow root to the element.
+    this.attachShadow({mode: 'open'})
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
+  }
 
-	connectedCallback() {
-		this.addBackgroundColors()
-		this.addTextColors()
+  connectedCallback() {
+    this.addBackgroundColors()
+    this.addTextColors()
 
-		this.setDefaultColorStyles()
-	}
+    this.setDefaultColorStyles()
+  }
 
-	disconnectedCallback() {
-		if (unsubscribe.bgColor) {
-			unsubscribe.bgColor()
-		}
+  disconnectedCallback() {
+    if (unsubscribe.bgColor) {
+      unsubscribe.bgColor()
+    }
 
-		if (unsubscribe.color) {
-			unsubscribe.color()
-		}
-	}
+    if (unsubscribe.color) {
+      unsubscribe.color()
+    }
+  }
 
-	setDefaultColorStyles() {
-		store.dispatch(setLabelBackgroundColor(defaultColorSettings.backgroundColor))
-		store.dispatch(setLabelColor(defaultColorSettings.textColor))
-	}
+  setDefaultColorStyles() {
+    store.dispatch(setLabelBackgroundColor(defaultColorSettings.backgroundColor))
+    store.dispatch(setLabelColor(defaultColorSettings.textColor))
+  }
 
-	addBackgroundColors() {
-		const group = new GmailLabelBackgroundGroup()
-		this.appendChild(group)
+  addBackgroundColors() {
+    const group = new GmailLabelBackgroundGroup()
+    this.appendChild(group)
 
-		unsubscribe.bgColor = store.subscribe(() => {
-			let bgColor = store.getState()['labelBackgroundColor']
-			if (bgColor !== null) this.style.setProperty('--label-bg-color', bgColor)
-		})
-	}
+    unsubscribe.bgColor = store.subscribe(() => {
+      let bgColor = store.getState()['labelBackgroundColor']
+      if (bgColor !== null) this.style.setProperty('--label-bg-color', bgColor)
+    })
+  }
 
-	addTextColors() {
-		const group = new GmailLabelColorGroup()
-		this.appendChild(group)
+  addTextColors() {
+    const group = new GmailLabelColorGroup()
+    this.appendChild(group)
 
-		unsubscribe.color = store.subscribe(() => {
-			let color = store.getState()['labelColor']
-			if (color !== null) this.style.setProperty('--label-color', color)
-		})
-	}
+    unsubscribe.color = store.subscribe(() => {
+      let color = store.getState()['labelColor']
+      if (color !== null) this.style.setProperty('--label-color', color)
+    })
+  }
 }
 
 customElements.define('gmail-label-color-holder', GmailLabelColorHolder)

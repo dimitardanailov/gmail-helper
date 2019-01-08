@@ -1,7 +1,7 @@
 import { GmailLabelTextBox } from '../text-fields/GmailLabelTextBox'
 import { GmailFilterTextBox } from '../text-fields/GmailFilterTextBox'
 import { 
-	GmailConnectedTextFields 
+  GmailConnectedTextFields 
 } from '../check-boxes/gmail-connected-text-fields/GmailConnectedTextFields'
 import { GmailSelectBox } from '../select-boxs/GmailSelectBox'
 import { GmailLabelColorHolder } from '../labels/GmailLabelColorHolder'
@@ -51,131 +51,131 @@ template.innerHTML = `
 `
 
 export class GmailForm extends HTMLElement {
-	constructor() {
-		super()
+  constructor() {
+    super()
 
-		// Attach a shadow root to the element.
-		this.attachShadow({mode: 'open'})
-		this.shadowRoot.appendChild(template.content.cloneNode(true))
+    // Attach a shadow root to the element.
+    this.attachShadow({mode: 'open'})
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
 		
-		this.textFields = {}
-	}
+    this.textFields = {}
+  }
 
-	connectedCallback() {
-		if (!this.hasAttribute('role')) 
-			this.setAttribute('role', 'form')
+  connectedCallback() {
+    if (!this.hasAttribute('role')) 
+      this.setAttribute('role', 'form')
 
-		this.textFields.labelName = new GmailLabelTextBox()
-		this.appendChild(this.textFields.labelName)
+    this.textFields.labelName = new GmailLabelTextBox()
+    this.appendChild(this.textFields.labelName)
 
-		this.textFields.filterName = new GmailFilterTextBox()
-		this.appendChild(this.textFields.filterName)
+    this.textFields.filterName = new GmailFilterTextBox()
+    this.appendChild(this.textFields.filterName)
 
-		this.appendConnectedTextFieldElement()
+    this.appendConnectedTextFieldElement()
 
-		this.selectBoxListVisibility = new GmailSelectBox(Label.listVisibilityOptions())
-		this.appendChild(this.selectBoxListVisibility)
+    this.selectBoxListVisibility = new GmailSelectBox(Label.listVisibilityOptions())
+    this.appendChild(this.selectBoxListVisibility)
 
-		this.labelColorHolder = new GmailLabelColorHolder()
-		this.appendChild(this.labelColorHolder)
+    this.labelColorHolder = new GmailLabelColorHolder()
+    this.appendChild(this.labelColorHolder)
 
-		this.submitButton = new FormSubmitButton()
-		this.submitButton.textValues = {
-			defaultState: 'Add or update gmail meta data',
-			activeState: 'Waiting ...'
-		}
+    this.submitButton = new FormSubmitButton()
+    this.submitButton.textValues = {
+      defaultState: 'Add or update gmail meta data',
+      activeState: 'Waiting ...'
+    }
 
-		this.appendChild(this.submitButton)
-		this.submitButton.addEventListener('click', e => this.handleSubmit(e))
-	}
+    this.appendChild(this.submitButton)
+    this.submitButton.addEventListener('click', e => this.handleSubmit(e))
+  }
 
-	appendConnectedTextFieldElement() {
-		this.connectedTextFields = new GmailConnectedTextFields()
-		this.connectedTextFields.labelTextNode = 'Label and filter have the same names'
-		this.appendChild(this.connectedTextFields)
+  appendConnectedTextFieldElement() {
+    this.connectedTextFields = new GmailConnectedTextFields()
+    this.connectedTextFields.labelTextNode = 'Label and filter have the same names'
+    this.appendChild(this.connectedTextFields)
 
-		// Add a "connection link" between text inputs
-		this.connectedTextFields.checkBox.primaryTextField = 
+    // Add a "connection link" between text inputs
+    this.connectedTextFields.checkBox.primaryTextField = 
 			this.textFields.labelName.textBox
-		this.connectedTextFields.checkBox.escortTextField = 
+    this.connectedTextFields.checkBox.escortTextField = 
 			this.textFields.filterName.textBox
 
-		this.connectedTextFields.checked = true
-	}
+    this.connectedTextFields.checked = true
+  }
 
-	async handleSubmit(e) {
-		e.preventDefault()
+  async handleSubmit(e) {
+    e.preventDefault()
 
-		if (this.textFields.labelName.textBox.value.length === 0) {
-			alert('Label name should have at least one character ...')
-			return
-		}
+    if (this.textFields.labelName.textBox.value.length === 0) {
+      alert('Label name should have at least one character ...')
+      return
+    }
 
-		if (this.connectedTextFields.checkBox.checked) {
-			this.textFields.filterName.textBox.value = this.textFields.labelName.textBox.value
-		}
+    if (this.connectedTextFields.checkBox.checked) {
+      this.textFields.filterName.textBox.value = this.textFields.labelName.textBox.value
+    }
 
-		if (this.textFields.filterName.textBox.value.length === 0) {
-			alert('Filter name should have at least one character ...')
-			return
-		}
+    if (this.textFields.filterName.textBox.value.length === 0) {
+      alert('Filter name should have at least one character ...')
+      return
+    }
 
-		await this.updateGmailDatabase()
+    await this.updateGmailDatabase()
 
-		this.resetForm()
+    this.resetForm()
 
-		return false;
-	}
+    return false
+  }
 
-	/**
+  /**
 	 * Method creates or update an existing label
 	 */
-	async updateGmailDatabase() {
-		this.submitButton.disabled = true
+  async updateGmailDatabase() {
+    this.submitButton.disabled = true
 
-		// Trim 
-		this.textFields.labelName.textBox.value.trim()
-		this.textFields.filterName.textBox.value.trim()
+    // Trim 
+    this.textFields.labelName.textBox.value.trim()
+    this.textFields.filterName.textBox.value.trim()
 
-		let label
-		label = Label.findLabelByQuery(
-			GMAIL_LABELS, 
-			this.textFields.labelName.textBox.value
-		)
+    let label
+    label = Label.findLabelByQuery(
+      GMAIL_LABELS, 
+      this.textFields.labelName.textBox.value
+    )
 
-		if (!label) label = await this.createGmailLabel()
+    if (!label) label = await this.createGmailLabel()
 
-		const filterName = this.textFields.filterName.textBox.value
-		await createFilter(filterName, label.id)
-	}
+    const filterName = this.textFields.filterName.textBox.value
+    await createFilter(filterName, label.id)
+  }
 
-	async createGmailLabel() {
-		const label = new Label()
-		label.name = this.textFields.labelName.textBox.value
-		label.labelListVisibility = this.selectBoxListVisibility.selectBox.value
-		label.backgroundColor = store.getState()['labelBackgroundColor']
-		label.textColor = store.getState()['labelColor']
+  async createGmailLabel() {
+    const label = new Label()
+    label.name = this.textFields.labelName.textBox.value
+    label.labelListVisibility = this.selectBoxListVisibility.selectBox.value
+    label.backgroundColor = store.getState()['labelBackgroundColor']
+    label.textColor = store.getState()['labelColor']
 
-		const labelResponse = await createLabel(label)
-		label.setResponseValues(labelResponse)
+    const labelResponse = await createLabel(label)
+    label.setResponseValues(labelResponse)
 
-		store.dispatch(addLabel(label))
+    store.dispatch(addLabel(label))
 
-		return label
-	}
+    return label
+  }
 
-	resetForm() {
-		this.submitButton.disabled = false
+  resetForm() {
+    this.submitButton.disabled = false
 		
-		// Text fields
-		this.textFields.labelName.textBox.value = ''
-		this.textFields.filterName.textBox.value = ''
+    // Text fields
+    this.textFields.labelName.textBox.value = ''
+    this.textFields.filterName.textBox.value = ''
 		
-		this.selectBoxListVisibility.selectBox.removeAttribute('selected')
-		this.connectedTextFields.checked = true
+    this.selectBoxListVisibility.selectBox.removeAttribute('selected')
+    this.connectedTextFields.checked = true
 
-		this.labelColorHolder.setDefaultColorStyles()
-	}
+    this.labelColorHolder.setDefaultColorStyles()
+  }
 }
 
 customElements.define('gmail-form', GmailForm)

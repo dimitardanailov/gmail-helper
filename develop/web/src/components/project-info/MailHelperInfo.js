@@ -151,13 +151,13 @@ template.innerHTML = `
 `
 
 export class MailHelperInfo extends HTMLElement {
-	constructor() {
-		super()
+  constructor() {
+    super()
 
-		// Attach a shadow root to the element.
-		this.attachShadow({mode: 'open'})
-		this.shadowRoot.appendChild(template.content.cloneNode(true))
-	}
+    // Attach a shadow root to the element.
+    this.attachShadow({mode: 'open'})
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
+  }
 }
 
 customElements.define('mail-helper-info', MailHelperInfo)

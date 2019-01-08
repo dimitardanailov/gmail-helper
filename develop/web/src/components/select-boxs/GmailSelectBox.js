@@ -20,32 +20,32 @@ template.innerHTML = `
 
 export class GmailSelectBox extends HTMLElement {
 
-	get selectBox() {
-		return this._selectBox
-	}
+  get selectBox() {
+    return this._selectBox
+  }
 
-	constructor(optionValues) {
-		super()
+  constructor(optionValues) {
+    super()
 
-		// Attach a shadow root to the element.
-		this.attachShadow({mode: 'open'})
-		this.shadowRoot.appendChild(template.content.cloneNode(true))
+    // Attach a shadow root to the element.
+    this.attachShadow({mode: 'open'})
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-		this.optionValues = optionValues
-	}
+    this.optionValues = optionValues
+  }
 
-	connectedCallback() {
-		this._selectBox = document.createElement('select')
-		this.appendChild(this._selectBox)
+  connectedCallback() {
+    this._selectBox = document.createElement('select')
+    this.appendChild(this._selectBox)
 
-		this.optionValues.forEach(option => {
-			let element = document.createElement('option')
-			element.text = option.textValue
-			element.setAttribute('value', option.key)
+    this.optionValues.forEach(option => {
+      let element = document.createElement('option')
+      element.text = option.textValue
+      element.setAttribute('value', option.key)
 
-			this._selectBox.appendChild(element)
-		})
-	}
+      this._selectBox.appendChild(element)
+    })
+  }
 }
 
 customElements.define('gmail-select-box', GmailSelectBox)

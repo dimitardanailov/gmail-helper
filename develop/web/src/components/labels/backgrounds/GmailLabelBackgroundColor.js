@@ -20,29 +20,29 @@ template.innerHTML = `
 
 export class GmailLabelBackgroundColor extends HTMLElement {
 
-	get bgColor() {
-		return this._bgColor
-	}
+  get bgColor() {
+    return this._bgColor
+  }
 
-	constructor(bgColor) {
-		super()
+  constructor(bgColor) {
+    super()
 
-		// Attach a shadow root to the element.
-		let shadowRoot = this.attachShadow({mode: 'open'})
-		shadowRoot.appendChild(template.content.cloneNode(true))
+    // Attach a shadow root to the element.
+    let shadowRoot = this.attachShadow({mode: 'open'})
+    shadowRoot.appendChild(template.content.cloneNode(true))
 
-		this._bgColor = bgColor
-	}
+    this._bgColor = bgColor
+  }
 
-	connectedCallback() {
-		if (!this.hasAttribute('role')) 
-			this.setAttribute('role', 'radio')
+  connectedCallback() {
+    if (!this.hasAttribute('role')) 
+      this.setAttribute('role', 'radio')
 		
-		if (!this.hasAttribute('tabindex'))
-			this.setAttribute('tabindex', -1)
+    if (!this.hasAttribute('tabindex'))
+      this.setAttribute('tabindex', -1)
 
-		this.style.setProperty('--bg-color', this._bgColor)
-	}
+    this.style.setProperty('--bg-color', this._bgColor)
+  }
 }
 
 customElements.define('gmail-label-background-color', GmailLabelBackgroundColor)

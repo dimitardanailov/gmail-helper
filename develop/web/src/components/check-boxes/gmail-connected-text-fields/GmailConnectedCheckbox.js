@@ -45,52 +45,52 @@ template.innerHTML = `
  */
 export class GmailConnectedCheckbox extends AbstractCheckBox {
 
-	/**
+  /**
 	 * @param {HTMLElement} textField 
 	 */
-	set primaryTextField(textField) {
-		this._primaryTextField = textField
-	}
+  set primaryTextField(textField) {
+    this._primaryTextField = textField
+  }
 
-	/**
+  /**
 	 * @param {HTMLElement} textField 
 	 */
-	set escortTextField(textField) {
-		this._escortTextField = textField
-	}
+  set escortTextField(textField) {
+    this._escortTextField = textField
+  }
 
-	constructor() {
-		super()
+  constructor() {
+    super()
 
-		// Attach a shadow root to the element.
-		this.attachShadow({mode: 'open'})
-		this.shadowRoot.appendChild(template.content.cloneNode(true))
-	}
+    // Attach a shadow root to the element.
+    this.attachShadow({mode: 'open'})
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
+  }
 
-	connectedCallback() {
-		this.loadDefaultConfigurations()
+  connectedCallback() {
+    this.loadDefaultConfigurations()
 
-		this.onclick = e => this._toggleChecked(e.target.checked)
-		this.addEventListener('keyup', this._onKeyUp)
-	}
+    this.onclick = e => this._toggleChecked(e.target.checked)
+    this.addEventListener('keyup', this._onKeyUp)
+  }
 
-	/**
+  /**
 	 * `_toggleChecked()` calls the `checked` setter and flips its state.
 	 */
-	_toggleChecked(isChecked) {
-		if (this.disabled) return
+  _toggleChecked(isChecked) {
+    if (this.disabled) return
 
-		this.checked = !isChecked
-		this._updateTextFieldsStyle()
-	}
+    this.checked = !isChecked
+    this._updateTextFieldsStyle()
+  }
 
-	_updateTextFieldsStyle() {
-		if (this.checked) {
-			this._escortTextField.style.display = 'none'
-		} else {
-			this._escortTextField.style.display = 'block'
-		}
-	}
+  _updateTextFieldsStyle() {
+    if (this.checked) {
+      this._escortTextField.style.display = 'none'
+    } else {
+      this._escortTextField.style.display = 'block'
+    }
+  }
 }
 
 customElements.define('gmail-connected-checkbox', GmailConnectedCheckbox)

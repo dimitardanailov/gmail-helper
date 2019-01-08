@@ -24,29 +24,29 @@ template.innerHTML = `
 `
 
 export class GmailLabelColor extends HTMLElement {
-	get color() {
-		return this._color
-	}
+  get color() {
+    return this._color
+  }
 
-	constructor(color) {
-		super()
+  constructor(color) {
+    super()
 
-		// Attach a shadow root to the element.
-		this.attachShadow({mode: 'open'})
-		this.shadowRoot.appendChild(template.content.cloneNode(true))
+    // Attach a shadow root to the element.
+    this.attachShadow({mode: 'open'})
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-		this._color = color
-	}
+    this._color = color
+  }
 
-	connectedCallback() {
-		if (!this.hasAttribute('role')) 
-			this.setAttribute('role', 'radio')
+  connectedCallback() {
+    if (!this.hasAttribute('role')) 
+      this.setAttribute('role', 'radio')
 		
-		if (!this.hasAttribute('tabindex'))
-			this.setAttribute('tabindex', -1)
+    if (!this.hasAttribute('tabindex'))
+      this.setAttribute('tabindex', -1)
 
-		this.style.setProperty('--color', this._color)
-	}
+    this.style.setProperty('--color', this._color)
+  }
 }
 
 customElements.define('gmail-label-color', GmailLabelColor)

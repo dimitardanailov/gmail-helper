@@ -1,13 +1,13 @@
 export async function listLabels() {
-	const promise = new Promise(resolve => {
-		gapi.client.gmail.users.labels.list({
-			userId: 'me'
-		}).then(response => {
-			resolve(response.result.labels)
-		})
-	})
+  const promise = new Promise(resolve => {
+    gapi.client.gmail.users.labels.list({
+      userId: 'me'
+    }).then(response => {
+      resolve(response.result.labels)
+    })
+  })
 
-	return promise
+  return promise
 }
 
 /**
@@ -25,23 +25,23 @@ export async function listLabels() {
  * @returns {Object} keys are: { id, labelListVisibility, messageListVisibility, name }
  */
 export async function createLabel(label) {
-	const promise = new Promise((resolve, reject) => {
-		gapi.client.gmail.users.labels.create({
-			userId: 'me',
-			resource: {
-				name: label.name,
-				labelListVisibility: label.labelListVisibility,
-				color: {
-					backgroundColor: label.backgroundColor,
-					textColor: label.textColor
-				}
-			}
-		}).then(response => {
-			resolve(response.result)
-		}).catch(error => {
-			reject(error)
-		})
-	})
+  const promise = new Promise((resolve, reject) => {
+    gapi.client.gmail.users.labels.create({
+      userId: 'me',
+      resource: {
+        name: label.name,
+        labelListVisibility: label.labelListVisibility,
+        color: {
+          backgroundColor: label.backgroundColor,
+          textColor: label.textColor
+        }
+      }
+    }).then(response => {
+      resolve(response.result)
+    }).catch(error => {
+      reject(error)
+    })
+  })
 
-	return promise
+  return promise
 }

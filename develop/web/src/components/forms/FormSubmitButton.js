@@ -47,43 +47,43 @@ template.innerHTML = `
 
 export class FormSubmitButton extends HTMLElement {
 
-	set textValues(value) {
-		this._textValues = value
-	}
+  set textValues(value) {
+    this._textValues = value
+  }
 	
-	constructor() {
-		super()
+  constructor() {
+    super()
 
-		// Attach a shadow root to the element.
-		this.attachShadow({mode: 'open'})
-		this.shadowRoot.appendChild(template.content.cloneNode(true))
+    // Attach a shadow root to the element.
+    this.attachShadow({mode: 'open'})
+    this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-		this.textValues = {
-			defaultState: 'Submit',
-			activeSate: 'Waiting ...'
-		}
-	}
-
-	set disabled(val) {
-    if (val) {
-			this.button.setAttribute('disabled', 'disabled')
-			this.button.value = this._textValues.activeState
-    } else {
-			this.button.removeAttribute('disabled')
-			this.button.value = this._textValues.defaultState
+    this.textValues = {
+      defaultState: 'Submit',
+      activeSate: 'Waiting ...'
     }
   }
 
-	connectedCallback() {		
-		this.createSubmitButton()
-	}
+  set disabled(val) {
+    if (val) {
+      this.button.setAttribute('disabled', 'disabled')
+      this.button.value = this._textValues.activeState
+    } else {
+      this.button.removeAttribute('disabled')
+      this.button.value = this._textValues.defaultState
+    }
+  }
 
-	createSubmitButton() {
-		this.button = this.shadowRoot.querySelectorAll('input')[0]
-		this.button.value = this._textValues.defaultState || 'Submit'
+  connectedCallback() {		
+    this.createSubmitButton()
+  }
 
-		this.appendChild(this.button)
-	}
+  createSubmitButton() {
+    this.button = this.shadowRoot.querySelectorAll('input')[0]
+    this.button.value = this._textValues.defaultState || 'Submit'
+
+    this.appendChild(this.button)
+  }
 }
 
 customElements.define('form-submit-button', FormSubmitButton)
