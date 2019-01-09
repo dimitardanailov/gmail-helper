@@ -10,7 +10,12 @@ module.exports = {
   resolve: {
     modules: ['node_modules'],
   },
+  
+  // https://github.com/webpack-contrib/karma-webpack
+  devtool: 'inline-source-map',
+
   plugins: [
+    
     // https://github.com/mrsteele/dotenv-webpack
     new Dotenv({
       // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
