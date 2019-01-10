@@ -1,4 +1,4 @@
-window.gmailComponents = {}
+window.testingHelper = {}
 
 /**
  * `waitForElement` waits for the browser to load the defination of the custom element
@@ -6,7 +6,7 @@ window.gmailComponents = {}
  * 
  * @returns a promise that resolves when the element has been defined.                                           
  */
-window.gmailComponents.waitForElement = function(elementName) {
+window.testingHelper.waitForElement = function(elementName) {
   return customElements.whenDefined(elementName)
 }
 
@@ -15,7 +15,7 @@ window.gmailComponents.waitForElement = function(elementName) {
  * to the DOM. The container can be used to inject markup for 
  * the custom element that is supposed to be tested.
  */
-window.gmailComponents.before = function() {
+window.testingHelper.before = function() {
   const container = document.createElement('div')
   document.body.appendChild(container)
 
@@ -25,7 +25,7 @@ window.gmailComponents.before = function() {
 /**
  * `after` cleans up the "testing area" added by `before()`.
  */
-window.gmailComponents.after = function(container) {
+window.testingHelper.after = function(container) {
   container.remove()
   
   return null

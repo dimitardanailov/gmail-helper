@@ -1,38 +1,54 @@
-import chai from 'chai'
+import { expect } from 'chai'
 import { GmailConnectedCheckbox } from './GmailConnectedCheckbox'
 
-(function() {
-  // const expect = chai.expect
+describe('gmail-connected-checkbox', () => {
+  // This will hold a parent element
+  let container
 
-  describe('gmail-connected-checkbox', () => {
-    
-    let container
-    let checkbox
+  // This will hold the actual element under test.
+  let scratch
 
-    before(done => {
-      container = gmailComponents.before(done)
-      done()
-    })
+  let checkbox
 
-    beforeEach(() => {
-      container.appendChild(new GmailConnectedCheckbox())
+  before(done => {
+    container = testingHelper.before()
 
-      return gmailComponents.waitForElement('gmail-connected-checkbox')
-        .then(_ => {
-          checkbox = container.querySelector('gmail-connected-checkbox')
-          console.log(checkbox)
-        })
-    })
-
-    after(done => {
-      container = gmailComponents.after(container)
-
-      done()
-    })
-
-    it('should add a [role] to the checkbox', () => {
-      console.log(container)
-    })
+    done()
   })
 
-})()
+  beforeEach(done => {
+    scratch = document.createElement('div')
+    container.appendChild(scratch)
+
+    done()
+  })
+
+  beforeEach(function() {
+    scratch.appendChild(new GmailConnectedCheckbox())
+    return testingHelper.waitForElement('gmail-connected-checkbox')
+      .then(_ => {
+        checkbox = scratch.querySelector('gmail-connected-checkbox')
+      })
+  })
+
+  afterEach(done => {
+    scratch = null
+
+    done()
+  })
+
+  after(done => {
+    container = testingHelper.after(container)
+    scratch = null
+
+    done()
+  })
+
+  it('should add a [role] to the checkbox', function() {
+    expect(checkbox.getAttribute('role')).to.equal('checkbox')
+  })
+
+  it('should add a [tabindex] to the checkbox', function() {
+    expect(checkbox.getAttribute('tabindex')).to.equal('0')
+  })
+})  

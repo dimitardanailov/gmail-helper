@@ -57,9 +57,14 @@ lerna run build
 http-server ./develop/web/dist
 ```
 
+### Testing
+
+- [Automated testing with Headless Chrome](https://developers.google.com/web/updates/2017/06/headless-karma-mocha-chai)
+
 ### Github repos: 
 
 - [Google - How to web components](https://github.com/GoogleChromeLabs/howto-components)
+- [Custom elements - everywhere](https://github.com/webcomponents/custom-elements-everywhere)
 
 ### Resources / Hot links: 
 

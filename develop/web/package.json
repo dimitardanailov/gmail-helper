@@ -8,7 +8,7 @@
     "test-fix": "./node_modules/.bin/eslint --fix src *.js",
     "test-lint": "./node_modules/.bin/eslint src *.js",
     "test-unit": "./node_modules/karma/bin/karma start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test-unit"
   },
   "repository": {
     "type": "git",
@@ -48,7 +48,6 @@
     "karma": "^3.1.4",
     "karma-chrome-launcher": "^2.2.0",
     "karma-firefox-launcher": "^1.1.0",
-    "karma-jasmine": "^2.0.1",
     "karma-mocha": "^1.3.0",
     "karma-opera-launcher": "^1.0.0",
     "karma-safari-launcher": "^1.0.0",
