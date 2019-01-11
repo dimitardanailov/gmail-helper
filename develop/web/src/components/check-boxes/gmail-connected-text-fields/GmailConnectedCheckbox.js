@@ -110,4 +110,6 @@ export class GmailConnectedCheckbox extends AbstractCheckBox {
   }
 }
 
-customElements.define('gmail-connected-checkbox', GmailConnectedCheckbox)
+if (!customElements.get('gmail-connected-checkbox')) {
+  customElements.define('gmail-connected-checkbox', GmailConnectedCheckbox)
+}

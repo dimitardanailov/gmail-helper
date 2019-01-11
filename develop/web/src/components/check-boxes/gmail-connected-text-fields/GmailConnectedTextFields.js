@@ -1,4 +1,4 @@
-import { GmailConnectedCheckbox } from './GmailConnectedCheckbox'
+require('./GmailConnectedCheckbox')
 
 const template = document.createElement('template')
 
@@ -14,23 +14,34 @@ template.innerHTML = `
 			width: 100%;
 		}
 
-		::slotted(label) {
+		label {
 			font-size: 1.6em;
 		}
 
-		::slotted(gmail-connected-checkbox) {
+		gmail-connected-checkbox {
 			margin-left: .4em;
 		}
 
-	</style>
-
-	<slot></slot>
+  </style>
+  
+  <label></label>
+  <gmail-connected-checkbox />
 `
 
 export class GmailConnectedTextFields extends HTMLElement {
 
+  /**
+   * @returns {GmailConnectedCheckbox}
+   */
   get checkBox() {
     return this._checkbox
+  }
+
+  /**
+   * @returns {HTMLLabelElement}
+   */
+  get label() {
+    return this._label
   }
 
   /**
@@ -51,24 +62,24 @@ export class GmailConnectedTextFields extends HTMLElement {
     // Attach a shadow root to the element.
     this.attachShadow({mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true))
+
+    this._label = this.shadowRoot.querySelectorAll('label')[0]
+    this._checkbox = this.shadowRoot.querySelectorAll('gmail-connected-checkbox')[0]
   }	
 
   connectedCallback() {
-    this._label = document.createElement('label')
-    this._label.appendChild(document.createTextNode(this._labelTextNode))
-    this.appendChild(this._label)
+    this._label.innerHTML = this._labelTextNode
 
-    this._checkbox = new GmailConnectedCheckbox()
-    this.appendChild(this._checkbox)
-
-    this._label.onclick = e => {
-      e.preventDefault()
-      this._checkbox._toggleChecked(this._checkbox.checked)
-    }
+    this._label.onclick = e => this._toggleCheckboxChecked(e)
   }
 
   disconnectedCallback() {
-    this._label.removeEventListener('click')
+    this._label.removeEventListener('click', this._toggleCheckboxChecked)
+  }
+
+  _toggleCheckboxChecked(e) {
+    e.preventDefault()
+    this._checkbox._toggleChecked(this._checkbox.checked)
   }
 }
 

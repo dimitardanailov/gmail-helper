@@ -23,12 +23,10 @@ describe('gmail-connected-checkbox', () => {
     done()
   })
 
-  beforeEach(() => {
+  beforeEach(async () => {
     scratch.appendChild(new GmailConnectedCheckbox())
-    return testingHelper.waitForElement('gmail-connected-checkbox')
-      .then(_ => {
-        checkbox = scratch.querySelector('gmail-connected-checkbox')
-      })
+    await testingHelper.waitForElement('gmail-connected-checkbox')
+    checkbox = scratch.querySelector('gmail-connected-checkbox')
   })
 
   afterEach(done => {

@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.3.9] - 2019-01-11
+### Added
+Web development has karma configurations. Front-end applications has two unit tests: `GmailConnectedTextFields.unittest` and `GmailConnectedCheckbox.unittest`
+
 ## [1.3.8] - 2019-01-08
 ### Added
 eslint and editorconfig will cover indent rules, variable scrope and usage.
