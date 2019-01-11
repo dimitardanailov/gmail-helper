@@ -2,12 +2,13 @@ import { expect } from 'chai'
 import { GmailConnectedTextFields } from './GmailConnectedTextFields'
 
 describe('gmail-connected-text-fields', () => {
-  // This will hold a parent element
+  // Elements is responsible to hold the testing area of this unit
   let container
 
-  // This will hold the actual element under test.
+  // Element will hold the target custom web component
   let scratch
 
+  // This will hold the actual element under tests
   let connectedTextField 
 
   let labelTextNode = 'Label'
