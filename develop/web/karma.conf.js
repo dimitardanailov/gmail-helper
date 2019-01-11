@@ -17,8 +17,16 @@ module.exports = function(config) {
     // run in Chrome and Firefox
     browsers: [
       'ChromeHeadless', 
-      // 'FirefoxHeadless'
+      'FirefoxHeadless'
     ],
+
+    customLaunchers: {
+      FirefoxHeadless: {
+        base: 'Firefox',
+        flags: [ '-headless' ],
+        displayName: 'FirefoxHeadless'
+      },
+    },
 
     frameworks: ['mocha'],
     

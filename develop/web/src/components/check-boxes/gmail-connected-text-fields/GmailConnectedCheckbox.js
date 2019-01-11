@@ -46,10 +46,24 @@ template.innerHTML = `
 export class GmailConnectedCheckbox extends AbstractCheckBox {
 
   /**
+   * @returns {HTMLElement} 
+   */
+  get primaryTextField() {
+    return this._primaryTextField
+  }
+  
+  /**
 	 * @param {HTMLElement} textField 
 	 */
   set primaryTextField(textField) {
     this._primaryTextField = textField
+  }
+
+  /**
+   * @returns {HTMLElement} 
+   */
+  get escortTextField() {
+    return this._escortTextField
   }
 
   /**
@@ -84,6 +98,9 @@ export class GmailConnectedCheckbox extends AbstractCheckBox {
     this._updateTextFieldsStyle()
   }
 
+  /**
+   * `_updateTextFieldsStyle` updates `this._escortTextField` display styles
+   */
   _updateTextFieldsStyle() {
     if (this.checked) {
       this._escortTextField.style.display = 'none'
