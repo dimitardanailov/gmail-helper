@@ -18,6 +18,10 @@ export class GmailAuthorizeButton extends HTMLElement {
       this.setAttribute('role', 'button')
   }
 
+  disconnectedCallback() {
+    this.removeEventListener('click', this.handleAuth)
+  }
+
   /**
    *  Sign in the user upon button click.
    */

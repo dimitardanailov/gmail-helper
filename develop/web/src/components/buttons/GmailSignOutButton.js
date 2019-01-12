@@ -18,6 +18,10 @@ export class GmailSignOutButton extends HTMLElement {
       this.setAttribute('role', 'button')
   }
 
+  disconnectedCallback() {
+    this.removeEventListener('click', this.handleSignOut)
+  }
+
   /**
    * Sign out the user by Mail Helper
    */

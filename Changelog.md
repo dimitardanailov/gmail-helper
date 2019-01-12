@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.3.10] - 2019-01-12
+### Added
+`GmailAuthorizeButton` and `GmailSignOutButton` have test unit. Test suites test basic functions - existence and aria role.
+
 ## [1.3.9] - 2019-01-11
 ### Added
 Web development has karma configurations. Front-end applications has two unit tests: `GmailConnectedTextFields.unittest` and `GmailConnectedCheckbox.unittest`
