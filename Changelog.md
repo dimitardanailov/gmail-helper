@@ -1,5 +1,9 @@
 # Mail Helper
 
+## [1.3.11] - 2019-01-19
+### Added
+`GmailSelectBox` has a test unit and includes tests related with select box wrapper, select box and option.
+
 ## [1.3.10] - 2019-01-12
 ### Added
 `GmailAuthorizeButton` and `GmailSignOutButton` have test unit. Test suites test basic functions - existence and aria role.

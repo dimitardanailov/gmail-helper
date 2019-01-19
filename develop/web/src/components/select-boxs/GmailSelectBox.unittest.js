@@ -27,8 +27,8 @@ describe.only('gmail-select-box', () => {
 
   beforeEach(async () => {
     scratch.appendChild(
-      new GmailSelectBox(Label.listVisibilityOptions()
-    ))
+      new GmailSelectBox(Label.listVisibilityOptions())
+    )
 
     await testingHelper.waitForElement('gmail-select-box')
     selectBoxWrapper = scratch.querySelector('gmail-select-box')
@@ -47,9 +47,21 @@ describe.only('gmail-select-box', () => {
     done()
   })
 
-  it('gmail-select-box', () => {
+  it('gmail-select-box should be define and option values should be equal to Label data', () => {
+    // Wrapper
     expect(selectBoxWrapper instanceof GmailSelectBox).to.be.true
 
-    console.log(selectBoxWrapper)
+    // Select box
+    expect(selectBoxWrapper._selectBox instanceof HTMLSelectElement).to.be.true
+    
+    // Options
+    const options = Label.listVisibilityOptions()
+    expect(selectBoxWrapper._selectBox.childNodes)
+      .to.have.lengthOf(options.length)
+
+    const option = selectBoxWrapper._selectBox.childNodes[0]
+    expect(option instanceof HTMLOptionElement).to.be.true
+    expect(option.getAttribute('value'))
+      .to.equal(options[0]['key'])
   })
 })  
