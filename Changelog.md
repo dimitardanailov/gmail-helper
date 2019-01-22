@@ -1,5 +1,9 @@
 # Mail Helper
 
+## 1.3.11 - 2019-01-22
+### Added
+`GmailLabelColor` has a test unit. Unit tests aria attribute, tabindex and _color attribute.
+
 ## [1.3.11] - 2019-01-19
 ### Added
 `GmailSelectBox` has a test unit and includes tests related with select box wrapper, select box and option.
