@@ -48,4 +48,12 @@ describe('gmail-label-color', () => {
   it('should add a [role] to the radio', () => {
     expect(radio.getAttribute('role')).to.equal('radio')
   })
+
+  it('should tabindex to be equal to -1', () => {
+    expect(radio.getAttribute('tabindex')).to.equal('-1')
+  })
+
+  it('should color attribute to be equal to black', () => {
+    expect(radio._color).to.equal(color)
+  })
 })

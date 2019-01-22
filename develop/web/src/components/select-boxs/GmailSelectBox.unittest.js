@@ -2,7 +2,7 @@ import { expect } from 'chai'
 import { GmailSelectBox } from './GmailSelectBox'
 import { Label } from '../../models/Label'
 
-describe.only('gmail-select-box', () => {
+describe('gmail-select-box', () => {
   // Elements is responsible to hold the testing area of this unit
   let container
 
