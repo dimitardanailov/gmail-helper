@@ -1,8 +1,12 @@
 # Mail Helper
 
+## 1.3.13 - 2019-01-22
+### Added
+`GmailLabelBackgroundColor` has a test test unit. Unit suite contains tests related with aria attribute, tabindex and _bgColor.
+
 ## 1.3.12 - 2019-01-22
 ### Added
-`GmailLabelColor` has a test unit. Unit tests aria attribute, tabindex and _color attribute.
+`GmailLabelColor` has a test unit. Unit suite contains tests related with aria attribute, tabindex and _color attribute.
 
 ## [1.3.11] - 2019-01-19
 ### Added
