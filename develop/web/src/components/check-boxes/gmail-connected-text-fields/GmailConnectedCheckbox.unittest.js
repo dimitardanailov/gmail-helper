@@ -1,46 +1,17 @@
-import { expect } from 'chai'
+/* eslint-disable no-unused-expressions */
+import {
+  fixture,
+  expect,
+} from '@open-wc/testing'
+
 import { GmailConnectedCheckbox } from './GmailConnectedCheckbox'
 
 describe('gmail-connected-checkbox', () => {
-  // Elements is responsible to hold the testing area of this unit
-  let container
 
-  // Element will hold the target custom web component
-  let scratch
-
-  // This will hold the actual element under tests
   let checkbox
-
-  before(done => {
-    container = testingHelper.before()
-
-    done()
-  })
-
-  beforeEach(done => {
-    scratch = document.createElement('div')
-    container.appendChild(scratch)
-
-    done()
-  })
-
+  
   beforeEach(async () => {
-    scratch.appendChild(new GmailConnectedCheckbox())
-    await testingHelper.waitForElement('gmail-connected-checkbox')
-    checkbox = scratch.querySelector('gmail-connected-checkbox')
-  })
-
-  afterEach(done => {
-    scratch = null
-
-    done()
-  })
-
-  after(done => {
-    container = testingHelper.after(container)
-    scratch = null
-
-    done()
+    checkbox = await fixture('<gmail-connected-checkbox></gmail-connected-checkbox>') 
   })
 
   it('should add a [role] to the checkbox', () => {
@@ -55,7 +26,7 @@ describe('gmail-connected-checkbox', () => {
     // Default state
     expect(checkbox.checked).to.be.false
 
-    addTextFields(checkbox, scratch)
+    addTextFields(checkbox)
 
     checkbox._toggleChecked(checkbox.checked)
     expect(checkbox.getAttribute('aria-checked')).to.equal('true')
@@ -67,7 +38,7 @@ describe('gmail-connected-checkbox', () => {
     // Default state
     expect(checkbox.checked).to.be.false
     
-    addTextFields(checkbox, scratch)
+    addTextFields(checkbox)
 
     // Checked 
     checkbox.checked = true
@@ -196,16 +167,17 @@ describe('gmail-connected-checkbox', () => {
  * Functions appends two text fields and create connection bridge between them and checkbox
  * 
  * @param {GmailConnectedCheckbox} _checkbox 
- * @param {HTMLElement} _scratch 
  */
-function addTextFields(_checkbox, _scratch) {
+function addTextFields(_checkbox) {
+  const scratch = document.createElement('div')
+
   // Primary text field
   const _primaryTextField = document.createElement('input')
-  _scratch.appendChild(_primaryTextField)
+  scratch.appendChild(_primaryTextField)
   _checkbox.primaryTextField = _primaryTextField
 
   // Escrot Text field
   const _escortTextField = document.createElement('input')
-  _scratch.appendChild(_escortTextField)
+  scratch.appendChild(_escortTextField)
   _checkbox.escortTextField = _escortTextField
 }
