@@ -2,7 +2,7 @@
 import {
   fixture,
   expect,
-} from '@open-wc/testing';
+} from '@open-wc/testing'
 
 import { GmailLabelTextBox } from './GmailLabelTextBox'
 
