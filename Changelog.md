@@ -1,5 +1,8 @@
 # Mail Helper
 
+## 1.3.14 - 2019-01-23
+`@open-wc/testing` library will be used to generate and test each custom element. The first element which is using the architecture is: GmailFilterTextBox
+
 ## 1.3.13 - 2019-01-22
 ### Added
 `GmailLabelBackgroundColor` has a test test unit. Unit suite contains tests related with aria attribute, tabindex and _bgColor.
