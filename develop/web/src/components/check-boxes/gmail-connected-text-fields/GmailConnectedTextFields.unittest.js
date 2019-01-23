@@ -1,62 +1,28 @@
-import { expect } from 'chai'
+/* eslint-disable no-unused-expressions */
+import {
+  fixture,
+  expect,
+} from '@open-wc/testing'
+
 import { GmailConnectedTextFields } from './GmailConnectedTextFields'
 
 describe('gmail-connected-text-fields', () => {
-  // Elements is responsible to hold the testing area of this unit
-  let container
 
-  // Element will hold the target custom web component
-  let scratch
+  const labelTextNode = 'Label'
 
-  // This will hold the actual element under tests
-  let connectedTextField 
+  it('gmail-connected-text-fields and children should be define', async () => {
+    const el = await fixture(`<gmail-connected-text-fields></gmail-connected-text-fields>`) 
+    el.labelTextNode = labelTextNode
 
-  let labelTextNode = 'Label'
-
-  before(done => {
-    container = testingHelper.before()
-
-    done()
-  })
-
-  beforeEach(done => {
-    scratch = document.createElement('div')
-    container.appendChild(scratch)
-
-    done()
-  })
-
-  beforeEach(async () => {
-    const element = new GmailConnectedTextFields()
-    element.labelTextNode = labelTextNode
-    scratch.appendChild(element)
-    await testingHelper.waitForElement('gmail-connected-text-fields')
-    connectedTextField = scratch.querySelector('gmail-connected-text-fields')
-  })
-
-  afterEach(done => {
-    scratch = null
-
-    done()
-  })
-
-  after(done => {
-    container = testingHelper.after(container)
-    scratch = null
-
-    done()
-  })
-
-  it('gmail-connected-text-fields and children should be define', () => {
     // Wrapper
-    expect(connectedTextField instanceof GmailConnectedTextFields).to.be.true
+    expect(el instanceof GmailConnectedTextFields).to.be.true
     
     // First child -> Label
-    expect(connectedTextField.label instanceof HTMLLabelElement).to.be.true
-    expect(connectedTextField.label.innerText).to.equal(labelTextNode)
+    expect(el.label instanceof HTMLLabelElement).to.be.true
+    expect(el.label.innerText).to.equal(labelTextNode)
 
     // Second child -> GmailConnectedCheckbox
-    expect(connectedTextField.checkBox.constructor.name).to.equal('GmailConnectedCheckbox')
-    expect(connectedTextField.checkBox.checked).to.be.false
+    expect(el.checkBox.constructor.name).to.equal('GmailConnectedCheckbox')
+    expect(el.checkBox.checked).to.be.false
   })
 }) 

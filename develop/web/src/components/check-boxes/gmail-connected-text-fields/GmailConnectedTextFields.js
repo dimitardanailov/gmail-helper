@@ -49,6 +49,7 @@ export class GmailConnectedTextFields extends HTMLElement {
 	 */
   set labelTextNode(textNode) {
     this._labelTextNode = textNode
+    this._label.innerHTML = textNode
   }
 
   set checked(isChecked) {
