@@ -28,6 +28,11 @@ export class GmailLabelColor extends HTMLElement {
     return this._color
   }
 
+  set color(color) {
+    this._color = color
+    this.style.setProperty('--color', this._color)
+  }
+
   constructor(color) {
     super()
 
