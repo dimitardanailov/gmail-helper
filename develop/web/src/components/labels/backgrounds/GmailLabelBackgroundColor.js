@@ -24,6 +24,11 @@ export class GmailLabelBackgroundColor extends HTMLElement {
     return this._bgColor
   }
 
+  set bgColor(bgColor) {
+    this._bgColor = bgColor
+    this.style.setProperty('--bg-color', this._bgColor)
+  }
+
   constructor(bgColor) {
     super()
 
