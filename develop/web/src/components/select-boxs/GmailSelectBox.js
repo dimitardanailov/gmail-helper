@@ -24,6 +24,14 @@ export class GmailSelectBox extends HTMLElement {
     return this._selectBox
   }
 
+  get optionValues() {
+    return this._optionValues
+  }
+
+  set optionValues(optionValues) {
+    return this._optionValues = optionValues
+  }
+
   constructor(optionValues) {
     super()
 
@@ -31,7 +39,7 @@ export class GmailSelectBox extends HTMLElement {
     this.attachShadow({mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-    this.optionValues = optionValues
+    this._optionValues = optionValues
   }
 
   connectedCallback() {
