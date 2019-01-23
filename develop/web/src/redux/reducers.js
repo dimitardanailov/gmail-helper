@@ -1,17 +1,7 @@
 import { combineReducers } from 'redux'
 import { 
-  HAS_AUTHENTICATION,
   LABEL_ACTIONS
 } from './actions'
-
-function userIsAuth(state = false, action) {
-  switch(action.type) {
-  case HAS_AUTHENTICATION:
-    return action.value
-  default:
-    return state
-  }
-}
 
 function labels(state = [], action) {
   switch(action.type) {
@@ -43,7 +33,6 @@ function labelColor(state = null, action) {
 }
 
 const app = combineReducers({
-  userIsAuth,
   labels,
   labelBackgroundColor,
   labelColor
