@@ -1,6 +1,11 @@
 # Mail Helper
 
+## 1.3.15 - 2019-01-24
+### Added
+`FormSubmitButton` has a test suite. Test suite tests light dom structure and disabled state.
+
 ## 1.3.14 - 2019-01-23
+### Changed
 `@open-wc/testing` library will be used to generate and test each custom element. The first element which is using the architecture is: GmailFilterTextBox
 
 ## 1.3.13 - 2019-01-22

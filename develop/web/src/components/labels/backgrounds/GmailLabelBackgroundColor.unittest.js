@@ -14,7 +14,7 @@ const template = `
 </gmail-label-background-color>
 `
 
-describe.only('gmail-label-background-color', () => {
+describe('gmail-label-background-color', () => {
   let el
 
   beforeEach(async () => {

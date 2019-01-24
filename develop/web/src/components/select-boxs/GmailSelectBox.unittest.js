@@ -11,7 +11,7 @@ import { Label } from '../../models/Label'
 
 describe('gmail-select-box', () => {
   
-  it.only('gmail-select-box should be define and option values should be equal to Label data', async () => {
+  it('gmail-select-box should be define and option values should be equal to Label data', async () => {
     const options = Label.listVisibilityOptions()
     const el = await fixture(html`<gmail-select-box .optionValues=${options}></gmail-select-box`)
 

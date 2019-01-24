@@ -42,10 +42,18 @@ template.innerHTML = `
 
 	<slot>
 		<input type="submit" role="button" value="Submit" />
-	</slot>
+  </slot>
 `
 
 export class FormSubmitButton extends HTMLElement {
+
+  get button() {
+    return this._button
+  }
+
+  get textValues() {
+    return this._textValues
+  }
 
   set textValues(value) {
     this._textValues = value
@@ -58,19 +66,19 @@ export class FormSubmitButton extends HTMLElement {
     this.attachShadow({mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-    this.textValues = {
+    this._textValues = {
       defaultState: 'Submit',
-      activeSate: 'Waiting ...'
+      activeState: 'Waiting ...'
     }
   }
 
   set disabled(val) {
     if (val) {
-      this.button.setAttribute('disabled', 'disabled')
-      this.button.value = this._textValues.activeState
+      this._button.setAttribute('disabled', 'disabled')
+      this._button.setAttribute('value', this._textValues.activeState)
     } else {
-      this.button.removeAttribute('disabled')
-      this.button.value = this._textValues.defaultState
+      this._button.removeAttribute('disabled')
+      this._button.value = this.textValues.defaultState
     }
   }
 
@@ -79,8 +87,8 @@ export class FormSubmitButton extends HTMLElement {
   }
 
   createSubmitButton() {
-    this.button = this.shadowRoot.querySelectorAll('input')[0]
-    this.button.value = this._textValues.defaultState || 'Submit'
+    this._button = this.shadowRoot.querySelectorAll('input')[0]
+    this._button.value = this._textValues.defaultState || 'Submit'
 
     this.appendChild(this.button)
   }
