@@ -114,6 +114,7 @@ export class GmailHelper extends HTMLElement {
   async loadReduxData() {
     // Labels
     const rawLabels = await listLabels()
+    console.log(rawLabels)
     const labels = Label.convertRawLabelDataToModelData(rawLabels)
     store.dispatch(addLabels(labels))
 		
