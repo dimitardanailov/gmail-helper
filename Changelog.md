@@ -1,5 +1,8 @@
 # Mail Helper
 
+## 1.3.16 - 2019-01-27
+Redux actions has two tests. For these tests applications uses `jests`. Tests cover `GMAIL_LABELS` and `addLabels`.
+
 ## 1.3.15 - 2019-01-24
 ### Added
 `FormSubmitButton` has a test suite. Test suite tests light dom structure and disabled state.
