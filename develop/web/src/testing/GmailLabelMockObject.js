@@ -1,7 +1,15 @@
+import { Label } from '../models/Label'
+
 /**
  * Class is responsible to create Gmail raw label data
  */
 export class GmailLabelMockObject {
+
+  static getGmailData() {
+    return Label.convertRawLabelDataToModelData(
+      GmailLabelMockObject.getRawGmailData()
+    )
+  }
 
   static getRawGmailData() {
     return [

@@ -1,6 +1,11 @@
 # Mail Helper
 
+## 1.3.17 - 2019-01-28
+### Added
+Redux action have necessary tests.
+
 ## 1.3.16 - 2019-01-27
+### Added
 Redux actions has two tests. For these tests applications uses `jests`. Tests cover `GMAIL_LABELS` and `addLabels`.
 
 ## 1.3.15 - 2019-01-24
