@@ -11,11 +11,11 @@ import { GmailLabelMockObject } from '../testing/GmailLabelMockObject'
 
 describe('Redux actions', () => {
 
-  it('GMAIL_LABELS collection should be empty', () => {
+  test('GMAIL_LABELS collection should be empty', () => {
     expect(GMAIL_LABELS).toEqual([]);
   })
 
-  it('should action: addLabels to be equal to Gmail converted raw data', () => {
+  test('should action: addLabels to be equal to Gmail converted raw data', () => {
     const labels = GmailLabelMockObject.getGmailData()
     
     const expectedAction = {
@@ -28,7 +28,7 @@ describe('Redux actions', () => {
     expect(expectedResult.labels).toEqual(GMAIL_LABELS)
   })
 
-  it('should action: addLabel created label data', () => {
+  test('should action: addLabel created label data', () => {
     const labels = GmailLabelMockObject.getGmailData()
     const label = labels[0]
 
@@ -42,7 +42,7 @@ describe('Redux actions', () => {
     expect(expectedResult).toEqual(expectedAction)
   })
 
-  it('should set background an action to set a label background color', () => {
+  test('should set background an action to set a label background color', () => {
     const bgColor = '#000000'
     const expectedAction = {
       type: LABEL_ACTIONS.SET_BACKGROUND_COLOR,
@@ -52,7 +52,7 @@ describe('Redux actions', () => {
     expect(setLabelBackgroundColor(bgColor)).toEqual(expectedAction)
   })
 
-  it('should set color an action to a label color', () => {
+  test('should set color an action to a label color', () => {
     const color = '#000000'
     const expectedAction = {
       type: LABEL_ACTIONS.SET_COLOR,

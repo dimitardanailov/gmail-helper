@@ -3,7 +3,7 @@ import {
   LABEL_ACTIONS
 } from './actions'
 
-function labels(state = [], action) {
+export function labels(state = [], action) {
   switch(action.type) {
   case LABEL_ACTIONS.LIST_LABELS:
     return action.labels
@@ -14,7 +14,7 @@ function labels(state = [], action) {
   }
 }
 
-function labelBackgroundColor(state = null, action) {
+export function labelBackgroundColor(state = null, action) {
   switch(action.type) {
   case LABEL_ACTIONS.SET_BACKGROUND_COLOR:
     return action.bgColor
@@ -23,7 +23,7 @@ function labelBackgroundColor(state = null, action) {
   }
 }
 
-function labelColor(state = null, action) {
+export function labelColor(state = null, action) {
   switch(action.type) {
   case LABEL_ACTIONS.SET_COLOR:
     return action.color
