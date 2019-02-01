@@ -1,5 +1,9 @@
 # Mail Helper
 
+## 1.3.18 - 2019-02-01
+### Added
+Redux reducers have necessary tests.                                                                                                  
+
 ## 1.3.17 - 2019-01-28
 ### Added
 Redux action have necessary tests.
