@@ -10,6 +10,9 @@ I did tests on these browsers:
 - Firefox Quantim
 - Google Chrome Canary -> Version 73.0.3650.0 (Official Build) canary (64-bit)
 - Opera Version:57.0.3098.106
+- Safari
+- Google Chrome mobile
+- Safari mobile
 
 ## Why I'm working on this tool ? 
 
