@@ -1,5 +1,9 @@
 # Mail Helper
 
+## 1.3.19 - 2019-02-05
+### Added
+Repo has the first end-to-end web test. Support and library: testcafe.
+
 ## 1.3.18 - 2019-02-01
 ### Added
 Redux reducers have necessary tests.                                                                                                  
