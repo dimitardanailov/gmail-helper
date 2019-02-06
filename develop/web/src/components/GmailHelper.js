@@ -2,6 +2,7 @@ import { GmailAuthorizeButton } from './buttons/GmailAuthorizeButton'
 import { GmailSignOutButton } from './buttons/GmailSignOutButton'
 import { GmailForm } from './forms/GmailForm'
 import { MailHelperInfo } from './project-info/MailHelperInfo' 
+import { MailHelperNavigation } from './navigation/MailHelperNavigation'
 
 import { clientId, apiKey, scopes, discovery_docs } from '../config/config'
 
@@ -102,12 +103,14 @@ export class GmailHelper extends HTMLElement {
       this.projectInfo.style.display = 'none'
       this.signOutButton.style.display = 'flex'
       await this.loadReduxData()
+      this.addNavigation()
       this.addForm()
     } else {
       this.authorizeButton.style.display = 'flex'
       this.projectInfo.style.display = 'block'
       this.signOutButton.style.display = 'none'
       this.removeForm()
+      this.removeNavigation()
     }
   }
 
@@ -124,8 +127,11 @@ export class GmailHelper extends HTMLElement {
   }
 
   addForm() {
-    const form = new GmailForm()
-    this.appendChild(form)
+    this.appendChild(new GmailForm())
+  }
+
+  addNavigation() {
+    this.appendChild(new MailHelperNavigation())
   }
 
   removeForm() {
@@ -135,6 +141,14 @@ export class GmailHelper extends HTMLElement {
       this.removeChild(elements[0])
     }
   }
-}
+
+  removeNavigation() {
+    const elements = this.getElementsByTagName('mail-helper-navigation')
+
+    if (elements.length > 0) {
+      this.removeChild(elements[0])
+    }
+  }
+} 
 
 customElements.define('gmail-helper', GmailHelper)
