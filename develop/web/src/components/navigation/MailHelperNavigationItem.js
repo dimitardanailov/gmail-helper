@@ -1,21 +1,16 @@
-import { MailHelperNavigationItem } from './MailHelperNavigationItem'
-
 const template = document.createElement('template')
 
 template.innerHTML = `
   <style>
     :host {
       position: relative;
-
-      display: flex;
-      flex-direction: column;
     }
   </style>
 
-  <slot></slot>
+  Item !!!
 `
 
-export class MailHelperNavigation extends HTMLElement {
+export class MailHelperNavigationItem extends HTMLElement {
   constructor() {
     super()
 
@@ -25,12 +20,11 @@ export class MailHelperNavigation extends HTMLElement {
   }
 
   connectedCallback() {
-    const el = new MailHelperNavigationItem()
-    this.appendChild(el)
   }
 
   disconnectedCallback() {
   }
 }
 
-customElements.define('mail-helper-navigation', MailHelperNavigation)
+customElements.define('mail-helper-navigation-item', MailHelperNavigationItem)
+
