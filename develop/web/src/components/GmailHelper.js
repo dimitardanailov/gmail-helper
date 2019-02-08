@@ -30,22 +30,28 @@ template.innerHTML = `
 			font-size: 2.8em;
 			text-align: center;
 		}
-
-
 	</style>
 
 	<h1>Mail helper</h1>
 
-	<slot></slot>
+  <slot></slot>
 `
 
 export class GmailHelper extends HTMLElement {
+  
+  get routerElement() {
+    this._routerElement
+  }
+
   constructor() {
     super()
 
     // Attach a shadow root to the element.
     this.attachShadow({mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true))
+
+    this._routerElement = this.shadowRoot.querySelectorAll('section')[0]
+    console.log(this._routerElement)
   }
 
   connectedCallback() {
@@ -103,8 +109,10 @@ export class GmailHelper extends HTMLElement {
       this.projectInfo.style.display = 'none'
       this.signOutButton.style.display = 'flex'
       await this.loadReduxData()
+      
       this.addNavigation()
       this.addForm()
+
     } else {
       this.authorizeButton.style.display = 'flex'
       this.projectInfo.style.display = 'block'

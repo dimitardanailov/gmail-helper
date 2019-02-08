@@ -665,6 +665,26 @@
   resolved "https://registry.yarnpkg.com/@types/parse5/-/parse5-5.0.0.tgz#9ae2106efc443d7c1e26570aa8247828c9c80f11"
   integrity sha512-J5D3z703XTDIGQFYXsnU9uRCW9e9mMEFO0Kpe6kykyiboqziru/RlZ0hM2P+PKTG4NHG1SjLrqae/NrV2iJApQ==
 
+"@vaadin/router@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@vaadin/router/-/router-1.2.0.tgz#10143f496104b4b7d7c030c211b0a085a66a20d9"
+  integrity sha512-QUL6OlwIlvMTaSIJr06zdUdCIycmKqWnVL2lATkie7ZEoHfFqVcN4FZ7do3CBEtAQy9+rS2IKTllcR7+YntNcg==
+  dependencies:
+    "@vaadin/vaadin-usage-statistics" "^2.0.1"
+    path-to-regexp "2.2.1"
+
+"@vaadin/vaadin-development-mode-detector@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-development-mode-detector/-/vaadin-development-mode-detector-2.0.0.tgz#69417cbf4a9f7427ec7b70b7dc8e0605a2f900b3"
+  integrity sha512-pzSaUqn+lJbTL2ZC6NCAfhyMymMYg2p4DzeUXdyInJISwSWmgh9RlRVpAGhi6MIUOKC7kGeKPAiB4vyWsEhzDg==
+
+"@vaadin/vaadin-usage-statistics@^2.0.1":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@vaadin/vaadin-usage-statistics/-/vaadin-usage-statistics-2.0.2.tgz#7034b673e396efba174a590846d057025f601120"
+  integrity sha512-emu6IttPhlfH7chc3tvvZyztULtrMhNi6SK6BPXe7hN9PvF3XZfLLtVHxQMbJid85yYDcynKSyKznlhDkyrc7Q==
+  dependencies:
+    "@vaadin/vaadin-development-mode-detector" "^2.0.0"
+
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.7.11.tgz#b988582cafbb2b095e8b556526f30c90d057cace"
@@ -5439,6 +5459,11 @@ path-parse@^1.0.5, path-parse@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
   integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+
+path-to-regexp@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-2.2.1.tgz#90b617025a16381a879bc82a38d4e8bdeb2bcf45"
+  integrity sha512-gu9bD6Ta5bwGrrU8muHzVOBFFREpp2iRkVfhBJahwJ6p6Xw20SjT0MxLnwkjOibQmGSYhiUnf2FLe7k+jcFmGQ==
 
 path-type@^1.0.0:
   version "1.1.0"
