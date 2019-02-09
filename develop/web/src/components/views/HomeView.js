@@ -26,3 +26,5 @@ export class HomeView extends AbstractPage {
     
   }
 }
+
+customElements.define('mh-home-view', HomeView)

@@ -25,3 +25,5 @@ export class IntroView extends AbstractView {
     
   }
 }
+
+customElements.define('mh-intro-view', IntroView)
