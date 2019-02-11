@@ -1,5 +1,7 @@
 import { AbstractView } from './AbstractView'
 
+import { MailHelperInfo } from './project-info/MailHelperInfo'
+
 const template = document.createElement('template')
 
 template.innerHTML = `
@@ -9,7 +11,9 @@ template.innerHTML = `
 		}
 	</style>
 
-	Intro view ...
+  Intro view ...
+
+  <mail-helper-info></mail-helper-info>
 `
 
 export class IntroView extends AbstractView {

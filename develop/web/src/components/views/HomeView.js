@@ -1,5 +1,7 @@
 import { AbstractView } from './AbstractView'
 
+<gmail-form></gmail-form>
+
 const template = document.createElement('template')
 
 template.innerHTML = `
@@ -9,7 +11,9 @@ template.innerHTML = `
 		}
 	</style>
 
-	Home Page ...
+  Home Page ...
+  
+  <gmail-form></gmail-form>
 `
 
 export class HomeView extends AbstractPage {
