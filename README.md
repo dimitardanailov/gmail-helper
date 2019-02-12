@@ -68,6 +68,8 @@ http-server ./develop/web/dist
 
 - [Google - How to web components](https://github.com/GoogleChromeLabs/howto-components)
 - [Custom elements - everywhere](https://github.com/webcomponents/custom-elements-everywhere)
+- [Vaadin router](https://vaadin.com/router)
+- [lit element](https://github.com/Polymer/lit-element)
 
 ### Resources / Hot links: 
 
