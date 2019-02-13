@@ -83,3 +83,5 @@ http-server ./develop/web/dist
 - [Browser Quickstart](https://developers.google.com/gmail/api/quickstart/js)
 - [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements)
 - [Let's Build Web Components! Part 5: LitElement](https://dev.to/bennypowers/lets-build-web-components-part-5-litelement-906)
+- [https://open-wc.org/](https://open-wc.org/)
+- [https://open-wc.org/testing/#setup](https://open-wc.org/testing/#setup)
