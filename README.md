@@ -28,11 +28,17 @@ Gmail has two great features: ["Labels"](https://support.google.com/mail/answer/
 
 ### Architecture
 
-I don't have deadline or budget restrictions :) I decided to use **only** the latest techologies trends. Technology stack includes: 
+Project uses a simple archicture. Application has a simple front view. Technology stack uses
 
-- [Native web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components).
-- Gmail API 
-- Fireabase
+- [Native web components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+- Gmail API
+- Firebase
+- Lerna
+- Webpack
+- Karma
+- Redux
+- Jest
+- TestCafe
 
 Build tools: 
 - [lerna](https://github.com/lerna/lerna)
