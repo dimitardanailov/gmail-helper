@@ -64,6 +64,7 @@ Juggling a multimodule project over multiple repos is like trying to teach a new
 lerna run install
 lerna run build
 http-server ./develop/web/dist
+lerna run test
 ```
 
 ### Testing
