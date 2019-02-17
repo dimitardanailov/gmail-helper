@@ -1,6 +1,6 @@
 # Mail helper
 
-If you want to try or use project please visit: https://fir-playgrounds.firebaseapp.com
+Mail helper is a third party gmail application that helps you to create Gmail label, Gmail filter, Background colour and colour. Public URL is: https://fir-playgrounds.firebaseapp.com
 
 ## Browser support
 
