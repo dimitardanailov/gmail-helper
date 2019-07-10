@@ -40,7 +40,7 @@
     "log4js": "^3.0.6",
     "redux": "^4.0.1",
     "winston": "^3.1.0",
-    "snyk": "^1.161.1"
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@types/gapi.client.gmail": "^1.0.0",
