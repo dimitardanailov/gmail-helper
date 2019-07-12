@@ -12,8 +12,6 @@ template.innerHTML = `
 	</style>
 
   Intro view ...
-
-  <mail-helper-info></mail-helper-info>
 `
 
 export class IntroView extends AbstractView {
