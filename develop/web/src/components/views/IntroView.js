@@ -1,6 +1,6 @@
 import { AbstractView } from './AbstractView'
 
-import { MailHelperInfo } from './project-info/MailHelperInfo'
+// import { MailHelperInfo } from './project-info/MailHelperInfo'
 
 const template = document.createElement('template')
 
@@ -11,7 +11,7 @@ template.innerHTML = `
 		}
 	</style>
 
-  Intro view ...
+  <h2>Intro view ...</h2>
 `
 
 export class IntroView extends AbstractView {
@@ -28,4 +28,4 @@ export class IntroView extends AbstractView {
   }
 }
 
-customElements.define('mh-intro-view', IntroView)
+customElements.define('gh-intro-view', IntroView)

@@ -9,10 +9,10 @@ template.innerHTML = `
 		}
 	</style>
 
-  Home Page ...
+  <h2>Home Page ...</h2>
 `
 
-export class HomeView extends AbstractPage {
+export class HomeView extends AbstractView {
   
   constructor() {
     super()
@@ -27,4 +27,4 @@ export class HomeView extends AbstractPage {
   }
 }
 
-customElements.define('mh-home-view', HomeView)
+customElements.define('gh-home-view', HomeView)

@@ -1,6 +1,6 @@
 import {Router} from '@vaadin/router'
 
-function loadRoutes() {
+function loadRoutes(outlet) {
   const router = new Router(outlet)
 
   router.setRoutes([

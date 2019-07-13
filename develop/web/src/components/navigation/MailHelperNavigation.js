@@ -1,3 +1,6 @@
+import loadRoutes from '../router/MailHelperRouter'
+import {Router} from '@vaadin/router';
+
 import { MailHelperNavigationItem } from './MailHelperNavigationItem'
 
 const template = document.createElement('template')
@@ -12,6 +15,13 @@ template.innerHTML = `
     }
   </style>
 
+  <ul>
+    <li><a href="/">Home</a>
+    <li><a href="/intro">Intro</a>
+  </ul>
+
+  <nav></nav>
+
   <slot></slot>
 `
 
@@ -25,8 +35,13 @@ export class MailHelperNavigation extends HTMLElement {
   }
 
   connectedCallback() {
-    const el = new MailHelperNavigationItem()
-    this.appendChild(el)
+    // const el = new MailHelperNavigationItem()
+    // this.appendChild(el)
+
+    this._nav = this.shadowRoot.querySelectorAll('nav')[0]
+    console.log(this._nav)
+
+    loadRoutes(this._nav)
   }
 
   disconnectedCallback() {
