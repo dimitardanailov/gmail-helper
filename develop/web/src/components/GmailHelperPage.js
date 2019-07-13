@@ -1,8 +1,11 @@
 const template = document.createElement('template')
+
+import Auth from '../auth'
+
 import { Router } from '@vaadin/router';
 
-import HomeView from './views/HomeView'
-import IntroView from './views/IntroView'
+import './views/HomeView'
+import './views/IntroView'
 
 template.innerHTML = `
 	<style>
@@ -43,15 +46,34 @@ export class GmailHelper extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true))
 
     this._pageWrapper = this.shadowRoot.querySelectorAll('section')[0]
+
+    gapi.load('client:auth2', () => new Auth())
   }
 
   connectedCallback() {
     const router = new Router(this._pageWrapper)
     router.setRoutes([
-      {path: '/',     component: 'gh-home-view'},
-      {path: '/intro',  component: 'gh-intro-view'},
-      {path: '(.*)', component: 'x-not-found-view'},
+      { path: '/',     component: 'gh-home-view' },
+      { path: '/intro',  component: 'gh-intro-view' },
+      { path: '(.*)', component: 'gh-not-found-view' },
     ])
+  }
+
+  initClient() {
+    gapi.client.init({
+      apiKey: apiKey,
+      clientId: clientId,
+      discoveryDocs: discovery_docs,
+      scope: scopes
+    })
+      .then(() => this.setAuthListeners())
+      .catch(error => {
+        console.error(error)
+      })
+  }
+
+  setAuthListeners() {
+    console.log('listeners')
   }
 }
 
