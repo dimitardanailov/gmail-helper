@@ -4,6 +4,8 @@ import Auth from '../auth'
 
 import { Router } from '@vaadin/router';
 
+import { routesComponennts } from '../config/routes'
+
 import './views/HomeView'
 import './views/IntroView'
 
@@ -52,11 +54,7 @@ export class GmailHelper extends HTMLElement {
 
   connectedCallback() {
     const router = new Router(this._pageWrapper)
-    router.setRoutes([
-      { path: '/',     component: 'gh-home-view' },
-      { path: '/intro',  component: 'gh-intro-view' },
-      { path: '(.*)', component: 'gh-not-found-view' },
-    ])
+    router.setRoutes(routesComponennts)
   }
 
   initClient() {

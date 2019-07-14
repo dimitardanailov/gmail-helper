@@ -1,5 +1,7 @@
 import { AbstractView } from './AbstractView'
 
+import { MainHeader } from '../headers/MainHeader'
+
 const template = document.createElement('template')
 
 template.innerHTML = `
@@ -9,7 +11,11 @@ template.innerHTML = `
 		}
 	</style>
 
-  <h2>Home Page ...</h2>
+  <gh-mainheader></gh-mainheader>
+
+  <section>
+    <h2>Home Page ...</h2>
+  </section> 
 `
 
 export class HomeView extends AbstractView {
