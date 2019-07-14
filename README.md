@@ -80,15 +80,33 @@ lerna run test
 
 ### Resources / Hot links: 
 
+#### Gmail
+
 - [Gmail API Overview](https://developers.google.com/gmail/api/guides/)
 - [Implementing Server-Side Authorization](https://developers.google.com/gmail/api/auth/web-server)
 - [Choose Auth Scopes](https://developers.google.com/gmail/api/auth/scopes)
 - [Access Google APIs more easily](https://developers.google.com/api-client-library/)
 - [Gmail documentation](https://apis-nodejs.firebaseapp.com/gmail/index.html)
-- [Using shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM)
-- [How to Use HTML <template> & <slot> With Shadow DOM](https://www.hongkiat.com/blog/html-template-slow-tag-shadow-dom/)
 - [Browser Quickstart](https://developers.google.com/gmail/api/quickstart/js)
+
+#### Dom 
+
+- [Using shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM)
+
+#### Template
+
+- [How to Use HTML <template> & <slot> With Shadow DOM](https://www.hongkiat.com/blog/html-template-slow-tag-shadow-dom/)
 - [Custom Elements v1: Reusable Web Components](https://developers.google.com/web/fundamentals/web-components/customelements)
 - [Let's Build Web Components! Part 5: LitElement](https://dev.to/bennypowers/lets-build-web-components-part-5-litelement-906)
 - [https://open-wc.org/](https://open-wc.org/)
 - [https://open-wc.org/testing/#setup](https://open-wc.org/testing/#setup)
+
+#### Components
+
+##### Vaadin 
+
+- [https://vaadin.com/router](https://vaadin.com/router)
+
+##### Material Components ([https://material-components.github.io/material-components-web-catalog](https://material-components.github.io/material-components-web-catalog))
+
+- [Tabs](https://material-components.github.io/material-components-web-catalog/#/component/tabs)
