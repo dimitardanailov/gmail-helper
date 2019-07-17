@@ -49,7 +49,14 @@ module.exports = {
               hmr: process.env.NODE_ENV === 'development',
             },
           },
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              import: true,
+              url: true,
+              importLoaders: 2
+            }
+          }
         ],
       },
     ],

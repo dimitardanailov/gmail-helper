@@ -1,3 +1,5 @@
+@import "~@material/tab-bar/mdc-tab-bar";
+
 html,
 body {
 	margin:0;
