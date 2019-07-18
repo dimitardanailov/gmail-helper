@@ -1,4 +1,4 @@
-@import "~@material/tab-bar/mdc-tab-bar";
+@import url('../node_modules/@material/tab-bar/dist/mdc.tab-bar.css');
 
 html,
 body {
