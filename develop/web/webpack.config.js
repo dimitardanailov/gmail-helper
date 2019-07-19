@@ -15,6 +15,12 @@ module.exports = {
   // https://github.com/webpack-contrib/karma-webpack
   devtool: 'inline-source-map',
 
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 8080
+  },
+
   plugins: [
     
     // https://github.com/mrsteele/dotenv-webpack
@@ -54,7 +60,8 @@ module.exports = {
             options: {
               import: true,
               url: true,
-              importLoaders: 2
+              importLoaders: 2,
+              sourceMap: true
             }
           }
         ],

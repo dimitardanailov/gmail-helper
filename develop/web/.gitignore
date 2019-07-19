@@ -1,5 +1,6 @@
 ### Project files
 dist/*.js
+dist/*.css
 
 ### https://github.com/github/gitignore/blob/master/Node.gitignore
 

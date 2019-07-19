@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "./node_modules/.bin/webpack --mode development --watch",
+    "start": "webpack-dev-server --open",
     "test-fix": "./node_modules/.bin/eslint --fix src *.js",
     "test-lint": "./node_modules/.bin/eslint src *.js",
     "test-unit": "./node_modules/karma/bin/karma start",
@@ -72,6 +73,7 @@
     "mocha": "^6.1.4",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.3",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.7.2"
   }
 }
