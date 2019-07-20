@@ -16,6 +16,7 @@ module.exports = {
   devtool: 'inline-source-map',
 
   devServer: {
+    mimeTypes: { 'text/html': ['phtml'] },
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 8080

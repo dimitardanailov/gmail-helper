@@ -1,3 +1,7 @@
-@import url('../node_modules/@material/tab-bar/dist/mdc.tab-bar.css');
+/* https://material.io/develop/web/components/tabs/tab-bar/ */
+@import url('~@material/tab-bar/dist/mdc.tab-bar.css');
+@import url('~@material/tab-scroller/dist/mdc.tab-scroller.css');
+@import url('~@material/tab-indicator/dist/mdc.tab-indicator.css');
+@import url('~@material/tab/dist/mdc.tab.css');
 
 @import url('./layout.css')
