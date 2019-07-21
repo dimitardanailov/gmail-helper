@@ -1,38 +1,22 @@
 import { LitElement, html } from 'lit-element'
 
-import { MDCTabBar } from '@material/tab-bar'
+import '@material/mwc-tab-bar'
+import '@material/mwc-tab'
 
 export class MainHeader extends LitElement {
-  render() {
-    return html`
-      <div class="mdc-tab-bar" role="tablist">
-        <div class="mdc-tab-scroller">
-          <div class="mdc-tab-scroller__scroll-area">
-            <div class="mdc-tab-scroller__scroll-content">
-              <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
-                <span class="mdc-tab__content">
-                  <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
-                  <span class="mdc-tab__text-label">Favorites</span>
-                </span>
-                <span class="mdc-tab__content">
-                  <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
-                  <span class="mdc-tab__text-label">Favorites</span>
-                </span>
-                <span class="mdc-tab-indicator mdc-tab-indicator--active">
-                  <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-                </span>
-                <span class="mdc-tab__ripple"></span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    `
+
+  onClickTab(e) {
+    console.log(e.target.getAttribute('data-page'))
   }
 
-  firstUpdated() {
-    const tabBar = new MDCTabBar(this.shadowRoot.querySelector('.mdc-tab-bar'))
-    console.log(tabBar)
+  render() {
+    return html`
+      <mwc-tab-bar>
+        <mwc-tab label="one" @click=${this.onClickTab} data-page="home"></mwc-tab>
+        <mwc-tab label="two" @click=${this.onClickTab} data-page="privacy"></mwc-tab>
+        <mwc-tab label="three" @click=${this.onClickTab} data-page="terms"></mwc-tab>
+      </mwc-tab-bar>
+    `
   }
 }
 
