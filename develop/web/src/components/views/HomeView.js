@@ -1,6 +1,6 @@
 import { AbstractView } from './AbstractView'
 
-import { MainHeader } from '../headers/MainHeader'
+import '../headers/MainHeader'
 
 const template = document.createElement('template')
 

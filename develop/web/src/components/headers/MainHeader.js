@@ -5,15 +5,22 @@ import '@material/mwc-tab'
 
 export class MainHeader extends LitElement {
 
+  constructor() {
+    super()
+  }
+
   onClickTab(e) {
-    console.log(e.target.getAttribute('data-page'))
+    const page = e.target.getAttribute('data-page')
+    
+    window.location.href = `/${page}`
+    console.log('page', page)
   }
 
   render() {
     return html`
       <mwc-tab-bar>
-        <mwc-tab label="one" @click=${this.onClickTab} data-page="home"></mwc-tab>
-        <mwc-tab label="two" @click=${this.onClickTab} data-page="privacy"></mwc-tab>
+        <mwc-tab label="Home" @click=${this.onClickTab} data-page=""></mwc-tab>
+        <mwc-tab label="Intro" @click=${this.onClickTab} data-page="intro"></mwc-tab>
         <mwc-tab label="three" @click=${this.onClickTab} data-page="terms"></mwc-tab>
       </mwc-tab-bar>
     `
