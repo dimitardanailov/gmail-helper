@@ -1,5 +1,9 @@
 # Mail Helper
 
+## 1.4.0 - 2019-07-23
+##Changed
+Project uses `karma-webpack` from version 4 to `5.0.0-alpha.3.0`. Pull request: https://github.com/dimitardanailov/gmail-helper/pull/1
+
 ## 1.3.20 - 2019-07-10
 ###Changed 
 The pull request by `snyk` was merged and package.json uses the latest version of each package.

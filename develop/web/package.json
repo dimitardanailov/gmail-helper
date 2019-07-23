@@ -69,7 +69,7 @@
     "karma-opera-launcher": "^1.0.0",
     "karma-safari-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^4.0.2",
+    "karma-webpack": "5.0.0-alpha.3.0",
     "mini-css-extract-plugin": "^0.7.0",
     "mocha": "^6.1.4",
     "style-loader": "^0.23.1",
