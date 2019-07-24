@@ -2,7 +2,7 @@ const template = document.createElement('template')
 
 import Auth from '../auth'
 
-import { Router } from '@vaadin/router';
+import { Router } from '@vaadin/router'
 
 import { routesComponennts } from '../config/routes'
 
@@ -30,7 +30,7 @@ template.innerHTML = `
   
   <ul>
     <li><a href="/">Home</a></li>
-    <li><a href="/Intro">Intro</a></li>
+    <li><a href="/intro">Intro</a></li>
   </ul>
 
   <section>

@@ -1,5 +1,5 @@
 import loadRoutes from '../router/MailHelperRouter'
-import {Router} from '@vaadin/router';
+import { Router } from '@vaadin/router'
 
 import { MailHelperNavigationItem } from './MailHelperNavigationItem'
 
