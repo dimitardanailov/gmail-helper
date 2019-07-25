@@ -1,5 +1,6 @@
 import { LitElement, html } from 'lit-element'
 import { Router } from '@vaadin/router'
+import './Slogan'
 
 import '@material/mwc-tab-bar'
 import '@material/mwc-tab'
@@ -8,10 +9,6 @@ const { POPSTATE } = Router.NavigationTrigger
 Router.setTriggers(POPSTATE)
 
 export class MainHeader extends LitElement {
-
-  constructor() {
-    super()
-  }
 
   onClickTab(e) {
     const { href } = e.target.dataset
@@ -22,6 +19,7 @@ export class MainHeader extends LitElement {
 
   render() {
     return html`
+      <gh-slogan></gh-slogan>
       <mwc-tab-bar>
         <mwc-tab label="Home" @click=${this.onClickTab} data-href="/"></mwc-tab>
         <mwc-tab label="Intro" @click=${this.onClickTab} data-href="/intro"></mwc-tab>

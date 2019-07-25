@@ -56,23 +56,6 @@ export class GmailHelper extends HTMLElement {
     const router = new Router(this._pageWrapper)
     router.setRoutes(routesComponennts)
   }
-
-  initClient() {
-    gapi.client.init({
-      apiKey: apiKey,
-      clientId: clientId,
-      discoveryDocs: discovery_docs,
-      scope: scopes
-    })
-      .then(() => this.setAuthListeners())
-      .catch(error => {
-        console.error(error)
-      })
-  }
-
-  setAuthListeners() {
-    console.log('listeners')
-  }
 }
 
 customElements.define('gmail-helper', GmailHelper)
