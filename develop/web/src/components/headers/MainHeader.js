@@ -1,12 +1,14 @@
 import { LitElement, html } from 'lit-element'
-import { Router } from '@vaadin/router'
+
+import { MailHelperRouter } from '../router/MailHelperRouter'
+
 import './Slogan'
 
 import '@material/mwc-tab-bar'
 import '@material/mwc-tab'
 
-const { POPSTATE } = Router.NavigationTrigger
-Router.setTriggers(POPSTATE)
+const { POPSTATE } = MailHelperRouter.NavigationTrigger
+MailHelperRouter.setTriggers(POPSTATE)
 
 export class MainHeader extends LitElement {
 

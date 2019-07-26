@@ -2,9 +2,7 @@ const template = document.createElement('template')
 
 import Auth from '../auth'
 
-import { Router } from '@vaadin/router'
-
-import { routesComponennts } from '../config/routes'
+import { MailHelperRouter } from './router/MailHelperRouter'
 
 import './views/HomeView'
 import './views/IntroView'
@@ -14,28 +12,15 @@ template.innerHTML = `
 		:host {
 			position: relative;
 
-			display: flex;
+      display: flex;
+
 			flex-direction: column;
 
-			padding: 2em;
-		}
-
-		h1 {
-			font-size: 2.8em;
-			text-align: center;
+      padding: 2em;
 		}
 	</style>
 
-  <h1>Mail helper</h1>
-  
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/intro">Intro</a></li>
-  </ul>
-
-  <section>
-    <slot></slot>
-  </section>
+  <slot></slot>
 `
 
 export class GmailHelper extends HTMLElement {
@@ -47,14 +32,11 @@ export class GmailHelper extends HTMLElement {
     this.attachShadow({mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-    this._pageWrapper = this.shadowRoot.querySelectorAll('section')[0]
-
     gapi.load('client:auth2', () => new Auth())
   }
 
   connectedCallback() {
-    const router = new Router(this._pageWrapper)
-    router.setRoutes(routesComponennts)
+    MailHelperRouter.init(this)
   }
 }
 
