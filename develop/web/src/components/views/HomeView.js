@@ -1,6 +1,9 @@
 import { AbstractView } from './AbstractView'
 
+import { GmailSignOutButton } from '../buttons/GmailSignOutButton'
+
 import '../headers/MainHeader'
+import '../forms/GmailForm'
 
 const template = document.createElement('template')
 
@@ -11,11 +14,9 @@ template.innerHTML = `
 		}
 	</style>
 
-  <gh-mainheader></gh-mainheader>
+  <gh-main-header></gh-main-header>
 
-  <section>
-    <h2>Home Page ...</h2>
-  </section> 
+  <gh-form></gh-form>
 `
 
 export class HomeView extends AbstractView {

@@ -11,12 +11,8 @@ template.innerHTML = `
 	<style>
 		:host {
 			position: relative;
-
       display: flex;
-
 			flex-direction: column;
-
-      padding: 2em;
 		}
 	</style>
 

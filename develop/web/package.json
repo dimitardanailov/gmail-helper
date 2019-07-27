@@ -32,6 +32,8 @@
   },
   "homepage": "https://github.com/dimitardanailov/gmail-helper#readme",
   "dependencies": {
+    "@material/mwc-icon-button": "^0.6.0",
+    "@material/mwc-top-app-bar": "^0.6.0",
     "@material/tab-bar": "^3.0.0",
     "@vaadin/router": "^1.2.0",
     "@webcomponents/webcomponentsjs": "^2.2.1",

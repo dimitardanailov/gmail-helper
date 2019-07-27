@@ -1,11 +1,13 @@
 import { LitElement, html } from 'lit-element'
 
+import '@material/mwc-tab-bar'
+import '@material/mwc-tab'
+
 import { MailHelperRouter } from '../router/MailHelperRouter'
 
 import './Slogan'
 
-import '@material/mwc-tab-bar'
-import '@material/mwc-tab'
+import './AppBar'
 
 const { POPSTATE } = MailHelperRouter.NavigationTrigger
 MailHelperRouter.setTriggers(POPSTATE)
@@ -21,14 +23,17 @@ export class MainHeader extends LitElement {
 
   render() {
     return html`
+      <div>
+        <gh-app-bar></gh-app-bar>
+      </div>
       <gh-slogan></gh-slogan>
-      <mwc-tab-bar>
-        <mwc-tab label="Home" @click=${this.onClickTab} data-href="/"></mwc-tab>
-        <mwc-tab label="Intro" @click=${this.onClickTab} data-href="/intro"></mwc-tab>
-        <mwc-tab label="three" @click=${this.onClickTab} data-href="/terms"></mwc-tab>
-      </mwc-tab-bar>
+      <div>
+        <mwc-tab-bar>
+          <mwc-tab label="Home" @click=${this.onClickTab} data-href="/"></mwc-tab>
+        </mwc-tab-bar>
+      </div>
     `
   }
 }
 
-customElements.define('gh-mainheader', MainHeader)
+customElements.define('gh-main-header', MainHeader)

@@ -178,4 +178,4 @@ export class GmailForm extends HTMLElement {
   }
 }
 
-customElements.define('gmail-form', GmailForm)
+customElements.define('gh-form', GmailForm)
