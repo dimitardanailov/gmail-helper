@@ -1,7 +1,10 @@
+import MailHelperRouter from '../components/router/MailHelperRouter'
 import { clientId, apiKey, scopes, discovery_docs } from '../config/config'
 
 class Auth {
-  constructor() {
+  constructor(outlet) {
+    this.outlet = outlet
+    
     gapi.client.init({
       apiKey: apiKey,
       clientId: clientId,
@@ -34,8 +37,10 @@ class Auth {
     if (isSignedIn) {
       console.log('user is logged in', isSignedIn)
     } else {
-      console.log('user is logged in', isSignedIn)
+      MailHelperRouter.loadIntroPage()
     }
+
+    MailHelperRouter.init(this.outlet)
   }
 }
 

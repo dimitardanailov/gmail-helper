@@ -3,7 +3,7 @@ import { LitElement, html } from 'lit-element'
 import '@material/mwc-tab-bar'
 import '@material/mwc-tab'
 
-import { MailHelperRouter } from '../router/MailHelperRouter'
+import MailHelperRouter from '../router/MailHelperRouter'
 
 import './Slogan'
 
@@ -17,7 +17,7 @@ export class MainHeader extends LitElement {
   onClickTab(e) {
     const { href } = e.target.dataset
 
-    window.history.pushState({}, null, href);
+    window.history.pushState({}, null, href)
     window.dispatchEvent(new PopStateEvent('popstate'))
   }
 

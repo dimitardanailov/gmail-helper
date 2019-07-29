@@ -16,6 +16,8 @@ template.innerHTML = `
 
   <gh-main-header></gh-main-header>
 
+  <gmail-sign-out-button></gmail-sign-out-button>
+
   <gh-form></gh-form>
 `
 

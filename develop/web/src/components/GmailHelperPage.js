@@ -2,7 +2,7 @@ const template = document.createElement('template')
 
 import Auth from '../auth'
 
-import { MailHelperRouter } from './router/MailHelperRouter'
+import MailHelperRouter from './router/MailHelperRouter'
 
 import './views/HomeView'
 import './views/IntroView'
@@ -28,11 +28,11 @@ export class GmailHelper extends HTMLElement {
     this.attachShadow({mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-    gapi.load('client:auth2', () => new Auth())
+    gapi.load('client:auth2', () => new Auth(this))
   }
 
   connectedCallback() {
-    MailHelperRouter.init(this)
+    // MailHelperRouter.init(this)
   }
 }
 

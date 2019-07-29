@@ -1,15 +1,6 @@
 import { Router } from '@vaadin/router'
 
-function loadRoutes(outlet) {
-  const router = new Router(outlet)
-
-  router.setRoutes([
-    {path: '/',     component: 'mh-home-view'},
-    {path: '/intro',  component: 'mh-intro-view'}
-  ])
-}
-
-export class MailHelperRouter extends Router {
+class MailHelperRouter extends Router {
 
   static init(outlet) {
     const router = new MailHelperRouter(outlet)
@@ -34,7 +25,17 @@ export class MailHelperRouter extends Router {
       { path: '(.*)', component: 'gh-not-found-view' }
     ]
   }
+
+  static loadIntroPage() {
+    const routes = MailHelperRouter.routes()
+
+    const { POPSTATE } = MailHelperRouter.NavigationTrigger
+    MailHelperRouter.setTriggers(POPSTATE)
+
+    window.history.pushState({}, null, routes.INTRO)
+    window.dispatchEvent(new PopStateEvent('popstate'))
+  }
 }
 
-export default loadRoutes
+export default MailHelperRouter
 
