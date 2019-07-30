@@ -35,7 +35,7 @@ class Auth {
 	 */
   async updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
-      console.log('user is logged in', isSignedIn)
+      MailHelperRouter.loadHomePage()
     } else {
       MailHelperRouter.loadIntroPage()
     }

@@ -11,7 +11,7 @@ class MailHelperRouter extends Router {
 
   static routes() {
     return {
-      MAIN: '/',
+      HOME: '/',
       INTRO: '/intro',
     }
   }
@@ -20,19 +20,27 @@ class MailHelperRouter extends Router {
     const routes = MailHelperRouter.routes()
 
     return [
-      { path: routes.MAIN, component: 'gh-home-view' },
+      { path: routes.HOME, component: 'gh-home-view' },
       { path: routes.INTRO, component: 'gh-intro-view'},
       { path: '(.*)', component: 'gh-not-found-view' }
     ]
   }
 
+  static loadHomePage() {
+    const routes = MailHelperRouter.routes()
+    MailHelperRouter.navigateTo(routes.HOME)
+  }
+
   static loadIntroPage() {
     const routes = MailHelperRouter.routes()
+    MailHelperRouter.navigateTo(routes.INTRO)
+  }
 
+  static navigateTo(route) {
     const { POPSTATE } = MailHelperRouter.NavigationTrigger
     MailHelperRouter.setTriggers(POPSTATE)
 
-    window.history.pushState({}, null, routes.INTRO)
+    window.history.pushState({}, null, route)
     window.dispatchEvent(new PopStateEvent('popstate'))
   }
 }

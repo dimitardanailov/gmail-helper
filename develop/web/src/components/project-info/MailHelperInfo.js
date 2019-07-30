@@ -1,4 +1,3 @@
-
 const template = document.createElement('template')
 
 template.innerHTML = `
@@ -160,4 +159,4 @@ export class MailHelperInfo extends HTMLElement {
   }
 }
 
-customElements.define('mail-helper-info', MailHelperInfo)
+customElements.define('gh-mail-helper-info', MailHelperInfo)

@@ -1,6 +1,8 @@
 import { AbstractView } from './AbstractView'
 
-// import { MailHelperInfo } from './project-info/MailHelperInfo'
+import '../project-info/MailHelperInfo'
+import '../buttons/GmailAuthorizeButton'
+import '../headers/Slogan'
 
 const template = document.createElement('template')
 
@@ -9,9 +11,11 @@ template.innerHTML = `
 		:host {
 			position: relative;
 		}
-	</style>
-
-  <h2>Intro view ...</h2>
+  </style>
+  
+  <gh-slogan></gh-slogan>
+  <gh-authorize-button></gh-authorize-button>
+  <gh-mail-helper-info></gh-mail-helper-info>
 `
 
 export class IntroView extends AbstractView {
@@ -21,10 +25,6 @@ export class IntroView extends AbstractView {
     // Attach a shadow root to the element.
     this.attachShadow({mode: 'open'})
     this.shadowRoot.appendChild(template.content.cloneNode(true))
-  }
-
-  connectedCallback() {
-    
   }
 }
 

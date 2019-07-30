@@ -30,4 +30,4 @@ export class GmailAuthorizeButton extends HTMLElement {
   }
 }
 
-customElements.define('gmail-authorize-button', GmailAuthorizeButton)
+customElements.define('gh-authorize-button', GmailAuthorizeButton)

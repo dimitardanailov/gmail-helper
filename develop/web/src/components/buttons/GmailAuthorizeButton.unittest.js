@@ -6,9 +6,9 @@ import {
 
 import { GmailAuthorizeButton } from './GmailAuthorizeButton'
 
-describe('gmail-authorize-button', () => {
-  it('gmail-authorize-button should be define', async () => {
-    const el = await fixture('<gmail-authorize-button></gmail-authorize-button>') 
+describe('gh-authorize-button', () => {
+  it('gh-authorize-button should be define', async () => {
+    const el = await fixture('<gh-authorize-button></gh-authorize-button>') 
 
     expect(el instanceof GmailAuthorizeButton).to.be.true
     expect(el.getAttribute('role')).to.equal('button')
