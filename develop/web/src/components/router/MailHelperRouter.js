@@ -20,9 +20,20 @@ class MailHelperRouter extends Router {
     const routes = MailHelperRouter.routes()
 
     return [
-      { path: routes.HOME, component: 'gh-home-view' },
-      { path: routes.INTRO, component: 'gh-intro-view'},
-      { path: '(.*)', component: 'gh-not-found-view' }
+      { 
+        path: routes.HOME, 
+        component: 'gh-home-view', 
+        action: () => import('../views/HomeView')
+      },
+      { 
+        path: routes.INTRO, 
+        component: 'gh-intro-view',
+        action: () => import('../views/IntroView')
+      },
+      { 
+        path: '(.*)', 
+        component: 'gh-not-found-view' 
+      }
     ]
   }
 

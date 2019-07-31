@@ -4,6 +4,8 @@ import { clientId, apiKey, scopes, discovery_docs } from '../config/config'
 class Auth {
   constructor(outlet) {
     this.outlet = outlet
+
+    console.log(this.outlet)
     
     gapi.client.init({
       apiKey: apiKey,

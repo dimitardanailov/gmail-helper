@@ -2,11 +2,6 @@ const template = document.createElement('template')
 
 import Auth from '../auth'
 
-import MailHelperRouter from './router/MailHelperRouter'
-
-import './views/HomeView'
-import './views/IntroView'
-
 template.innerHTML = `
 	<style>
 		:host {
@@ -29,10 +24,6 @@ export class GmailHelper extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true))
 
     gapi.load('client:auth2', () => new Auth(this))
-  }
-
-  connectedCallback() {
-    // MailHelperRouter.init(this)
   }
 }
 
