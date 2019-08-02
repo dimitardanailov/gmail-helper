@@ -1,4 +1,4 @@
-import { css } from 'lit-element'
+import { css, html } from 'lit-element'
 
 import BasicStaticView from './BasicStaticView'
 
@@ -9,6 +9,12 @@ export class TermServiceView extends BasicStaticView {
       css`
       `
     ]
+  }
+
+  render() {
+    return html`
+      
+    `
   }
 }
 
