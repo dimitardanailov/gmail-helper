@@ -61,6 +61,38 @@ export class PrivacyPolicyView extends BasicStaticView {
       <p>
         My tools wants to give you better way to increase structure data. 
       </p>
+
+      <h5>Gmail permissions</h5>
+
+      <p>
+        <strong>https://www.googleapis.com/auth/gmail.labels</strong>
+      </p>
+
+      <p>
+        The core application feature is: <strong>Creating gmail labels.</strong>
+        Application will have access to gmail label meta data. 
+        Gmail Helper doesn't use those permissions to delete or update existing gmail label meta data.
+      </p>
+
+      <p>
+        <strong>https://www.googleapis.com/auth/gmail.settings.basic</strong>
+      </p>
+
+      <p>
+        Gmail Helper uses those permissions to create gmail filter. 
+        If you want to understand more about gmail scropes please visit: 
+        <a href="https://developers.google.com/gmail/api/auth/scopes" title="Gmail scopes" target="_blank">Gmail scopes</a>
+      </p>
+
+      <h3>Application workflow / Lifecycle</h3>
+
+      <h5>Authorization</h5>
+
+      <p>
+        When an user opens this application for this first time will see a simple button with name: "Authorize".
+        Buttons is responsible to create a web token. 
+        Web token is able to read gmail meta data, access label meta data and manage basic mail settings.
+      </p>
     `
   }
 }
