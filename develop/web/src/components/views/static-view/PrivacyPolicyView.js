@@ -81,7 +81,8 @@ export class PrivacyPolicyView extends BasicStaticView {
       <p>
         Gmail Helper uses those permissions to create gmail filter. 
         If you want to understand more about gmail scropes please visit: 
-        <a href="https://developers.google.com/gmail/api/auth/scopes" title="Gmail scopes" target="_blank">Gmail scopes</a>
+        <a href="https://developers.google.com/gmail/api/auth/scopes" 
+           title="Gmail scopes" target="_blank">Gmail scopes</a>
       </p>
 
       <h3>Application workflow / Lifecycle</h3>
@@ -93,6 +94,25 @@ export class PrivacyPolicyView extends BasicStaticView {
         Buttons is responsible to create a web token. 
         Web token is able to read gmail meta data, access label meta data and manage basic mail settings.
       </p>
+
+      <h5>Application has an authorization access</h5>
+
+      <p>
+        Applications loads a form with these fields:
+      </p>
+
+      <ul>
+        <li>Label name</li>
+        <li>Filter name - User could choice to use the same keyword for filter and label name</li>
+        <li>
+          Label visibility. The end user has three options: 
+          Label to be always hidden, Label always to be visible, 
+          Label to be visible if contains at least one email with is waiting to be read
+        </li>
+        <li>Label colors - The end user can specific label background and text color</li>
+        <li>"Add or update gmail meta data" submits form data to Gmail</li>
+      </ul>
+
     `
   }
 }
