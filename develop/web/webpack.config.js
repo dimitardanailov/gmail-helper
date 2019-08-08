@@ -6,19 +6,20 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const {
   JS_DIR,
   STYLE_DIR,
-  TEMPLATE_DIR
+  TEMPLATE_DIR,
+  DIST_DIR
 } = require('./utils/folders')
 
 module.exports = {
 
   entry: [
     `${STYLE_DIR}/app.css`, 
-    `${JS_DIR}/index.js`
+    `${JS_DIR}/index.js`,
   ],
 
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: '[name].js',
+    path: DIST_DIR
   },
   resolve: {
     modules: ['node_modules'],
@@ -30,7 +31,29 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 8080
+    port: 8080,
+  },
+
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            // get the name. E.g. node_modules/packageName/not/this/part.js
+            // or node_modules/packageName
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+            // npm package names are URL-safe, but some servers don't like @ symbols
+            return `npm.${packageName.replace('@', '')}`;
+          },
+        },
+      },
+    },
   },
 
   plugins: [
