@@ -1,9 +1,21 @@
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const {
+  JS_DIR,
+  STYLE_DIR,
+  TEMPLATE_DIR
+} = require('./utils/folders')
 
 module.exports = {
-  entry: ['./styles/app.css', './src/index.js'],
+
+  entry: [
+    `${STYLE_DIR}/app.css`, 
+    `${JS_DIR}/index.js`
+  ],
+
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
@@ -16,13 +28,17 @@ module.exports = {
   devtool: 'inline-source-map',
 
   devServer: {
-    mimeTypes: { 'text/html': ['phtml'] },
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 8080
   },
 
   plugins: [
+
+    // https://webpack.js.org/plugins/html-webpack-plugin/
+    new HtmlWebpackPlugin({
+      template: `${TEMPLATE_DIR}/index.html`
+    }),
     
     // https://github.com/mrsteele/dotenv-webpack
     new Dotenv({
@@ -64,7 +80,13 @@ module.exports = {
               importLoaders: 2,
               sourceMap: true
             }
-          }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: _ => [require('autoprefixer')]
+            }
+          },
         ],
       },
     ],

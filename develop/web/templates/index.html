@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mail helper</title>
+    <meta charset="utf-8" />
+
+    <base href="/">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- Fonts -->
+  </head>
+  <body>
+    
+    <section id="container">
+      
+      <section id="body">
+        <gmail-helper></gmail-helper>
+      </section>
+
+      <footer>
+        <nav>
+          <ul class="footer-nav">
+            <li>
+              <a class="footer-list-item-link" href="/" title="Home page">Home</a>
+            </li>
+            <li class="footer-list-item">
+              <a class="footer-list-item-link" 
+                 href="privacy.html" title="Privacy and policy">Privacy and policy</a>
+            </li>
+  
+            <li class="footer-list-item">
+              <a class="footer-list-item-link" 
+                 href="terms.html" title="Privacy and policy">Term of Service</a>
+            </li>
+          </ul>
+        </nav>
+      </footer>
+    </section>
+    
+    <!-- https://developers.google.com/api-client-library/javascript/start/start-js -->
+    <script async defer src="https://apis.google.com/js/api.js"></script>
+
+    <!-- load webcomponents bundle, which includes all the necessary polyfills -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.1/custom-elements-es5-adapter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.1/webcomponents-loader.js"></script>
+
+    <script type="module"></script>
+  </body>
+</html>
