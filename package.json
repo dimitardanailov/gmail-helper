@@ -34,20 +34,18 @@
   },
   "homepage": "https://github.com/dimitardanailov/gmail-helper#readme",
   "dependencies": {
-    "@material/mwc-tab": "^0.6.0",
-    "@material/mwc-tab-bar": "^0.6.0",
-    "dotenv": "^6.2.0",
+    "dotenv": "^8.0.0",
     "express": "^4.16.4",
-    "googleapis": "^27.0.0",
-    "log4js": "^3.0.6",
+    "googleapis": "^42.0.0",
+    "log4js": "^4.5.1",
     "redux": "^4.0.1",
-    "snyk": "^1.192.5",
+    "snyk": "^1.213.0",
     "winston": "^3.1.0"
   },
   "devDependencies": {
     "@types/gapi.client.gmail": "^1.0.0",
-    "@types/node": "^10.12.12",
-    "lerna": "^3.6.0",
+    "@types/node": "^12.7.1",
+    "lerna": "^3.16.4",
     "nodemon": "^1.18.8"
   },
   "snyk": true
