@@ -5,7 +5,7 @@ import {
 } from '../check-boxes/gmail-connected-text-fields/GmailConnectedTextFields'
 import { GmailSelectBox } from '../select-boxs/GmailSelectBox'
 import { GmailLabelColorHolder } from '../labels/GmailLabelColorHolder'
-import { FormSubmitButton } from './FormSubmitButton'
+import FormSubmitButton from './FormSubmitButton'
 
 import { createLabel } from '../../gmail/labels'
 import { createFilter } from '../../gmail/filters'
@@ -50,7 +50,7 @@ template.innerHTML = `
 	</form>
 `
 
-export class GmailForm extends HTMLElement {
+export default class GmailForm extends HTMLElement {
   constructor() {
     super()
 

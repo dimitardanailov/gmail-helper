@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const {
   JS_DIR,
+  COMPONENTS_DIR,
   STYLE_DIR,
   TEMPLATE_DIR,
   DIST_DIR
@@ -12,10 +13,12 @@ const {
 
 module.exports = {
 
-  entry: [
-    `${STYLE_DIR}/app.css`, 
-    `${JS_DIR}/index.js`,
-  ],
+  entry: {
+    styles: `${STYLE_DIR}/app.css`, 
+
+    forms: `${COMPONENTS_DIR}/forms`,
+    main: `${JS_DIR}/index.js`,
+  },
 
   output: {
     filename: '[name].js',

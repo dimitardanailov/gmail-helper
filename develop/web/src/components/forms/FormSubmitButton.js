@@ -45,7 +45,7 @@ template.innerHTML = `
   </slot>
 `
 
-export class FormSubmitButton extends HTMLElement {
+export default class FormSubmitButton extends HTMLElement {
 
   get button() {
     return this._button

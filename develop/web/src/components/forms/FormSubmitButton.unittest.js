@@ -5,7 +5,7 @@ import {
   expect,
 } from '@open-wc/testing'
 
-import { FormSubmitButton } from './FormSubmitButton'
+import FormSubmitButton from './FormSubmitButton'
 
 describe('form-submit-button', () => {
   const textValues = {
