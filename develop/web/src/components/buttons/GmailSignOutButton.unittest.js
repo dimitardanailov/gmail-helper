@@ -4,7 +4,7 @@ import {
   expect,
 } from '@open-wc/testing'
 
-import { GmailSignOutButton } from './GmailSignOutButton'
+import GmailSignOutButton from './GmailSignOutButton'
 
 describe('gmail-sign-out-button', () => {
   it('gmail-sign-out-button should be define', async () => {

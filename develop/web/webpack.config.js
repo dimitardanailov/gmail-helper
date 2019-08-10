@@ -16,7 +16,9 @@ module.exports = {
   entry: {
     styles: `${STYLE_DIR}/app.css`, 
 
-    forms: `${COMPONENTS_DIR}/forms`,
+    buttons: `${COMPONENTS_DIR}/buttons/`,
+    forms: `${COMPONENTS_DIR}/forms/`,
+
     main: `${JS_DIR}/index.js`,
   },
 

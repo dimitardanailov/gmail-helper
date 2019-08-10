@@ -2,7 +2,7 @@ import generateTemplate from './generateTemplate'
 
 const template = generateTemplate('Sign out')
 
-export class GmailSignOutButton extends HTMLElement {
+export default class GmailSignOutButton extends HTMLElement {
   constructor() {
     super()
 

@@ -1,6 +1,6 @@
 import { AbstractView } from './AbstractView'
 
-import { GmailSignOutButton } from '../buttons/GmailSignOutButton'
+import '../buttons/GmailSignOutButton'
 
 import '../headers/MainHeader'
 import '../forms/GmailForm'

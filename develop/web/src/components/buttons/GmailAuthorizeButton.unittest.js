@@ -4,7 +4,7 @@ import {
   expect,
 } from '@open-wc/testing'
 
-import { GmailAuthorizeButton } from './GmailAuthorizeButton'
+import GmailAuthorizeButton from './GmailAuthorizeButton'
 
 describe('gh-authorize-button', () => {
   it('gh-authorize-button should be define', async () => {

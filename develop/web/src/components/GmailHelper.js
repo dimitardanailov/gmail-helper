@@ -1,5 +1,5 @@
-import { GmailAuthorizeButton } from './buttons/GmailAuthorizeButton'
-import { GmailSignOutButton } from './buttons/GmailSignOutButton'
+import GmailAuthorizeButton from './buttons/GmailAuthorizeButton'
+import GmailSignOutButton from './buttons/GmailSignOutButton'
 import GmailForm from './forms/GmailForm'
 import { MailHelperInfo } from './project-info/MailHelperInfo' 
 import { MailHelperNavigation } from './navigation/MailHelperNavigation'

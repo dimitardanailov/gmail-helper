@@ -2,7 +2,7 @@ import generateTemplate from './generateTemplate'
 
 const template = generateTemplate('Authorize')
 
-export class GmailAuthorizeButton extends HTMLElement {
+export default class GmailAuthorizeButton extends HTMLElement {
   constructor() {
     super()
 
