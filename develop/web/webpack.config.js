@@ -17,6 +17,7 @@ module.exports = {
     styles: `${STYLE_DIR}/app.css`, 
 
     buttons: `${COMPONENTS_DIR}/buttons/`,
+    textFields: `${COMPONENTS_DIR}/text-fields/`,
     forms: `${COMPONENTS_DIR}/forms/`,
 
     main: `${JS_DIR}/index.js`,

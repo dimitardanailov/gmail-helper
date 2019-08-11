@@ -4,7 +4,7 @@ import {
   expect,
 } from '@open-wc/testing'
 
-import { GmailLabelTextBox } from './GmailLabelTextBox'
+import GmailLabelTextBox from './GmailLabelTextBox'
 
 describe('gmail-label-text-box', () => {
   it('gmail-label-text-box and child should be define', async () => {

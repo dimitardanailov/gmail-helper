@@ -4,7 +4,7 @@ import {
   expect,
 } from '@open-wc/testing'
 
-import { GmailFilterTextBox } from './GmailFilterTextBox'
+import GmailFilterTextBox from './GmailFilterTextBox'
 
 describe('gmail-filter-text-box', () => {
   it('gmail-filter-text-box and child should be define', async () => {

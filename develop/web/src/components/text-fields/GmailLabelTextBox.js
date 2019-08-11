@@ -2,7 +2,7 @@ import generateTemplate from './generateTemplate'
 
 const template = generateTemplate('Please add a label')
 
-export class GmailLabelTextBox extends HTMLElement {
+export default class GmailLabelTextBox extends HTMLElement {
 
   get textBox() {
     return this._textBox

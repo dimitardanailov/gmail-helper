@@ -1,5 +1,5 @@
-import { GmailLabelTextBox } from '../text-fields/GmailLabelTextBox'
-import { GmailFilterTextBox } from '../text-fields/GmailFilterTextBox'
+import GmailLabelTextBox from '../text-fields/GmailLabelTextBox'
+import GmailFilterTextBox from '../text-fields/GmailFilterTextBox'
 import { 
   GmailConnectedTextFields 
 } from '../check-boxes/gmail-connected-text-fields/GmailConnectedTextFields'

@@ -2,7 +2,7 @@ import generateTemplate from './generateTemplate'
 
 const template = generateTemplate('Please add a filter')
 
-export class GmailFilterTextBox extends HTMLElement {
+export default class GmailFilterTextBox extends HTMLElement {
 	
   get textBox() {
     return this._textBox
