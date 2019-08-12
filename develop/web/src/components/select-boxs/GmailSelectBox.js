@@ -18,7 +18,7 @@ template.innerHTML = `
 	</slot>
 `
 
-export class GmailSelectBox extends HTMLElement {
+export default class GmailSelectBox extends HTMLElement {
 
   get selectBox() {
     return this._selectBox

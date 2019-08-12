@@ -5,7 +5,7 @@ import {
   expect,
 } from '@open-wc/testing'
 
-import { GmailSelectBox } from './GmailSelectBox'
+import GmailSelectBox from './GmailSelectBox'
 
 import { Label } from '../../models/Label'
 
