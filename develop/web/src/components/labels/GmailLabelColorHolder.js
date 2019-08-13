@@ -1,5 +1,5 @@
-import { GmailLabelBackgroundGroup } from './backgrounds/GmailLabelBackgroundGroup'
-import { GmailLabelColorGroup} from './colors/GmailLabelColorGroup'
+import GmailLabelBackgroundGroup from './backgrounds/GmailLabelBackgroundGroup'
+import GmailLabelColorGroup  from './colors/GmailLabelColorGroup'
 
 import { defaultColorSettings } from '../../models/Label'
 
@@ -90,7 +90,7 @@ template.innerHTML = `
 	<slot></slot>
 `
 
-export class GmailLabelColorHolder extends HTMLElement {
+export default class GmailLabelColorHolder extends HTMLElement {
   constructor() {
     super()
 

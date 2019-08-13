@@ -1,4 +1,4 @@
-import { GmailLabelColor } from './GmailLabelColor'
+import GmailLabelColor from './GmailLabelColor'
 import { AbstractRadioGroup } from '../../radio-buttons/AbstractRadioGroup'
 
 import { Label } from '../../../models/Label'

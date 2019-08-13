@@ -1,4 +1,4 @@
-import { GmailLabelBackgroundColor } from './GmailLabelBackgroundColor'
+import GmailLabelBackgroundColor from './GmailLabelBackgroundColor'
 import { AbstractRadioGroup } from '../../radio-buttons/AbstractRadioGroup'
 
 import { Label } from '../../../models/Label'
@@ -46,7 +46,7 @@ template.innerHTML = `
 	</div>
 `
 
-export class GmailLabelBackgroundGroup extends AbstractRadioGroup {
+export default class GmailLabelBackgroundGroup extends AbstractRadioGroup {
   constructor() {
     super()
 

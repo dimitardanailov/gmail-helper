@@ -18,7 +18,7 @@ template.innerHTML = `
 	</style>
 `
 
-export class GmailLabelBackgroundColor extends HTMLElement {
+export default class GmailLabelBackgroundColor extends HTMLElement {
 
   get bgColor() {
     return this._bgColor

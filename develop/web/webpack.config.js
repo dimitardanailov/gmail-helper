@@ -19,6 +19,7 @@ module.exports = {
     buttons: `${COMPONENTS_DIR}/buttons/`,
     textFields: `${COMPONENTS_DIR}/text-fields/`,
     selectBoxs: `${COMPONENTS_DIR}/select-boxs/`,
+    labels: `${COMPONENTS_DIR}/labels/`,
     forms: `${COMPONENTS_DIR}/forms/`,
 
     main: `${JS_DIR}/index.js`,

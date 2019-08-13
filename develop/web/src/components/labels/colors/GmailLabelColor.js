@@ -23,7 +23,7 @@ template.innerHTML = `
 	<span>Label</span>
 `
 
-export class GmailLabelColor extends HTMLElement {
+export default class GmailLabelColor extends HTMLElement {
   get color() {
     return this._color
   }

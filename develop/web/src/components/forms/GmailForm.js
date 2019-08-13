@@ -4,7 +4,7 @@ import {
   GmailConnectedTextFields 
 } from '../check-boxes/gmail-connected-text-fields/GmailConnectedTextFields'
 import GmailSelectBox from '../select-boxs/GmailSelectBox'
-import { GmailLabelColorHolder } from '../labels/GmailLabelColorHolder'
+import GmailLabelColorHolder from '../labels/GmailLabelColorHolder'
 import FormSubmitButton from './FormSubmitButton'
 
 import { createLabel } from '../../gmail/labels'
