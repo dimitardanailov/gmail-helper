@@ -46,7 +46,7 @@ template.innerHTML = `
 	</div>
 `
 
-export class GmailLabelColorGroup extends AbstractRadioGroup {
+export default class GmailLabelColorGroup extends AbstractRadioGroup {
   constructor() {
     super()
 
