@@ -1,7 +1,8 @@
-const path = require('path')
-const Dotenv = require('dotenv-webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path")
+const Dotenv = require("dotenv-webpack")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 const {
   JS_DIR,
@@ -9,12 +10,11 @@ const {
   STYLE_DIR,
   TEMPLATE_DIR,
   DIST_DIR
-} = require('./utils/folders')
+} = require("./utils/folders")
 
 module.exports = {
-
   entry: {
-    styles: `${STYLE_DIR}/app.css`, 
+    styles: `${STYLE_DIR}/app.css`,
 
     buttons: `${COMPONENTS_DIR}/buttons/`,
     textFields: `${COMPONENTS_DIR}/text-fields/`,
@@ -22,33 +22,33 @@ module.exports = {
     labels: `${COMPONENTS_DIR}/labels/`,
     forms: `${COMPONENTS_DIR}/forms/`,
 
-    main: `${JS_DIR}/index.js`,
+    main: `${JS_DIR}/index.js`
   },
 
   output: {
-    filename: '[name].js',
+    filename: "[name].js",
     path: DIST_DIR
   },
   resolve: {
-    modules: ['node_modules'],
+    modules: ["node_modules"]
   },
-  
+
   // https://github.com/webpack-contrib/karma-webpack
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
 
   devServer: {
     contentBase: DIST_DIR,
     compress: true,
     port: 8080,
-    
+
     hot: true,
-    hotOnly: true,
+    hotOnly: true
   },
 
   optimization: {
-    runtimeChunk: 'single',
+    runtimeChunk: "single",
     splitChunks: {
-      chunks: 'all',
+      chunks: "all",
       maxInitialRequests: Infinity,
       minSize: 0,
       cacheGroups: {
@@ -57,39 +57,47 @@ module.exports = {
           name(module) {
             // get the name. E.g. node_modules/packageName/not/this/part.js
             // or node_modules/packageName
-            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1]
 
             // npm package names are URL-safe, but some servers don't like @ symbols
-            return `npm.${packageName.replace('@', '')}`;
-          },
-        },
-      },
-    },
+            return `npm.${packageName.replace("@", "")}`
+          }
+        }
+      }
+    }
   },
 
   plugins: [
-
     // https://webpack.js.org/plugins/html-webpack-plugin/
     new HtmlWebpackPlugin({
       template: `${TEMPLATE_DIR}/index.html`
     }),
-    
+
     // https://github.com/mrsteele/dotenv-webpack
     new Dotenv({
       // load '.env.example' to verify the '.env' variables are all set. Can also be a string to a different file.
-      safe: true, 
+      safe: true,
 
       // load all the predefined 'process.env' variables which will trump anything local per dotenv specs.
-      systemvars: true,
+      systemvars: true
     }),
 
     // https://github.com/webpack-contrib/mini-css-extract-plugin
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // all options are optional
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-      ignoreOrder: false, // Enable to remove warnings about conflicting order
+      filename: "[name].css",
+      chunkFilename: "[id].css",
+      ignoreOrder: false // Enable to remove warnings about conflicting order
+    }),
+
+    new WorkboxPlugin.GenerateSW({
+      // these options encourage the ServiceWorkers to get in there fast
+      // and not allow any straggling "old" SWs to hang around
+      clientsClaim: true,
+      skipWaiting: true
     })
   ],
   module: {
@@ -102,12 +110,12 @@ module.exports = {
             options: {
               // you can specify a publicPath here
               // by default it uses publicPath in webpackOptions.output
-              publicPath: '../',
-              hmr: process.env.NODE_ENV === 'development',
-            },
+              publicPath: "../",
+              hmr: process.env.NODE_ENV === "development"
+            }
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
               import: true,
               url: true,
@@ -116,15 +124,15 @@ module.exports = {
             }
           },
           {
-            loader: 'postcss-loader',
+            loader: "postcss-loader",
             options: {
-              plugins: _ => [require('autoprefixer')]
+              plugins: _ => [require("autoprefixer")]
             }
-          },
-        ],
-      },
-    ],
-  },
+          }
+        ]
+      }
+    ]
+  }
   /*
   module: {
     rules: [
