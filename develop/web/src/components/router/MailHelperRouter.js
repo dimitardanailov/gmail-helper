@@ -13,6 +13,7 @@ class MailHelperRouter extends Router {
     return {
       HOME: '/',
       INTRO: '/intro',
+      PRIVACY: '/privacy'
     }
   }
 
@@ -29,6 +30,11 @@ class MailHelperRouter extends Router {
         path: routes.INTRO, 
         component: 'gh-intro-view',
         action: () => import('../views/IntroView')
+      },
+      {
+        path: routes.PRIVACY,
+        component: 'gh-privacy-policy-view',
+        action: () => import('../views/static-view/PrivacyPolicyView')
       },
       { 
         path: '(.*)', 
