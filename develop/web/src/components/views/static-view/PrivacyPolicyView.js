@@ -135,7 +135,7 @@ export default class PrivacyPolicyView extends BasicStaticView {
       <h5>Algorithm</h5>
 
       <p>
-        The end user should add valid label and filter name. 
+        The end user should add a valid label and filter name. 
         Application creates a gmail record which desired settings. 
       </p>
 
