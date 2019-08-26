@@ -1,6 +1,6 @@
 import { KEYCODE } from '../../config/keycodes'
 
-export class AbstractCheckBox extends HTMLElement {
+export default class AbstractCheckBox extends HTMLElement {
 
   constructor() {
     super()

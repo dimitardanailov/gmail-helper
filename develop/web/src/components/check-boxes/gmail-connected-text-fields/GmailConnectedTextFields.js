@@ -28,7 +28,7 @@ template.innerHTML = `
   <gmail-connected-checkbox />
 `
 
-export class GmailConnectedTextFields extends HTMLElement {
+export default class GmailConnectedTextFields extends HTMLElement {
 
   /**
    * @returns {GmailConnectedCheckbox}

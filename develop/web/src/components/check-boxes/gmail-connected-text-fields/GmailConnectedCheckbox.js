@@ -1,4 +1,4 @@
-import { AbstractCheckBox } from '../AbstractCheckBox'
+import AbstractCheckBox from '../AbstractCheckBox'
 
 const template = document.createElement('template')
 
@@ -43,7 +43,7 @@ template.innerHTML = `
  * If checkbox is `checked` -> `escortTextField` should be hidden
  * If checkbox isn't checked -> `escortTextField` is visible
  */
-export class GmailConnectedCheckbox extends AbstractCheckBox {
+export default class GmailConnectedCheckbox extends AbstractCheckBox {
 
   /**
    * @returns {HTMLElement} 
