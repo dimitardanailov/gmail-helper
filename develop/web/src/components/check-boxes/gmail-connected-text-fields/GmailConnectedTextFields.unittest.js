@@ -4,7 +4,7 @@ import {
   expect,
 } from '@open-wc/testing'
 
-import { GmailConnectedTextFields } from './GmailConnectedTextFields'
+import GmailConnectedTextFields from './GmailConnectedTextFields'
 
 describe('gmail-connected-text-fields', () => {
 

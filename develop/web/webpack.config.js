@@ -17,6 +17,7 @@ module.exports = {
     styles: `${STYLE_DIR}/app.css`,
 
     buttons: `${COMPONENTS_DIR}/buttons/`,
+    checkBoxes: `${COMPONENTS_DIR}/check-boxes/`,
     textFields: `${COMPONENTS_DIR}/text-fields/`,
     selectBoxs: `${COMPONENTS_DIR}/select-boxs/`,
     labels: `${COMPONENTS_DIR}/labels/`,

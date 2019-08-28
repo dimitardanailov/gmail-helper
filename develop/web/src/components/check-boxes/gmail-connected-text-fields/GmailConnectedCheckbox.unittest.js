@@ -4,7 +4,7 @@ import {
   expect,
 } from '@open-wc/testing'
 
-import { GmailConnectedCheckbox } from './GmailConnectedCheckbox'
+import GmailConnectedCheckbox from './GmailConnectedCheckbox'
 
 describe('gmail-connected-checkbox', () => {
 
