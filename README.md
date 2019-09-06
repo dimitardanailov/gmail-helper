@@ -110,3 +110,10 @@ lerna run test
 ##### Material Components ([https://material-components.github.io/material-components-web-catalog](https://material-components.github.io/material-components-web-catalog))
 
 - [Tabs](https://material-components.github.io/material-components-web-catalog/#/component/tabs)
+
+##### Open wc resources
+
+- full setup: https://open-wc.org/testing/testing-karma.html#default-configuration
+- karma-esm plugin: https://open-wc.org/testing/karma-esm.html
+- es-dev-server: https://open-wc.org/developing/es-dev-server.html
+- repo: https://github.com/open-wc/open-wc
