@@ -54,7 +54,7 @@
     "@babel/plugin-transform-new-target": "^7.0.0",
     "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
-    "@open-wc/testing": "^2.2.8",
+    "@open-wc/testing": "2.2.8",
     "autoprefixer": "^9.6.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.8.0",
