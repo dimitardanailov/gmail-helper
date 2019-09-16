@@ -30,6 +30,8 @@ export class MainHeader extends LitElement {
       <div>
         <mwc-tab-bar>
           <mwc-tab label="Home" @click=${this.onClickTab} data-href="/"></mwc-tab>
+          <mwc-tab label="Intro" @click=${this.onClickTab} data-href="/intro"></mwc-tab>
+          <mwc-tab label="Intro" @click=${this.onClickTab} data-href="/privacy"></mwc-tab>
         </mwc-tab-bar>
       </div>
     `

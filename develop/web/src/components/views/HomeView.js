@@ -4,6 +4,7 @@ import '../buttons/GmailSignOutButton'
 
 import '../headers/MainHeader'
 import '../forms/GmailForm'
+import '../footer/MainFooter'
 
 const template = document.createElement('template')
 
@@ -19,6 +20,8 @@ template.innerHTML = `
   <gmail-sign-out-button></gmail-sign-out-button>
 
   <gh-form></gh-form>
+
+  <gh-main-footer></gh-main-footer>
 `
 
 export class HomeView extends AbstractView {
