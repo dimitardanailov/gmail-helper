@@ -2,6 +2,8 @@ import { css, html } from 'lit-element'
 
 import BasicStaticView from './BasicStaticView'
 
+import '../../footer/MainFooter'
+
 export default class PrivacyPolicyView extends BasicStaticView {
   static get styles() {
     return [
@@ -220,6 +222,8 @@ export default class PrivacyPolicyView extends BasicStaticView {
         Source code could be found on Github:
         <a href="https://github.com/dimitardanailov/gmail-helper"></a> 
       </p>
+
+      <gh-main-footer></gh-main-footer>
     `
   }
 }
