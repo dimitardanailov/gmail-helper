@@ -2,6 +2,7 @@ import { css, html } from 'lit-element'
 
 import BasicStaticView from './BasicStaticView'
 
+import '../../headers/MainHeader'
 import '../../footer/MainFooter'
 
 export default class PrivacyPolicyView extends BasicStaticView {
@@ -15,6 +16,8 @@ export default class PrivacyPolicyView extends BasicStaticView {
 
   render() {
     return html`
+      <gh-main-header></gh-main-header>
+
       <h1>Privacy Policy of Mail Helper</h1>
 
       Last modified: August 17, 2019
