@@ -14,7 +14,7 @@
     "start": "node server/api/server.js",
     "start:api:dev": "nodemon server/api/server.js localhost 8080",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "snyk-protect": "snyk protect",
+    "snyk-protect": "snyk-protect",
     "prepare": "npm run snyk-protect"
   },
   "repository": {
@@ -36,11 +36,11 @@
   "dependencies": {
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
-    "googleapis": "^42.0.0",
-    "log4js": "^4.5.1",
+    "googleapis": "^49.0.0",
+    "log4js": "^6.4.0",
     "redux": "^4.0.1",
-    "snyk": "^1.213.0",
-    "winston": "^3.1.0"
+    "winston": "^3.1.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@types/gapi.client.gmail": "^1.0.0",
